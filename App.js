@@ -24,12 +24,26 @@ import {FindPW} from "./screen/auth/FindPW";
 import {ChangePW} from "./screen/auth/ChangePW";
 import { ProductList } from "./screen/vegetable/ProductList";
 import { ProductDetail } from "./screen/vegetable/ProductDetail";
+import {createStackNavigator} from "@react-navigation/stack";
+
+function HomeScreen() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>Home Screen</Text>
+      </View>
+    );
+}
+
+const Stack = createStackNavigator();
 
 const App: () => Node = () => {
     return (
         <NavigationContainer>
-            {/*<NavController/>*/}
-            <ProductDetail />
+            {/*<Stack.Navigator>*/}
+            {/*    <Stack.Screen name="Home" component={HomeScreen}/>*/}
+            {/*</Stack.Navigator>*/}
+            <NavController />
+            {/*<LoginPage />*/}
         </NavigationContainer>
     );
 };
