@@ -10,8 +10,42 @@ import {
     Platform,
     Alert, ImageBackground,
 } from 'react-native';
+import {
+    KakaoOAuthToken,
+    KakaoProfile,
+    getProfile as getKakaoProfile,
+    login,
+    logout,
+    unlink,
+} from '@react-native-seoul/kakao-login';
 
 const LoginPage = ({navigation}) => {
+
+    const [result, setResult] = useState('');
+
+    const signInWithKakao = async() => {
+        const token = await login();
+
+        setResult(JSON.stringify(token));
+    };
+
+    const signOutWithKakao = async () => {
+        const message = await logout();
+
+        setResult(message);
+    };
+
+    const getProfile = async () => {
+        const profile = await getKakaoProfile();
+
+        setResult(JSON.stringify(profile));
+    };
+
+    const unlinkKakao = async (): Promise<void> => {
+        const message = await unlink();
+
+        setResult(message);
+    };
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
@@ -31,8 +65,10 @@ const LoginPage = ({navigation}) => {
                     <View style={{marginLeft: 50, marginTop: 40}}>
                         <Text style={{fontSize: 12}}>SNS로 로그인</Text>
                         <View style={{flexDirection: 'row'}}>
-                            <Image source={require('../../assets/icon_kakao.png')}
-                                   style={{width: 65, height: 65, marginTop: 10}}/>
+                            <TouchableOpacity onPress={() => signInWithKakao()}>
+                                <Image source={require('../../assets/icon_kakao.png')}
+                                   style={{width: 65, height: 65, marginTop: 10}} />
+                            </TouchableOpacity>
                             <Image source={require('../../assets/icon_naver.png')}
                                    style={{width: 65, height: 65, marginTop: 10, marginLeft: 20}}/>
                         </View>
@@ -42,7 +78,7 @@ const LoginPage = ({navigation}) => {
                         alignItems: 'center',
                         marginTop: 30,
                     }}>
-                        <TouchableOpacity style={styles.greenButton}>
+                        <TouchableOpacity style={styles.greenButton} onPress={() => navigation.navigate('Login')}>
                             <Text style={{color: "#fff", fontWeight: 'bold'}}>로그인</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.greenButton}>
