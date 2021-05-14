@@ -13,6 +13,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B2DC8A5884039D8867F4730 /* libPods-iFresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89850A643D0DABB2206A65EC /* libPods-iFresh.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		872B1DD1264D0D68003E8093 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 872B1DD0264D0D68003E8093 /* Fonts */; };
+		873A5D14264E7EA3006E630A /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A5D13264E7EA3006E630A /* SwiftBridge.swift */; };
 		E98873A8F6502982380CC12B /* libPods-iFresh-iFreshTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B21DC9E2E44F4D4EC96035 /* libPods-iFresh-iFreshTests.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iFresh/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iFresh/main.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = iFresh/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		872B1DD0264D0D68003E8093 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		873A5D12264E7EA2006E630A /* iFresh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iFresh-Bridging-Header.h"; sourceTree = "<group>"; };
+		873A5D13264E7EA3006E630A /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
 		89850A643D0DABB2206A65EC /* libPods-iFresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iFresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEC7C4F190DFAEB95711654 /* Pods-iFresh-iFreshTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFresh-iFreshTests.debug.xcconfig"; path = "Target Support Files/Pods-iFresh-iFreshTests/Pods-iFresh-iFreshTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0BB849EE02858C5EFA00122 /* Pods-iFresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFresh.release.xcconfig"; path = "Target Support Files/Pods-iFresh/Pods-iFresh.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +97,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				873A5D13264E7EA3006E630A /* SwiftBridge.swift */,
+				873A5D12264E7EA2006E630A /* iFresh-Bridging-Header.h */,
 			);
 			name = iFresh;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				872B1DD0264D0D68003E8093 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* iFresh */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* iFreshTests */,
@@ -145,7 +153,6 @@
 				CBEC7C4F190DFAEB95711654 /* Pods-iFresh-iFreshTests.debug.xcconfig */,
 				E8B7B4D1A41527186A04726F /* Pods-iFresh-iFreshTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,7 +215,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1230;
 					};
 				};
 			};
@@ -243,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872B1DD1264D0D68003E8093 /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -413,6 +421,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				873A5D14264E7EA3006E630A /* SwiftBridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CBEC7C4F190DFAEB95711654 /* Pods-iFresh-iFreshTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -458,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8B7B4D1A41527186A04726F /* Pods-iFresh-iFreshTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = iFreshTests/Info.plist;
@@ -498,6 +509,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iFresh;
+				SWIFT_OBJC_BRIDGING_HEADER = "iFresh-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -523,6 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iFresh;
+				SWIFT_OBJC_BRIDGING_HEADER = "iFresh-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
