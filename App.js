@@ -8,7 +8,6 @@ import {
     useColorScheme,
     View,
 } from 'react-native';
-
 import {NavigationContainer} from '@react-navigation/native';
 import NavController from "./component/NavController";
 import {LoginPage} from "./screen/auth/LoginPage";
@@ -23,12 +22,14 @@ import {SearchID1} from "./screen/auth/SearchID1";
 import {SearchID2} from "./screen/auth/SearchID2";
 import {FindPW} from "./screen/auth/FindPW";
 import {ChangePW} from "./screen/auth/ChangePW";
+import { ProductList } from "./screen/vegetable/ProductList";
+import { ProductDetail } from "./screen/vegetable/ProductDetail";
 
 const App: () => Node = () => {
     return (
         <NavigationContainer>
             {/*<NavController/>*/}
-            <Register />
+            <ProductDetail />
         </NavigationContainer>
     );
 };
