@@ -12,7 +12,9 @@ export const ModalStyle = StyleSheet.create({
     justifyContent: 'center'
   },
   modalInTextView: {
-    flex:1, justifyContent: 'center'
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   modalText:{
     fontSize: 18,
@@ -20,12 +22,13 @@ export const ModalStyle = StyleSheet.create({
     textAlign: "center"
   },
   modalTouchView: {
-    alignItems: 'flex-end', justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    // justifyContent: 'flex-end',
   },
   modalTouch: {
     width: 60,
     height: 33,
-    backgroundColor: '#7E5FF9',
+    backgroundColor: '#24C58B',
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center'

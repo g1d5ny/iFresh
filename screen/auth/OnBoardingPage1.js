@@ -19,11 +19,12 @@ const OnBoardingPage1 = ({ navigation }) => {
                     }}/>
                 </View>
                 <View style={{width: '80%', marginTop: 15, flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <TouchableOpacity style={AuthStyle.skipView}>
+                    <TouchableOpacity style={AuthStyle.skipView}
+                                      onPress={() => navigation.navigate('LoginPage')}>
                         <Text style={AuthStyle.skipText}>Skip</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={AuthStyle.nextView}
-                    onPress={() => navigation.navigate('OnBoardingPage2')}>
+                                      onPress={() => navigation.navigate('OnBoardingPage2')}>
                         <Text style={AuthStyle.nextText}>Next</Text>
                     </TouchableOpacity>
                 </View>

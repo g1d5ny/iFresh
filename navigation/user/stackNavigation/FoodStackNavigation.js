@@ -6,6 +6,8 @@ import Back from "../../../assets/icon_back.svg";
 import { ProductList } from "../../../screen/food/ProductList";
 import { ProductDetail } from "../../../screen/food/ProductDetail";
 import { ProductListForm } from "../../../component/user/food/ProductListForm";
+import { Camera } from "../../../screen/food/Camera";
+import { ProductAdd } from "../../../screen/food/ProductAdd";
 
 const Stack = createStackNavigator();
 
@@ -54,6 +56,30 @@ const FoodStackNavigation = () => {
       <Stack.Screen
         name="ProductDetail"
         component={ProductDetail}
+        options={{
+          // headerTitle: "i-Fresh",
+          headerTitleStyle: {
+            fontSize: 16,
+            fontWeight: 'bold'
+          }
+        }}
+      />
+
+      <Stack.Screen
+        name="ProductAdd"
+        component={ProductAdd}
+        options={{
+          // headerTitle: "i-Fresh",
+          headerTitleStyle: {
+            fontSize: 16,
+            fontWeight: 'bold'
+          }
+        }}
+      />
+
+      <Stack.Screen
+        name="Camera"
+        component={Camera}
         options={{
           // headerTitle: "i-Fresh",
           headerTitleStyle: {

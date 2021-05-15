@@ -45,6 +45,11 @@ const AuthNavigation = () => {
         component={LoginPage}
       />
 
+      {/*<Stack.Screen*/}
+      {/*  name="OnBoardingPage"*/}
+      {/*  component={OnBoardingPage}*/}
+      {/*/>*/}
+
       <Stack.Screen
         name="OnBoardingPage1"
         component={OnBoardingPage1}
