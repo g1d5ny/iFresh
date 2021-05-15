@@ -2,6 +2,9 @@ import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
 import { View } from "react-native";
 import Back from "../../../assets/icon_back.svg";
+import { Expenditure } from "../../../screen/statistics/Expenditure";
+import { RecipeList } from "../../../screen/recipe/RecipeList";
+import { My } from "../../../screen/my/My";
 
 const Stack = createStackNavigator();
 
@@ -16,12 +19,22 @@ const MyStackNavigation = () => {
         headerTitleAlign: 'medium',
         headerBackImage: () => (
           <View style={{marginLeft: 15}}>
-            <Back/>
+            {/*<Back/>*/}
           </View>
         ),
       }}
     >
-
+      <Stack.Screen
+        name="My"
+        component={My}
+        options={{
+          headerTitle: "i-Fresh",
+          headerTitleStyle: {
+            fontSize: 16,
+            fontWeight: 'bold'
+          }
+        }}
+      />
 
     </Stack.Navigator>
   )

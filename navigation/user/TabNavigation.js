@@ -3,10 +3,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import FoodStackNavigation from "./stackNavigation/FoodStackNavigation";
 import StatisticsStackNavigation from "./stackNavigation/StatisticsStackNavigation";
 // import Icon from "react-native-vector-icons/FontAwesome";
-import IconVegetable from "../../assets/icon_vegetable.svg";
-import OnIconVegetable from "../../assets/icon_vegetable_checked.png";
+import IconFood from "../../assets/icon_food.svg";
+import OnIconFood from "../../assets/icon_food_checked.png";
 import IconStatistics from "../../assets/icon_statistics.svg";
 import OnIconStatistics from "../../assets/icon_statistics_checked.svg";
+import RecipeStackNavigation from "./stackNavigation/RecipeStackNavigation";
+import MyStackNavigation from "./stackNavigation/MyStackNavigation";
 
 
 const Tab = createBottomTabNavigator();
@@ -29,13 +31,13 @@ const TabNavigation = () => {
       }}
     >
       <Tab.Screen
-        name="식재료"
+        name="식품"
         component={FoodStackNavigation}
         options={{
           tabBarLabel: '식품',
           TabBarIcon: ({ focused }) => {
             return focused === true ?
-              <IconVegetable /> : <OnIconVegetable />
+              <IconFood /> : <OnIconFood />
           }
         }}
       />
@@ -45,6 +47,30 @@ const TabNavigation = () => {
         component={StatisticsStackNavigation}
         tabBarOptions={{
           tabBarLabel: '통계',
+          tabBarIcon: ({ focused }) => {
+            return focused === true ?
+              <IconStatistics /> : <OnIconStatistics />
+          }
+        }}
+      />
+
+      <Tab.Screen
+        name="레시피"
+        component={RecipeStackNavigation}
+        tabBarOptions={{
+          tabBarLabel: '레시피',
+          tabBarIcon: ({ focused }) => {
+            return focused === true ?
+              <IconStatistics /> : <OnIconStatistics />
+          }
+        }}
+      />
+
+      <Tab.Screen
+        name="나의 정보"
+        component={MyStackNavigation}
+        tabBarOptions={{
+          tabBarLabel: '나의 정보',
           tabBarIcon: ({ focused }) => {
             return focused === true ?
               <IconStatistics /> : <OnIconStatistics />
