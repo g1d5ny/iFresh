@@ -76,7 +76,8 @@ const Register = ({ navigation }) => {
             style={AuthStyle.input}
           />
         </View>
-        <TouchableOpacity style={AuthStyle.nextButton}>
+        <TouchableOpacity style={AuthStyle.nextButton}
+                          onPress={() => navigation.navigate('Login')}>
           <Text style={AuthStyle.buttonText}>다음</Text>
         </TouchableOpacity>
 

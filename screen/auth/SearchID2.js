@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, SafeAreaView, Alert} from "react-native";
 import {AuthStyle} from "../../styles/auth/AuthStyle";
 
-const SearchID2 = ({}) => {
+const SearchID2 = ({ navigation }) => {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: "#fff"}}>
             <ScrollView>
@@ -13,10 +13,12 @@ const SearchID2 = ({}) => {
                     <View style={{marginTop: 150, marginBottom: 200}}>
                         <Text style={{fontSize: 20, fontWeight: 'bold', color: "#24C58B"}}>jiwon9366**@gmail.com</Text>
                     </View>
-                    <TouchableOpacity style={AuthStyle.nextButton}>
+                    <TouchableOpacity style={AuthStyle.nextButton}
+                                      onPress={() => navigation.navigate('Login')}>
                         <Text style={AuthStyle.buttonText}>로그인 하러 가기</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{
+                    <TouchableOpacity
+                      style={{
                         width: 300,
                         height: 35,
                         alignItems: 'center',
@@ -25,7 +27,9 @@ const SearchID2 = ({}) => {
                         marginTop: 10,
                         borderRadius: 5,
                         backgroundColor: "#F4F5F8"
-                    }}>
+                    }}
+                      onPress={() => navigation.navigate('FindPW')}
+                    >
                         <Text style={{
                             color: "#2d2d2d",
                             fontWeight: 'bold',

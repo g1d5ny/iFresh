@@ -1,9 +1,10 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import VegetableStackNavigation from "./stackNavigation/VegetableStackNavigation";
+import FoodStackNavigation from "./stackNavigation/FoodStackNavigation";
 import StatisticsStackNavigation from "./stackNavigation/StatisticsStackNavigation";
+// import Icon from "react-native-vector-icons/FontAwesome";
 import IconVegetable from "../../assets/icon_vegetable.svg";
-import OnIconVegetable from "../../assets/icon_vegetable_checked.svg";
+import OnIconVegetable from "../../assets/icon_vegetable_checked.png";
 import IconStatistics from "../../assets/icon_statistics.svg";
 import OnIconStatistics from "../../assets/icon_statistics_checked.svg";
 
@@ -15,39 +16,39 @@ const TabNavigation = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
+        activeTintColor: '#24C58B',
+        inactiveTintColor: '#DCDBE6',
         keyboardHidesTabBar: true,
-        activeTintColor: "#24C58B",
-        inactiveTintColor: "#DCDBE6",
         showIcon: true,
         style: {
           backgroundColor: "#fff",
           elevation: 0,
           borderTopWidth: 0,
-          // marginBottom: 0
+          // marginBottom: 10
         },
       }}
     >
       <Tab.Screen
-        name="VegetableStackNavigation"
-        component={VegetableStackNavigation}
+        name="식재료"
+        component={FoodStackNavigation}
         options={{
-          tabBarLabel: '채소',
-          tabBarIcon: ({ focused }) => {
+          tabBarLabel: '식품',
+          TabBarIcon: ({ focused }) => {
             return focused === true ?
               <IconVegetable /> : <OnIconVegetable />
-          },
+          }
         }}
       />
 
       <Tab.Screen
-        name="StatisticsStackNavigation"
+        name="통계"
         component={StatisticsStackNavigation}
-        options={{
+        tabBarOptions={{
           tabBarLabel: '통계',
           tabBarIcon: ({ focused }) => {
             return focused === true ?
               <IconStatistics /> : <OnIconStatistics />
-          },
+          }
         }}
       />
 
