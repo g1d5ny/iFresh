@@ -19,7 +19,7 @@ import {
     unlink,
 } from '@react-native-seoul/kakao-login';
 
-const LoginPage = ({navigation}) => {
+const LoginPage = ({ navigation }) => {
 
     const [result, setResult] = useState('');
 
@@ -81,17 +81,17 @@ const LoginPage = ({navigation}) => {
                         <TouchableOpacity style={styles.greenButton} onPress={() => navigation.navigate('Login')}>
                             <Text style={{color: "#fff", fontWeight: 'bold'}}>로그인</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.greenButton}>
+                        <TouchableOpacity style={styles.greenButton} onPress={() => navigation.navigate('Register')}>
                             <Text style={{color: "#fff", fontWeight: 'bold'}}>회원가입</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.whiteButton}>
+                        <TouchableOpacity style={styles.whiteButton} onPress={() => navigation.navigate('SearchID1')}>
                             <Text style={{color: "#2d2d2d", fontWeight: 'bold'}}>아이디 찾기</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.whiteButton}>
+                        <TouchableOpacity style={styles.whiteButton} onPress={() => navigation.navigate('SearchPW')}>
                             <Text style={{color: "#2d2d2d", fontWeight: 'bold'}}>비밀번호 찾기</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={{justifyContent: 'flex-end'}}>
+                    <View style={{marginTop: 30}}>
                         <Text style={{alignSelf: 'center', fontSize: 10}}>Copyright HYWU i-Fresh 2021.</Text>
                     </View>
                 </View>

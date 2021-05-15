@@ -75,11 +75,13 @@ export const AuthStyle = StyleSheet.create({
     },
     step: {
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'tway_air'
     },
     onBoardingText: {
         fontSize: 18,
-        marginTop: 10
+        marginTop: 10,
+        fontFamily: 'tway_air'
     },
     stepLine: {
         width: '80%',

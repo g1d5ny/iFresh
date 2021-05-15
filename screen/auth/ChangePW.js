@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, SafeAreaView, Alert} from "react-native";
 import {AuthStyle} from "../../styles/auth/AuthStyle";
 
-const ChangePW = ({}) => {
+const ChangePW = ({ navigation }) => {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: "#fff"}}>
             <ScrollView>
@@ -24,7 +24,8 @@ const ChangePW = ({}) => {
                         </View>
                     </View>
                     <View style={{marginTop: 150}}>
-                        <TouchableOpacity style={AuthStyle.nextButton}>
+                        <TouchableOpacity style={AuthStyle.nextButton}
+                                          onPress={() => navigation.navigate('Login')}>
                             <Text style={AuthStyle.buttonText}>변경 완료</Text>
                         </TouchableOpacity>
                     </View>

@@ -24,7 +24,8 @@ const Login = ({ navigation }) => {
                         </View>
                     </View>
                     <View style={{marginTop: 150}}>
-                        <TouchableOpacity style={AuthStyle.nextButton}>
+                        <TouchableOpacity style={AuthStyle.nextButton}
+                        onPress={() => navigation.navigate('TabNavigation')}>
                             <Text style={AuthStyle.buttonText}>로그인</Text>
                         </TouchableOpacity>
                     </View>

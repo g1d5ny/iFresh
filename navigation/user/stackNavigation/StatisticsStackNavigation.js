@@ -2,6 +2,8 @@ import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
 import { View } from "react-native";
 import Back from "../../../assets/icon_back.svg";
+import { ProductList } from "../../../screen/food/ProductList";
+import { Expenditure } from "../../../screen/statistics/Expenditure";
 
 const Stack = createStackNavigator();
 
@@ -16,11 +18,22 @@ const StatisticsStackNavigation = () => {
         headerTitleAlign: 'medium',
         headerBackImage: () => (
           <View style={{marginLeft: 15}}>
-            <Back/>
+            {/*<Back/>*/}
           </View>
         ),
       }}
     >
+      <Stack.Screen
+        name="Expenditure"
+        component={Expenditure}
+        options={{
+          headerTitle: "i-Fresh",
+          headerTitleStyle: {
+            fontSize: 16,
+            fontWeight: 'bold'
+          }
+        }}
+      />
 
 
     </Stack.Navigator>

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {SafeAreaView, View, Text, Animated, TouchableOpacity, ScrollView, Image, StyleSheet} from 'react-native';
 import {AuthStyle} from "../../styles/auth/AuthStyle";
 
-const OnBoardingPage3 = () => {
+const OnBoardingPage3 = ({ navigation }) => {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
             <View style={{alignItems: 'center'}}>
@@ -20,7 +20,8 @@ const OnBoardingPage3 = () => {
                 </View>
                 <View style={{width: '80%', marginTop: 15, flexDirection: 'row', justifyContent: 'space-between'}}>
                     <TouchableOpacity style={AuthStyle.skipView}/>
-                    <TouchableOpacity style={AuthStyle.nextView}>
+                    <TouchableOpacity style={AuthStyle.nextView}
+                                      onPress={() => navigation.navigate('LoginPage')}>
                         <Text style={AuthStyle.nextText}>Start</Text>
                     </TouchableOpacity>
                 </View>

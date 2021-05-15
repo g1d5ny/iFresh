@@ -22,28 +22,13 @@ import {SearchID1} from "./screen/auth/SearchID1";
 import {SearchID2} from "./screen/auth/SearchID2";
 import {FindPW} from "./screen/auth/FindPW";
 import {ChangePW} from "./screen/auth/ChangePW";
-import { ProductList } from "./screen/vegetable/ProductList";
-import { ProductDetail } from "./screen/vegetable/ProductDetail";
-import {createStackNavigator} from "@react-navigation/stack";
-
-function HomeScreen() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Home Screen</Text>
-      </View>
-    );
-}
-
-const Stack = createStackNavigator();
+import { ProductList } from "./screen/food/ProductList";
+import { ProductDetail } from "./screen/food/ProductDetail";
 
 const App: () => Node = () => {
     return (
         <NavigationContainer>
-            {/*<Stack.Navigator>*/}
-            {/*    <Stack.Screen name="Home" component={HomeScreen}/>*/}
-            {/*</Stack.Navigator>*/}
-            <NavController />
-            {/*<LoginPage />*/}
+            <AuthNavigation />
         </NavigationContainer>
     );
 };

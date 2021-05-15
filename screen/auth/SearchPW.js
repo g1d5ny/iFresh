@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, SafeAreaView, Alert} from "react-native";
 import {AuthStyle} from "../../styles/auth/AuthStyle";
 
-const FindPW = ({}) => {
+const SearchPW = ({ navigation }) => {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: "#fff"}}>
             <ScrollView>
@@ -34,7 +34,8 @@ const FindPW = ({}) => {
                         </View>
                     </View>
                     <View style={{marginTop: 150}}>
-                        <TouchableOpacity style={AuthStyle.nextButton}>
+                        <TouchableOpacity style={AuthStyle.nextButton}
+                        onPress={() => navigation.navigate('ChangePW')}>
                             <Text style={AuthStyle.buttonText}>비밀번호 변경</Text>
                         </TouchableOpacity>
                     </View>
@@ -44,4 +45,4 @@ const FindPW = ({}) => {
     )
 }
 
-export {FindPW};
+export {SearchPW};

@@ -3,11 +3,11 @@ import { SafeAreaView, View, Image,} from "react-native";
 
 const LoadingPage = ({ navigation }) => {
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         navigation.navigate("OnBoardingPage1");
-    //     }, 3000);
-    // });
+    useEffect(() => {
+        setTimeout(() => {
+            navigation.navigate("OnBoardingPage1");
+        }, 3000);
+    });
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#24C58B', justifyContent: 'center'}}>
