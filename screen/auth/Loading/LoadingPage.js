@@ -12,7 +12,7 @@ const LoadingPage = ({ navigation }) => {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#24C58B', justifyContent: 'center'}}>
             <View style={{alignItems: 'center'}}>
-                <Image source={require('../../assets/img_loading.png')}/>
+                <Image source={require('../../../assets/img_loading.png')}/>
             </View>
         </SafeAreaView>
     );

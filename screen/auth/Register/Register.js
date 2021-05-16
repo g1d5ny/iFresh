@@ -11,16 +11,17 @@ import {
   Alert,
   ImageBackground,
 } from "react-native";
-import { AuthStyle } from "../../styles/auth/AuthStyle";
+import { AuthStyle } from "../../../styles/auth/AuthStyle";
 import Modal from "react-native-modal";
+import { ModalStyle } from "../../../styles/component/ModalStyle";
 
 const Register = ({ navigation }) => {
 
-  // const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
-  // const toggleModal = () => {
-  //     setModalVisible(!modalVisible);
-  // };
+  const toggleModal = () => {
+      setModalVisible(!modalVisible);
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -50,7 +51,8 @@ const Register = ({ navigation }) => {
               placeholder={"ID(E-mail)"}
               style={AuthStyle.shortInput}
             />
-            <TouchableOpacity style={AuthStyle.shortButton}>
+            <TouchableOpacity style={AuthStyle.shortButton}
+            onPress={() => toggleModal()}>
               <Text style={AuthStyle.buttonText}>인증</Text>
             </TouchableOpacity>
           </View>
@@ -81,49 +83,29 @@ const Register = ({ navigation }) => {
           <Text style={AuthStyle.buttonText}>다음</Text>
         </TouchableOpacity>
 
-        {/*<Modal isVisible={modalVisible}*/}
-        {/*       useNativeDriver={true}*/}
-        {/*       hideModalContentWhileAnimating={true}*/}
-        {/*       // onBackdropPress={() => setModalVisible(false)}*/}
-        {/*>*/}
-        {/*    <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>*/}
-        {/*        <View style={{*/}
-        {/*            width: 300,*/}
-        {/*            height: 200,*/}
-        {/*            backgroundColor: "#fff",*/}
-        {/*            padding: 12,*/}
-        {/*            justifyContent: 'center'*/}
-        {/*        }}>*/}
-        {/*            <View style={{flex:1, justifyContent: 'center'}}>*/}
-        {/*                <Text style={{*/}
-        {/*                    fontSize: 18,*/}
-        {/*                    fontWeight: 'bold',*/}
-        {/*                    textAlign: "center"*/}
-        {/*                }}>인증되었습니다.</Text>*/}
-        {/*            </View>*/}
-        {/*            <View style={{alignItems: 'flex-end', justifyContent: 'flex-end',}}>*/}
-        {/*                <TouchableOpacity*/}
-        {/*                    style={{*/}
-        {/*                        width: 60,*/}
-        {/*                        height: 33,*/}
-        {/*                        backgroundColor: '#7E5FF9',*/}
-        {/*                        borderRadius: 5,*/}
-        {/*                        alignItems: 'center',*/}
-        {/*                        justifyContent: 'center'*/}
-        {/*                    }}*/}
-        {/*                    onPress={() =>*/}
-        {/*                        setModalVisible(false)*/}
-        {/*                    }>*/}
-        {/*                    <Text style={{*/}
-        {/*                        color: '#fff',*/}
-        {/*                        fontSize: 12,*/}
-        {/*                        fontWeight: 'bold',*/}
-        {/*                    }}>확인</Text>*/}
-        {/*                </TouchableOpacity>*/}
-        {/*            </View>*/}
-        {/*        </View>*/}
-        {/*    </View>*/}
-        {/*</Modal>*/}
+        <Modal isVisible={modalVisible}
+               useNativeDriver={true}
+               hideModalContentWhileAnimating={true}
+               onBackdropPress={() => modalVisible(false)}>
+          <View style={ModalStyle.modalView}>
+            <View style={ModalStyle.modalInView}>
+              <View style={ModalStyle.modalInTextView}>
+                <Text style={ModalStyle.modalText}>인증되었습니다.</Text>
+              </View>
+              <View style={ModalStyle.modalTouchView}>
+                <TouchableOpacity
+                  style={ModalStyle.modalTouch}
+                  onPress={() => {
+                    setModalVisible(!modalVisible);
+                  }}
+                >
+                  <Text style={ModalStyle.modalTouchText}>확인</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </Modal>
+
       </View>
     </SafeAreaView>
   );

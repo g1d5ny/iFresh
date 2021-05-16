@@ -24,15 +24,15 @@ const ProductDetail = ({ navigation, route }) => {
   const [date, setDate] = useState(new Date());
   const [store, setStore] = useState('');
   const [category, setCategory] = useState('');
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [isModalVisible2, setModalVisible2] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible2, setModalVisible2] = useState(false);
 
   const toggleModal = () => {
-    setModalVisible(!isModalVisible);
+    setModalVisible(!modalVisible);
   };
 
   const toggleModal2 = () => {
-    setModalVisible2(!isModalVisible2);
+    setModalVisible2(!modalVisible2);
   };
 
   return (
@@ -153,10 +153,10 @@ const ProductDetail = ({ navigation, route }) => {
           </View>
         </View>
 
-        <Modal isVisible={isModalVisible}
+        <Modal isVisible={modalVisible}
                useNativeDriver={true}
                hideModalContentWhileAnimating={true}
-               onBackdropPress={() => isModalVisible(false)}>
+               onBackdropPress={() => modalVisible(false)}>
           <View style={ModalStyle.modalView}>
             <View style={ModalStyle.modalInView}>
               <View style={ModalStyle.modalInTextView}>
@@ -166,7 +166,7 @@ const ProductDetail = ({ navigation, route }) => {
                 <TouchableOpacity
                   style={ModalStyle.modalTouch}
                   onPress={() => {
-                    setModalVisible(!isModalVisible);
+                    setModalVisible(!modalVisible);
                   }}
                 >
                   <Text style={ModalStyle.modalTouchText}>확인</Text>
@@ -176,10 +176,10 @@ const ProductDetail = ({ navigation, route }) => {
           </View>
         </Modal>
 
-        <Modal isVisible={isModalVisible2}
+        <Modal isVisible={modalVisible2}
                useNativeDriver={true}
                hideModalContentWhileAnimating={true}
-               onBackdropPress={() => isModalVisible2(false)}>
+               onBackdropPress={() => modalVisible2(false)}>
           <View style={ModalStyle.modalView}>
             <View style={ModalStyle.modalInView}>
               <View style={ModalStyle.modalInTextView}>
@@ -189,7 +189,7 @@ const ProductDetail = ({ navigation, route }) => {
                 <TouchableOpacity
                   style={ModalStyle.modalTouch}
                   onPress={() => {
-                    setModalVisible2(!isModalVisible2);
+                    setModalVisible2(!modalVisible2);
                   }}
                 >
                   <Text style={ModalStyle.modalTouchText}>확인</Text>

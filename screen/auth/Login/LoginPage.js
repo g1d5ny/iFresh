@@ -19,14 +19,14 @@ import {
     unlink,
 } from '@react-native-seoul/kakao-login';
 
-const LoginPage = ({ navigation }) => {
+const LoginPage = ({ navigation, route }) => {
 
     const [result, setResult] = useState('');
 
     const signInWithKakao = async() => {
         const token = await login();
-
         setResult(JSON.stringify(token));
+        navigation.navigate('TabNavigation')
     };
 
     const signOutWithKakao = async () => {
@@ -49,7 +49,7 @@ const LoginPage = ({ navigation }) => {
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-            <ImageBackground source={require('../../assets/img_login_background.png')}
+            <ImageBackground source={require('../../../assets/img_login_background.png')}
                              style={{width: '100%', height: '100%'}} resizeMode='stretch'>
                 <View style={{height: '100%'}}>
                     <View style={{marginTop: 20, marginLeft: 20}}>
@@ -58,7 +58,7 @@ const LoginPage = ({ navigation }) => {
                             한번에!</Text>
                     </View>
                     <View style={{alignItems: 'center', marginTop: 60}}>
-                        <Image source={require('../../assets/img_login.png')}
+                        <Image source={require('../../../assets/img_login.png')}
                                style={{width: 150, height: 150}}/>
                         <Text style={{color: "#24C58B", fontSize: 22, fontWeight: 'bold'}}>i-Fresh</Text>
                     </View>
@@ -66,10 +66,10 @@ const LoginPage = ({ navigation }) => {
                         <Text style={{fontSize: 12}}>SNS로 로그인</Text>
                         <View style={{flexDirection: 'row'}}>
                             <TouchableOpacity onPress={() => signInWithKakao()}>
-                                <Image source={require('../../assets/icon_kakao.png')}
+                                <Image source={require('../../../assets/icon_kakao.png')}
                                    style={{width: 65, height: 65, marginTop: 10}} />
                             </TouchableOpacity>
-                            <Image source={require('../../assets/icon_naver.png')}
+                            <Image source={require('../../../assets/icon_naver.png')}
                                    style={{width: 65, height: 65, marginTop: 10, marginLeft: 20}}/>
                         </View>
                     </View>
