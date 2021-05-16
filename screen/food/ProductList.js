@@ -10,11 +10,11 @@ import {
   ScrollView,
   Platform,
   Alert,
+  FlatList,
   ImageBackground,
 } from "react-native";
 import styled from "styled-components";
 import { ProductListForm } from "../../component/user/food/ProductListForm";
-import { FlatList } from "react-native-gesture-handler";
 
 const DATA = [
   {
@@ -37,44 +37,44 @@ const DATA = [
   },
   {
     id: 4,
-    photo: require("../../assets/img_food.png"),
-    name: "찌개두부",
+    photo: require("../../assets/img_milk.jpeg"),
+    name: "우유",
     fresh: "적정",
   },
   {
     id: 5,
-    photo: require("../../assets/img_food.png"),
-    name: "찌개두부",
+    photo: require("../../assets/img_milk.jpeg"),
+    name: "우유",
     fresh: "적정",
   },
   {
     id: 6,
-    photo: require("../../assets/img_food.png"),
-    name: "찌개두부",
+    photo: require("../../assets/img_milk.jpeg"),
+    name: "우유",
     fresh: "적정",
   },
   {
     id: 7,
-    photo: require("../../assets/img_food.png"),
-    name: "찌개두부",
+    photo: require("../../assets/img_jkm.jpeg"),
+    name: "쭈꾸미",
     fresh: "신선",
   },
   {
     id: 8,
-    photo: require("../../assets/img_food.png"),
-    name: "찌개두부",
+    photo: require("../../assets/img_jkm.jpeg"),
+    name: "쭈꾸미",
     fresh: "신선",
   },
   {
     id: 9,
-    photo: require("../../assets/img_food.png"),
-    name: "찌개두부",
+    photo: require("../../assets/img_jkm.jpeg"),
+    name: "쭈꾸미",
     fresh: "신선",
   },
 ];
 
 
-const ProductList = ({ navigation }) => {
+const ProductList = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={{ backgroundColor: "rgba(36, 197, 139, 0.2)", flex: 1 }}>
@@ -160,7 +160,7 @@ const ProductList = ({ navigation }) => {
                 data={DATA}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => {
-                  if (item.fresh === "적정") {
+                  if (item.fresh === "신선") {
                     return (
                       <ProductListForm item={item} navigation={navigation} />
                     );

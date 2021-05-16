@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, Text, Animated, TouchableOpacity, ScrollView, Image, StyleSheet } from "react-native";
-import { AuthStyle } from "../../styles/auth/AuthStyle";
-import { screenHeight, screenWidth } from "../../styles/DimenStyle";
+import { AuthStyle } from "../../../styles/auth/AuthStyle";
+import { screenHeight, screenWidth } from "../../../styles/DimenStyle";
 
 const height = screenHeight;
 const width = screenWidth;
@@ -31,7 +31,7 @@ const OnBoardingPage = () => {
                     showsHorizontalScrollIndicator={false} ref={ref => (this.scrollView = ref)}
                     style={{ width, height }}>
           <View style={{ alignItems: "center" }}>
-            <Image source={require("../../assets/img_OnBoarding1.png")} style={AuthStyle.onBoardingImage} />
+            <Image source={require("../../../assets/img_OnBoarding1.png")} style={AuthStyle.onBoardingImage} />
             <View style={{ alignItems: "center", marginTop: 80 }}>
               <Text style={AuthStyle.step}>ONE Step</Text>
               <Text style={AuthStyle.onBoardingText}>간편한 식재료 영수증 인식!</Text>
@@ -54,7 +54,7 @@ const OnBoardingPage = () => {
             </View>
           </View>
           <View style={{ alignItems: "center" }}>
-            <Image source={require("../../assets/img_OnBoarding2.png")} style={AuthStyle.onBoardingImage} />
+            <Image source={require("../../../assets/img_OnBoarding2.png")} style={AuthStyle.onBoardingImage} />
             <View style={{ alignItems: "center", marginTop: 80 }}>
               <Text style={AuthStyle.step}>TWO Step</Text>
               <Text style={AuthStyle.onBoardingText}>신선한 식재료 유지를 위한 관리!</Text>
@@ -77,7 +77,7 @@ const OnBoardingPage = () => {
             </View>
           </View>
           <View style={{ alignItems: "center" }}>
-            <Image source={require("../../assets/img_OnBoarding3.png")} style={AuthStyle.onBoardingImage} />
+            <Image source={require("../../../assets/img_OnBoarding3.png")} style={AuthStyle.onBoardingImage} />
             <View style={{ alignItems: "center", marginTop: 69 }}>
               <Text style={AuthStyle.step}>THREE Step</Text>
               <Text style={AuthStyle.onBoardingText}>친구들이 올린 레시피를 통해 오늘 한 끼 해결!</Text>

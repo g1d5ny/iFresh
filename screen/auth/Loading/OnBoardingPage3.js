@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
 import {SafeAreaView, View, Text, Animated, TouchableOpacity, ScrollView, Image, StyleSheet} from 'react-native';
-import {AuthStyle} from "../../styles/auth/AuthStyle";
+import {AuthStyle} from "../../../styles/auth/AuthStyle";
 
 const OnBoardingPage3 = ({ navigation }) => {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
             <View style={{alignItems: 'center'}}>
-                <Image source={require('../../assets/img_OnBoarding3.png')} style={AuthStyle.onBoardingImage}/>
+                <Image source={require('../../../assets/img_OnBoarding3.png')} style={AuthStyle.onBoardingImage}/>
                 <View style={{alignItems: 'center', marginTop: 69}}>
                     <Text style={AuthStyle.step}>THREE Step</Text>
                     <Text style={AuthStyle.onBoardingText}>친구들이 올린 레시피를 통해 오늘 한 끼 해결!</Text>

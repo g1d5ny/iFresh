@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, SafeAreaView, Alert} from "react-native";
-import {AuthStyle} from "../../styles/auth/AuthStyle";
+import {AuthStyle} from "../../../styles/auth/AuthStyle";
 
 const ChangePW = ({ navigation }) => {
     return (

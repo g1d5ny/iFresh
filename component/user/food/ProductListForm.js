@@ -1,8 +1,7 @@
 import React from "react";
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const ProductListForm = ({ navigation, item }) => {
-
+const ProductListForm = ({ navigation, item, route }) => {
   return (
     <View style={{ margin: 5 }}>
       <TouchableOpacity onPress={() => navigation.navigate('ProductDetail')}>

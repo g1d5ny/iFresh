@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, SafeAreaView, Alert} from "react-native";
-import {AuthStyle} from "../../styles/auth/AuthStyle";
+import {AuthStyle} from "../../../styles/auth/AuthStyle";
 
 const SearchID2 = ({ navigation }) => {
     return (
@@ -28,7 +28,7 @@ const SearchID2 = ({ navigation }) => {
                         borderRadius: 5,
                         backgroundColor: "#F4F5F8"
                     }}
-                      onPress={() => navigation.navigate('FindPW')}
+                      onPress={() => navigation.navigate('SearchPW')}
                     >
                         <Text style={{
                             color: "#2d2d2d",
