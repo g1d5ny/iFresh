@@ -77,13 +77,13 @@ const DATA = [
 const ProductList = ({ navigation, route }) => {
 
   return (
-    <SafeAreaView style={{ backgroundColor: "rgba(36, 197, 139, 0.2)", flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: "rgba(121, 216, 148, 0.83)", flex: 1 }}>
       <ScrollView>
         <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop: 30 }}>
-          <Text style={{ color: "#7550C5", fontSize: 25, fontWeight: "bold", fontFamily: "tway_air" }}>g1d5ny</Text>
-          <Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 님의</Text>
-          <Text style={{ fontSize: 25, color: "#24C58B", fontWeight: "bold", fontFamily: "tway_air" }}> 식재료</Text>
-          <Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 입니다.</Text>
+          <Text style={{ color: "#FF6B17", fontSize: 25, fontWeight: "bold", fontFamily: "tway_air", alignItmes: 'center' }}>나의 냉장고</Text>
+          {/*<Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 님의</Text>*/}
+          {/*<Text style={{ fontSize: 25, color: "#24C58B", fontWeight: "bold", fontFamily: "tway_air" }}> 식재료</Text>*/}
+          {/*<Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 입니다.</Text>*/}
         </View>
         <View style={{ marginTop: 30, alignItems: "center", justifyContent: "center" }}>
           <View style={{
