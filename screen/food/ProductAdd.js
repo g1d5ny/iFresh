@@ -24,7 +24,7 @@ const ProductAdd = ({ navigation }) => {
   const [category, setCategory] = useState('');
 
   return (
-    <SafeAreaView style={{ backgroundColor: "rgba(36, 197, 139, 0.2)", flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: "#B9E1EA", flex: 1 }}>
       <ScrollView>
         <View style={{ marginTop: 30, marginBottom: 30, alignItems: "center", justifyContent: "center" }}>
           <View style={{
