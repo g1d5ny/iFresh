@@ -81,7 +81,7 @@ const ProductList = ({ navigation, route }) => {
     <SafeAreaView style={FoodStyle.background}>
       <ScrollView>
         <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop: 30 }}>
-          <Text style={{ color: "#FF6B17", fontSize: 25, fontWeight: "bold", fontFamily: "tway_air", alignItmes: 'center' }}>나의 냉장고</Text>
+          <Text style={{ color: "#24C58B", fontSize: 25, fontWeight: "bold", fontFamily: "tway_air", alignItmes: 'center' }}>나의 냉장고</Text>
           {/*<Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 님의</Text>*/}
           {/*<Text style={{ fontSize: 25, color: "#24C58B", fontWeight: "bold", fontFamily: "tway_air" }}> 식재료</Text>*/}
           {/*<Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 입니다.</Text>*/}
