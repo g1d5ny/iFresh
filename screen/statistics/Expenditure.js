@@ -72,7 +72,7 @@ const Expenditure = ({ navigation }) => {
               {label: '12월', value: '012', icon: () => {}},
             ]}
             defaultValue={null}
-            placeholder='지출'
+            placeholder='월'
             containerStyle={{height: 40, width: 170, marginTop: 10}}
             style={[{backgroundColor: '#fff', borderColor: "#DCDBE6", height: 40, borderRadius: 10}]}
             itemStyle={{
@@ -85,7 +85,7 @@ const Expenditure = ({ navigation }) => {
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <LineChart
             data={{
-              labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+              labels: ["1주", "2주", "3주", "4주", ],
               datasets: [
                 {
                   data: [
@@ -93,14 +93,6 @@ const Expenditure = ({ navigation }) => {
                     parseInt(Math.random()*100)+"000",
                     parseInt(Math.random()*100)+"000",
                     parseInt(Math.random()*100)+"000",
-                    parseInt(Math.random()*100)+"000",
-                    parseInt(Math.random()*100)+"000",
-                    parseInt(Math.random()*100)+"000",
-                    parseInt(Math.random()*100)+"000",
-                    parseInt(Math.random()*100)+"000",
-                    parseInt(Math.random()*100)+"000",
-                    parseInt(Math.random()*100)+"000",
-                    parseInt(Math.random()*100)+"000"
                   ]
                 }
               ]
