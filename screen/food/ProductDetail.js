@@ -18,6 +18,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { Style } from "../../styles/user/Style";
 import Modal from 'react-native-modal';
 import { ModalStyle } from "../../styles/component/ModalStyle";
+import { FoodStyle } from "../../styles/user/food/FoodStyle";
 
 const ProductDetail = ({ navigation, route }) => {
 
@@ -36,7 +37,7 @@ const ProductDetail = ({ navigation, route }) => {
   };
 
   return (
-    <SafeAreaView style={{ backgroundColor: "#B9E1EA", flex: 1 }}>
+    <SafeAreaView style={FoodStyle.background}>
       <ScrollView>
         <View style={{ marginTop: 30, marginBottom: 30, alignItems: "center", justifyContent: "center" }}>
           <View style={{

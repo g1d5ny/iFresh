@@ -1,9 +1,8 @@
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
 import { View } from "react-native";
-import Back from "../../../assets/icon_back.svg";
-import { ProductList } from "../../../screen/food/ProductList";
-import { Expenditure } from "../../../screen/statistics/Expenditure";
+// import Back from "../../../assets/icon_back.svg";
+import { StatisticsTabNavigation } from "../statisticsTabNavigation/StatisticsTabNaviagiton";
 
 const Stack = createStackNavigator();
 
@@ -24,18 +23,10 @@ const StatisticsStackNavigation = () => {
       }}
     >
       <Stack.Screen
-        name="Expenditure"
-        component={Expenditure}
-        options={{
-          headerTitle: "i-Fresh",
-          headerTitleStyle: {
-            fontSize: 16,
-            fontWeight: 'bold'
-          }
-        }}
+        name="가계부"
+        component={StatisticsTabNavigation}
+        options={{headerBackTitleVisible: false}}
       />
-
-
     </Stack.Navigator>
   )
 };

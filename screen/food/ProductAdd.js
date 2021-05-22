@@ -16,6 +16,7 @@ import styled from "styled-components";
 import DatePicker from 'react-native-date-picker';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { Style } from "../../styles/user/Style";
+import { FoodStyle } from "../../styles/user/food/FoodStyle";
 
 const ProductAdd = ({ navigation }) => {
 
@@ -24,7 +25,7 @@ const ProductAdd = ({ navigation }) => {
   const [category, setCategory] = useState('');
 
   return (
-    <SafeAreaView style={{ backgroundColor: "#B9E1EA", flex: 1 }}>
+    <SafeAreaView style={FoodStyle.background}>
       <ScrollView>
         <View style={{ marginTop: 30, marginBottom: 30, alignItems: "center", justifyContent: "center" }}>
           <View style={{
