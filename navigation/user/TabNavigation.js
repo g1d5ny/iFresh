@@ -34,7 +34,7 @@ const TabNavigation = () => {
         name="식품"
         component={FoodStackNavigation}
         options={{
-          tabBarLabel: "식품",
+          // tabBarLabel: "식품",
           tabBarIcon: ({ focused }) => (
             <View>
               <Image source={require('../../assets/icon_food.png')}
@@ -54,7 +54,7 @@ const TabNavigation = () => {
         name="통계"
         component={StatisticsStackNavigation}
         options={{
-          tabBarLabel: "통계",
+          // tabBarLabel: "통계",
           // tabBarIcon: ({ focused }) => {
           //   return focused === true ?
           //     <IconStatistics /> : <OnIconStatistics />;
@@ -78,7 +78,7 @@ const TabNavigation = () => {
         name="레시피"
         component={RecipeStackNavigation}
         options={{
-          tabBarLabel: "레시피",
+          // tabBarLabel: "레시피",
           // tabBarIcon: ({ focused }) => {
           //   return focused === true ?
           //     <IconStatistics /> : <OnIconStatistics />;
@@ -102,7 +102,7 @@ const TabNavigation = () => {
         name="나의 정보"
         component={MyStackNavigation}
         options={{
-          tabBarLabel: "나의 정보",
+          // tabBarLabel: "나의 정보",
           // tabBarIcon: ({ focused }) => {
           //   return focused === true ?
           //     <IconStatistics /> : <OnIconStatistics />;

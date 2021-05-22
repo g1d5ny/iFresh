@@ -15,6 +15,7 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import { ProductListForm } from "../../component/user/food/ProductListForm";
+import { FoodStyle } from "../../styles/user/food/FoodStyle";
 
 const DATA = [
   {
@@ -77,7 +78,7 @@ const DATA = [
 const ProductList = ({ navigation, route }) => {
 
   return (
-    <SafeAreaView style={{ backgroundColor: "rgba(121, 216, 148, 0.83)", flex: 1 }}>
+    <SafeAreaView style={FoodStyle.background}>
       <ScrollView>
         <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop: 30 }}>
           <Text style={{ color: "#FF6B17", fontSize: 25, fontWeight: "bold", fontFamily: "tway_air", alignItmes: 'center' }}>나의 냉장고</Text>
