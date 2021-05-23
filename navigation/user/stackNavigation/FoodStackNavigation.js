@@ -1,7 +1,7 @@
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
 import {UnWrittenCommentData} from "../../../screen/supplier/review/UnWrittenCommentData";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import Back from "../../../assets/icon_back.svg";
 import { ProductList } from "../../../screen/food/ProductList";
 import { ProductDetail } from "../../../screen/food/ProductDetail";
@@ -33,10 +33,11 @@ const FoodStackNavigation = () => {
         name="ProductList"
         component={ProductList}
         options={{
-          // headerTitle: "i-Fresh",
+          // headerTitle: "나의 냉장고",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />
@@ -48,7 +49,8 @@ const FoodStackNavigation = () => {
           // headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />
@@ -57,10 +59,11 @@ const FoodStackNavigation = () => {
         name="ProductDetail"
         component={ProductDetail}
         options={{
-          // headerTitle: "i-Fresh",
+          headerTitle: "찌개두부",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />
@@ -69,10 +72,11 @@ const FoodStackNavigation = () => {
         name="ProductAdd"
         component={ProductAdd}
         options={{
-          // headerTitle: "i-Fresh",
+          headerTitle: "식품 추가",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />
@@ -81,7 +85,7 @@ const FoodStackNavigation = () => {
         name="Camera"
         component={Camera}
         options={{
-          // headerTitle: "i-Fresh",
+          headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
             fontWeight: 'bold'

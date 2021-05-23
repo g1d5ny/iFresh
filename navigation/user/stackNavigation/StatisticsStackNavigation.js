@@ -25,7 +25,15 @@ const StatisticsStackNavigation = () => {
       <Stack.Screen
         name="가계부"
         component={StatisticsTabNavigation}
-        options={{headerBackTitleVisible: false}}
+        // options={{headerBackTitleVisible: false}}
+        options={{
+          // headerTitle: "i-Fresh",
+          headerTitleStyle: {
+            fontSize: 16,
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
+          }
+        }}
       />
     </Stack.Navigator>
   )

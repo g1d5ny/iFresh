@@ -34,6 +34,7 @@ export const AuthStyle = StyleSheet.create({
     list: {
         fontSize: 12,
         fontWeight: "600",
+        fontFamily: 'tway_air'
     },
     mediumButton: {
         width: 90,
@@ -68,7 +69,8 @@ export const AuthStyle = StyleSheet.create({
     buttonText: {
         color: "#fff",
         fontWeight: 'bold',
-        fontSize: 12
+        fontSize: 12,
+        fontFamily: 'tway_air'
     },
     onBoardingImage: {
         marginTop: 170,
@@ -96,7 +98,8 @@ export const AuthStyle = StyleSheet.create({
     },
     skipText: {
         fontSize: 12,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'tway_air'
     },
     nextView: {
         width: 65,
@@ -109,7 +112,8 @@ export const AuthStyle = StyleSheet.create({
     nextText: {
         color: "#fff",
         fontSize: 12,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'tway_air'
     }
 
 })

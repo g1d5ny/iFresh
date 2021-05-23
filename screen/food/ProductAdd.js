@@ -121,7 +121,7 @@ const ProductAdd = ({ navigation }) => {
             <View style={{marginTop: 50}}>
               <TouchableOpacity style={Style.button}
               onPress={() => navigation.navigate('ProductList')}>
-                <Text style={Style.buttonText}>상품 업로드</Text>
+                <Text style={Style.buttonText}>식품 업로드</Text>
               </TouchableOpacity>
             </View>
           </View>

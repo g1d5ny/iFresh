@@ -19,6 +19,7 @@ const StatisticsTabNavigation = () => {
         },
         labelStyle: {
           fontWeight: 'bold',
+          fontFamily: 'tway_air',
           fontSize: 12,
         },
         headerStyle: {
@@ -29,6 +30,7 @@ const StatisticsTabNavigation = () => {
     >
       <Tab.Screen name="Expenditure" component={Expenditure} options={{
         tabBarLabel: '지출',
+        fontFamily: 'tway_air'
       }}
       />
       <Tab.Screen name="Category" component={Category} options={{

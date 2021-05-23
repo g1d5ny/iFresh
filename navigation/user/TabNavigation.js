@@ -34,14 +34,14 @@ const TabNavigation = () => {
         name="식품"
         component={FoodStackNavigation}
         options={{
-          // tabBarLabel: "식품",
+          tabBarLabel: "",
           tabBarIcon: ({ focused }) => (
-            <View>
+            <View style={{marginTop: 30}}>
               <Image source={require('../../assets/icon_food.png')}
                      resizeMode="contain"
                      style={{
-                       width: 25,
-                       height: 25,
+                       width: 30,
+                       height: 30,
                        tintColor: focused ? '#24C58B' : '#DCDBE6'
                      }}
               />
@@ -54,18 +54,18 @@ const TabNavigation = () => {
         name="통계"
         component={StatisticsStackNavigation}
         options={{
-          // tabBarLabel: "통계",
+          tabBarLabel: "",
           // tabBarIcon: ({ focused }) => {
           //   return focused === true ?
           //     <IconStatistics /> : <OnIconStatistics />;
           // },
           tabBarIcon: ({ focused }) => (
-            <View>
+            <View style={{marginTop: 30}}>
               <Image source={require('../../assets/icon_statistics.png')}
                      resizeMode="contain"
                      style={{
-                       width: 25,
-                       height: 25,
+                       width: 30,
+                       height: 30,
                        tintColor: focused ? '#24C58B' : '#DCDBE6'
                      }}
               />
@@ -78,18 +78,18 @@ const TabNavigation = () => {
         name="레시피"
         component={RecipeStackNavigation}
         options={{
-          // tabBarLabel: "레시피",
+          tabBarLabel: "",
           // tabBarIcon: ({ focused }) => {
           //   return focused === true ?
           //     <IconStatistics /> : <OnIconStatistics />;
           // },
           tabBarIcon: ({ focused }) => (
-            <View>
+            <View style={{marginTop: 30}}>
               <Image source={require('../../assets/icon_recipe.png')}
                      resizeMode="contain"
                      style={{
-                       width: 25,
-                       height: 25,
+                       width: 30,
+                       height: 30,
                        tintColor: focused ? '#24C58B' : '#DCDBE6'
                      }}
               />
@@ -102,18 +102,18 @@ const TabNavigation = () => {
         name="나의 정보"
         component={MyStackNavigation}
         options={{
-          // tabBarLabel: "나의 정보",
+          tabBarLabel: "",
           // tabBarIcon: ({ focused }) => {
           //   return focused === true ?
           //     <IconStatistics /> : <OnIconStatistics />;
           // },
           tabBarIcon: ({ focused }) => (
-            <View>
+            <View style={{marginTop: 30}}>
               <Image source={require('../../assets/icon_user.png')}
                      resizeMode="contain"
                      style={{
-                       width: 25,
-                       height: 25,
+                       width: 30,
+                       height: 30,
                        tintColor: focused ? '#24C58B' : '#DCDBE6'
                      }}
               />

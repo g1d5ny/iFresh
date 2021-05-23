@@ -14,7 +14,7 @@
 		1B2DC8A5884039D8867F4730 /* libPods-iFresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89850A643D0DABB2206A65EC /* libPods-iFresh.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		872B1DD1264D0D68003E8093 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 872B1DD0264D0D68003E8093 /* Fonts */; };
-		873A5D14264E7EA3006E630A /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A5D13264E7EA3006E630A /* SwiftBridge.swift */; };
+		8765D3A3265A420B006BD988 /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765D3A2265A420A006BD988 /* SwiftBridge.swift */; };
 		E98873A8F6502982380CC12B /* libPods-iFresh-iFreshTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B21DC9E2E44F4D4EC96035 /* libPods-iFresh-iFreshTests.a */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +41,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iFresh/main.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = iFresh/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		872B1DD0264D0D68003E8093 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
-		873A5D12264E7EA2006E630A /* iFresh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iFresh-Bridging-Header.h"; sourceTree = "<group>"; };
-		873A5D13264E7EA3006E630A /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
+		8765D3A1265A420A006BD988 /* iFresh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iFresh-Bridging-Header.h"; sourceTree = "<group>"; };
+		8765D3A2265A420A006BD988 /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
 		89850A643D0DABB2206A65EC /* libPods-iFresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iFresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEC7C4F190DFAEB95711654 /* Pods-iFresh-iFreshTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFresh-iFreshTests.debug.xcconfig"; path = "Target Support Files/Pods-iFresh-iFreshTests/Pods-iFresh-iFreshTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0BB849EE02858C5EFA00122 /* Pods-iFresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFresh.release.xcconfig"; path = "Target Support Files/Pods-iFresh/Pods-iFresh.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				873A5D13264E7EA3006E630A /* SwiftBridge.swift */,
-				873A5D12264E7EA2006E630A /* iFresh-Bridging-Header.h */,
+				8765D3A2265A420A006BD988 /* SwiftBridge.swift */,
+				8765D3A1265A420A006BD988 /* iFresh-Bridging-Header.h */,
 			);
 			name = iFresh;
 			sourceTree = "<group>";
@@ -421,7 +421,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				873A5D14264E7EA3006E630A /* SwiftBridge.swift in Sources */,
+				8765D3A3265A420B006BD988 /* SwiftBridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

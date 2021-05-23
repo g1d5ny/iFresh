@@ -70,10 +70,11 @@ const AuthNavigation = () => {
         component={Login}
         options={{
           headerShown: true,
-          headerTitle: "로그인 페이지",
+          headerTitle: "로그인",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />
@@ -86,7 +87,8 @@ const AuthNavigation = () => {
           headerTitle: "아이디 찾기",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />
@@ -99,7 +101,8 @@ const AuthNavigation = () => {
           headerTitle: "아이디 찾기",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />
@@ -112,7 +115,8 @@ const AuthNavigation = () => {
           headerTitle: "비밀번호 변경",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />
@@ -125,7 +129,8 @@ const AuthNavigation = () => {
           headerTitle: "비밀번호 찾기",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: 'tway_air'
           }
         }}
       />

@@ -27,8 +27,8 @@ const Register = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View>
         <View style={{ marginTop: 70, alignItems: "center" }}>
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}>회원가입</Text>
-          <Text style={{ marginTop: 15, fontSize: 14, color: "#CCCED6" }}>i-Fresh의 회원 가입 정보를 입력해 주세요.</Text>
+          <Text style={{ fontSize: 20, fontWeight: "bold", fontFamily: 'tway_air' }}>회원가입</Text>
+          <Text style={{ marginTop: 15, fontSize: 14, color: "#CCCED6", fontFamily: 'tway_air' }}>i-Fresh의 회원 가입 정보를 입력해 주세요.</Text>
         </View>
         <View style={{ marginTop: 50, alignSelf: "center" }}>
           <Text style={AuthStyle.list}>이름</Text>

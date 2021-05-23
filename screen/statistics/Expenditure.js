@@ -22,6 +22,7 @@ import {
   ContributionGraph,
   StackedBarChart
 } from "react-native-chart-kit";
+import { StatisticsStyle } from "../../styles/user/statistics/StatisticsStyle";
 
 
 const Expenditure = ({ navigation }) => {
@@ -55,7 +56,7 @@ const Expenditure = ({ navigation }) => {
     <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
       <ScrollView>
         <View style={{margin: 20}}>
-          <Text style={{fontSize: 15, color: "#2d2d2d", fontWeight: 'bold'}}>월별 지출 그래프</Text>
+          <Text style={StatisticsStyle.font}>월별 지출 그래프</Text>
           <DropDownPicker
             items={[
               {label: '1월', value: '001', icon: () => {}},
@@ -86,6 +87,7 @@ const Expenditure = ({ navigation }) => {
           <LineChart
             data={{
               labels: ["1주", "2주", "3주", "4주", ],
+              labelAlignment: 'center',
               datasets: [
                 {
                   data: [
@@ -127,7 +129,7 @@ const Expenditure = ({ navigation }) => {
               borderRadius: 10,
               borderWidth: 1,
               borderColor:"#DCDBE6",
-              // alignSelf: 'center',
+              // alignItems: 'center',
               // justifyContent: 'center'
             }}
           />

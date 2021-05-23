@@ -23,20 +23,21 @@ import {
   StackedBarChart,
 } from "react-native-chart-kit";
 import Pie from "react-native-pie";
-import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
-import { DataTable } from 'react-native-paper';
+import { Table, TableWrapper, Row, Rows, Col } from "react-native-table-component";
+import { DataTable } from "react-native-paper";
+import { StatisticsStyle } from "../../styles/user/statistics/StatisticsStyle";
 
 const Category = ({ navigation }) => {
   const [category, setCategory] = useState("");
 
   const CONTENT = {
-    tableHead: ['Column 0/Row 0', 'Column 1', 'Column 2', 'Column 3'],
-    tableTitle: ['Row', 'Row 2', 'Row 3', 'Row 4'],
+    tableHead: ["Column 0/Row 0", "Column 1", "Column 2", "Column 3"],
+    tableTitle: ["Row", "Row 2", "Row 3", "Row 4"],
     tableData: [
-      ['1', '2', '3'],
-      ['a', 'b', 'c'],
-      ['1', '2', '3'],
-      ['a', 'b', 'c'],
+      ["1", "2", "3"],
+      ["a", "b", "c"],
+      ["1", "2", "3"],
+      ["a", "b", "c"],
     ],
   };
 
@@ -44,7 +45,7 @@ const Category = ({ navigation }) => {
     <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
       <ScrollView>
         <View style={{ margin: 20 }}>
-          <Text style={{ fontSize: 15, color: "#2d2d2d", fontWeight: "bold" }}>월별 범주 그래프</Text>
+          <Text style={StatisticsStyle.font}>월별 범주 그래프</Text>
           <DropDownPicker
             items={[
               {
@@ -140,106 +141,150 @@ const Category = ({ navigation }) => {
             strokeCap={"butt"}
             accessor="percentage"
           />
-          <PieChart
-            data={[
-              {
-                name: "농산물",
-                population: 55,
-                color: "#479FF8",
-                legendFontColor: "#050505",
-                legendFontSize: 15,
-              },
-              {
-                name: "해산물",
-                population: 18,
-                color: "#80D654",
-                legendFontColor: "#050505",
-                legendFontSize: 15,
-              },
-              {
-                name: "육류",
-                population: 11,
-                color: "#929393",
-                legendFontColor: "#050505",
-                legendFontSize: 15,
-              },
-              {
-                name: "유제품",
-                population: 7,
-                color: "#EFBD40",
-                legendFontColor: "#050505",
-                legendFontSize: 15,
-              },
-              {
-                name: "음료",
-                population: 5,
-                color: "#EA4125",
-                legendFontColor: "#050505",
-                legendFontSize: 15,
-              },
-              {
-                name: "기타",
-                population: 4,
-                color: "#C13175",
-                legendFontColor: "#050505",
-                legendFontSize: 15,
-              },
-            ]}
-            width={Dimensions.get("window").width}
-            height={220}
-            chartConfig={{
-              backgroundColor: "#194ad1",
-              backgroundGradientFrom: "#f74871",
-              backgroundGradientTo: "#ffbc47",
-              decimalPlaces: 2,
-              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-            }}
-            style={{
-              marginVertical: 8,
-              borderRadius: 10,
-            }}
+          <View style={{flexDirection: 'row', marginTop: 40, marginBottom : 20}}>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#479FF8", marginRight: 10 }} />
+              <Text style={styles.font}>농산물</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#80D654", marginRight: 10 }} />
+              <Text style={styles.font}>해산물</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#929393", marginRight: 10 }} />
+              <Text style={styles.font}>육류</Text>
+            </View>
+          </View>
+          <View style={{flexDirection: 'row', marginBottom : 40}}>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#EFBD40", marginRight: 10 }} />
+              <Text style={styles.font}>유제품</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#EA4125", marginRight: 10 }} />
+              <Text style={styles.font}>음료</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#C13175", marginRight: 10 }} />
+              <Text style={styles.font}>기타</Text>
+            </View>
+          </View>
+          {/*<PieChart*/}
+          {/*  data={[*/}
+          {/*    {*/}
+          {/*      name: "농산물",*/}
+          {/*      population: 55,*/}
+          {/*      color: "#479FF8",*/}
+          {/*      legendFontColor: "#050505",*/}
+          {/*      legendFontSize: 15,*/}
+          {/*    },*/}
+          {/*    {*/}
+          {/*      name: "해산물",*/}
+          {/*      population: 18,*/}
+          {/*      color: "#80D654",*/}
+          {/*      legendFontColor: "#050505",*/}
+          {/*      legendFontSize: 15,*/}
+          {/*    },*/}
+          {/*    {*/}
+          {/*      name: "육류",*/}
+          {/*      population: 11,*/}
+          {/*      color: "#929393",*/}
+          {/*      legendFontColor: "#050505",*/}
+          {/*      legendFontSize: 15,*/}
+          {/*    },*/}
+          {/*    {*/}
+          {/*      name: "유제품",*/}
+          {/*      population: 7,*/}
+          {/*      color: "#EFBD40",*/}
+          {/*      legendFontColor: "#050505",*/}
+          {/*      legendFontSize: 15,*/}
+          {/*    },*/}
+          {/*    {*/}
+          {/*      name: "음료",*/}
+          {/*      population: 5,*/}
+          {/*      color: "#EA4125",*/}
+          {/*      legendFontColor: "#050505",*/}
+          {/*      legendFontSize: 15,*/}
+          {/*    },*/}
+          {/*    {*/}
+          {/*      name: "기타",*/}
+          {/*      population: 4,*/}
+          {/*      color: "#C13175",*/}
+          {/*      legendFontColor: "#050505",*/}
+          {/*      legendFontSize: 15,*/}
+          {/*    },*/}
+          {/*  ]}*/}
+          {/*  width={Dimensions.get("window").width}*/}
+          {/*  height={220}*/}
+          {/*  chartConfig={{*/}
+          {/*    backgroundColor: "#194ad1",*/}
+          {/*    backgroundGradientFrom: "#f74871",*/}
+          {/*    backgroundGradientTo: "#ffbc47",*/}
+          {/*    decimalPlaces: 2,*/}
+          {/*    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,*/}
+          {/*  }}*/}
+          {/*  style={{*/}
+          {/*    marginVertical: 8,*/}
+          {/*    borderRadius: 10,*/}
+          {/*  }}*/}
 
-            accessor="population"
-            backgroundColor="transparent"
-            paddingLeft="15"
-            // absolute
-          />
-          <DataTable style={{borderWidth: 1, borderColor: "#2d2d2d", marginBottom: 40}}>
-            <DataTable.Header style={{backgroundColor: '#24C58B', fontWeight: 'bold'}}>
-              <DataTable.Title>범주</DataTable.Title>
-              <DataTable.Title>총액</DataTable.Title>
+          {/*  accessor="population"*/}
+          {/*  backgroundColor="transparent"*/}
+          {/*  paddingLeft="15"*/}
+          {/*  // absolute*/}
+          {/*/>*/}
+
+          <DataTable style={{ borderWidth: 1, borderColor: "#2d2d2d", marginBottom: 40 }}>
+            <DataTable.Header style={{ backgroundColor: "#24C58B", fontWeight: "bold" }}>
+              <DataTable.Title><Text style={StatisticsStyle.font}>범주</Text></DataTable.Title>
+              <DataTable.Title><Text style={StatisticsStyle.font}>총액</Text></DataTable.Title>
             </DataTable.Header>
 
-            <DataTable.Row>
-              <DataTable.Cell>농산물</DataTable.Cell>
-              <DataTable.Cell>55,000</DataTable.Cell>
+            <DataTable.Row style={{ borderWidth: 1, borderColor: "#2d2d2d" }}>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>농산물</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 55,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell>해산물</DataTable.Cell>
-              <DataTable.Cell>18,000</DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>해산물</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 18,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell>육류</DataTable.Cell>
-              <DataTable.Cell>7,000</DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>육류</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 11,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell>유제품</DataTable.Cell>
-              <DataTable.Cell>7,000</DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>유제품</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 7,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell>음료</DataTable.Cell>
-              <DataTable.Cell>5,000</DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>음료</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 5,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell>기타</DataTable.Cell>
-              <DataTable.Cell>4,000</DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>기타</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 4,000</Text></DataTable.Cell>
+            </DataTable.Row>
+
+            <DataTable.Row style={{ backgroundColor: "#ECECEA", borderWidth: 1, borderColor: "#2d2d2d" }}>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>총액</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 100,000</Text></DataTable.Cell>
             </DataTable.Row>
           </DataTable>
+          <View style={{
+            width: 385,
+            borderWidth: 0.7,
+            borderColor: "#2d2d2d",
+            transform: [{ rotate: "90deg" }],
+            position: "absolute",
+            bottom: 232,
+            right: 20,
+          }} />
+
           {/*<Table borderStyle={{ borderWidth: 1 }}>*/}
           {/*  <Row*/}
           {/*    data={CONTENT.tableHead}*/}
@@ -265,15 +310,16 @@ const Category = ({ navigation }) => {
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
-  head: { height: 40, backgroundColor: 'orange' },
-  wrapper: { flexDirection: 'row' },
-  title: { flex: 1, backgroundColor: '#2ecc71' },
-  row: { height: 28 },
-  text: { textAlign: 'center' },
+  font: {
+    fontFamily: "tway_air",
+    fontWeight: "bold",
+    fontSize: 13,
+  },
 });
 
-export {Category};
+
+export { Category };
