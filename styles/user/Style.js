@@ -63,5 +63,10 @@ export const Style = StyleSheet.create({
     backgroundColor: '#FF5A43',
     alignItems: 'center',
     justifyContent: 'center'
-  }
+  },
+  font: {
+    fontFamily: "tway_air",
+    fontWeight: "bold",
+    fontSize: 15,
+  },
 })

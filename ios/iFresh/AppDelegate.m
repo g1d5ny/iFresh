@@ -62,14 +62,24 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-                                       sourceApplication:(NSString *)sourceApplication
-                                              annotation:(id)annotation {
-    if([RNKakaoLogins isKakaoTalkLoginUrl:url]) {
-      return [RNKakaoLogins handleOpenUrl: url];
-    }
+- (BOOL)application:(UIApplication *)app
+     openURL:(NSURL *)url
+     options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+ if([RNKakaoLogins isKakaoTalkLoginUrl:url]) {
+    return [RNKakaoLogins handleOpenUrl: url];
+ }
 
-    return NO;
+ return NO;
 }
+
+// - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+//                                        sourceApplication:(NSString *)sourceApplication
+//                                               annotation:(id)annotation {
+//     if([RNKakaoLogins isKakaoTalkLoginUrl:url]) {
+//       return [RNKakaoLogins handleOpenUrl: url];
+//     }
+//
+//     return NO;
+// }
 
 @end

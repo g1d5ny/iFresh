@@ -19,17 +19,10 @@ const OnBoardingPage = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View
-        style={{
-          justifyContent: "flex-start",
-          alignItems: "center",
-          paddingTop: 48,
-          width,
-          height,
-          backgroundColor: "#fff",
-        }}>
+        style={{justifyContent: 'flex-start', alignItems: 'center', paddingTop: 48, width, height, backgroundColor: '#fff'}}>
         <ScrollView pagingEnabled={true} horizontal={true} onScroll={change} scrollEventThrottle={1}
-                    showsHorizontalScrollIndicator={false} ref={ref => (this.scrollView = ref)}
-                    style={{ width, height }}>
+                    showsHorizontalScrollIndicator={false} ref={ref=>(this.scrollView = ref)}
+                    style={{width, height}}>
           <View style={{ alignItems: "center" }}>
             <Image source={require("../../../assets/img_OnBoarding1.png")} style={AuthStyle.onBoardingImage} />
             <View style={{ alignItems: "center", marginTop: 80 }}>
