@@ -4,6 +4,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <RNKakaoLogins.h>
+#import <NaverThirdPartyLogin/NaverThirdPartyLoginConnection.h>
+
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -62,14 +64,19 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 }
 
-- (BOOL)application:(UIApplication *)app
+- (BOOL)application:(UIApplication *)application
      openURL:(NSURL *)url
      options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
- if([RNKakaoLogins isKakaoTalkLoginUrl:url]) {
-    return [RNKakaoLogins handleOpenUrl: url];
- }
+         // kakao Login
+         if([RNKakaoLogins isKakaoTalkLoginUrl:url]) {
+            return [RNKakaoLogins handleOpenUrl: url];
+         }
 
- return NO;
+         // naver Login
+         if ([url.scheme isEqualToString:@"freshLogin"]) {
+               return [[NaverThirdPartyLoginConnection getSharedInstance] application:application openURL:url options:options];
+             }
+         return YES;
 }
 
 // - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url

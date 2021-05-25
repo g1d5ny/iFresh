@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-  Platform,
-  Alert, ImageBackground,
-} from "react-native";
-import {
-  KakaoOAuthToken,
-  KakaoProfile,
-  getProfile as getKakaoProfile,
-  login,
-  logout,
-  unlink,
-} from "@react-native-seoul/kakao-login";
+import { SafeAreaView, StyleSheet, View, Text, Image, TextInput, TouchableOpacity, ScrollView, Platform, Alert, ImageBackground } from "react-native";
+import { KakaoOAuthToken, KakaoProfile, getProfile as getKakaoProfile, login, logout, unlink } from "@react-native-seoul/kakao-login";
 import { Style } from "../../../styles/user/Style";
 import { AuthStyle } from "../../../styles/auth/AuthStyle";
+import { NaverLogin, getProfile } from "@react-native-seoul/naver-login";
+
+const iosKeys = {
+  kConsumerKey: "BxH4kkEoXxN2DbBBAR6X",
+  kConsumerSecret: "83HMmGj5Nu",
+  kServiceAppName: "테스트앱(iOS)",
+  kServiceAppUrlScheme: "freshLogin" // only for iOS
+};
+
+const androidKeys = {
+  kConsumerKey: "BxH4kkEoXxN2DbBBAR6X",
+  kConsumerSecret: "83HMmGj5Nu",
+  kServiceAppName: "테스트앱(안드로이드)"
+};
+
+const initials = Platform.OS === "ios" ? iosKeys : androidKeys;
 
 const LoginPage = ({ navigation, route }) => {
 
@@ -38,7 +36,7 @@ const LoginPage = ({ navigation, route }) => {
     setResult(message);
   };
 
-  const getProfile = async () => {
+  const getKProfile = async () => {
     const profile = await getKakaoProfile();
 
     setResult(JSON.stringify(profile));
@@ -48,6 +46,36 @@ const LoginPage = ({ navigation, route }) => {
     const message = await unlink();
 
     setResult(message);
+  };
+
+  const [naverToken, setNaverToken] = useState(null);
+
+  const naverLogin = props => {
+    return new Promise((resolve, reject) => {
+      NaverLogin.login(props, (err, token) => {
+        console.log(`\n\n  Token is fetched  :: ${token} \n\n`);
+        setNaverToken(token);
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve(token);
+      });
+    });
+  };
+
+  const naverLogout = () => {
+    NaverLogin.logout();
+    setNaverToken("");
+  };
+
+  const getUserProfile = async () => {
+    const profileResult = await getProfile(naverToken.accessToken);
+    if (profileResult.resultcode === "024") {
+      Alert.alert("로그인 실패", profileResult.message);
+      return;
+    }
+    console.log("profileResult", profileResult);
   };
 
   return (
@@ -114,7 +142,7 @@ const LoginPage = ({ navigation, route }) => {
                 <Image source={require("../../../assets/icon_kakao.png")} style={{ width: 40, height: 40 }} />
                 <Text style={{ color: "#3C1E1C", fontFamily: "tway_air", fontSize: 14 }}>카카오톡으로 로그인</Text>
               </TouchableOpacity>
-              <View style={{
+              <TouchableOpacity style={{
                 width: 300,
                 height: 40,
                 borderRadius: 7,
@@ -123,10 +151,10 @@ const LoginPage = ({ navigation, route }) => {
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "row",
-              }}>
+              }} onPress={() => naverLogin(initials)}>
                 <Image source={require("../../../assets/icon_naver.png")} style={{ width: 40, height: 40 }} />
                 <Text style={{ color: "#fff", fontFamily: "tway_air", fontSize: 14 }}>네이버로 로그인</Text>
-              </View>
+              </TouchableOpacity>
               <View style={{ marginTop: 40, alignSelf: "center", flexDirection: "row" }}>
                 <Text style={{ color: "#2d2d2d", fontFamily: "tway_air", fontSize: 14 }}>i-Fresh의 회원이 아니신가요?</Text>
                 <Text style={{ color: "#2097F6", fontFamily: "tway_air", fontSize: 14, marginLeft: 10 }}>회원가입</Text>
