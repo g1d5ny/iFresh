@@ -17,6 +17,7 @@ const FoodStackNavigation = () => {
         headerStyle: {
           elevation: 0,
         },
+        // headerTitle: "i-Fresh",
         headerBackTitleVisible: false,
         headerTitleAlign: 'medium',
         headerBackImage: () => (
@@ -35,8 +36,8 @@ const FoodStackNavigation = () => {
           headerTitleStyle: {
             fontSize: 16,
             fontWeight: 'bold',
-            fontFamily: 'tway_air'
-          }
+            fontFamily: 'tway_air',
+          },
         }}
       />
 
@@ -56,7 +57,12 @@ const FoodStackNavigation = () => {
       <Stack.Screen
         name="ProductDetail"
         component={ProductDetail}
-        options={({ route }) => ({ title: route.params.name, headerBackTitleVisible: false})}
+        options={({ route }) => ({
+          title: route.params.name,
+          headerBackTitleVisible: false,
+          fontSize: 16,
+          fontWeight: 'bold',
+          fontFamily: 'tway_air'})}
         // options={{
         //   headerTitle: "찌개두부",
         //   headerTitleStyle: {
@@ -84,7 +90,8 @@ const FoodStackNavigation = () => {
         name="Camera"
         component={Camera}
         options={{
-          headerTitle: "i-Fresh",
+          headerShown: false,
+          // headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
             fontWeight: 'bold'

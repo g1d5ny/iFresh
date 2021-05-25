@@ -78,25 +78,34 @@ const ProductAdd = ({ navigation }) => {
             </View>
             <View style={styles.InputView}>
               <Text style={styles.title}>범주</Text>
-              <DropDownPicker
-                items={[
-                  {label: '농산물', value: '001', icon: () => {}},
-                  {label: '해산물', value: '002', icon: () => {}},
-                  {label: '육류', value: '003', icon: () => {}},
-                  {label: '유제품', value: '004', icon: () => {}},
-                  {label: '음료', value: '005', icon: () => {}},
-                  {label: '기타', value: '006', icon: () => {}},
-                ]}
-                defaultValue={null}
-                placeholder='범주'
-                containerStyle={{height: 40, width: 300, marginTop: 10}}
-                style={[{backgroundColor: '#fff', borderColor: "#DCDBE6", height: 40, borderRadius: 7}]}
-                itemStyle={{
-                  justifyContent: 'flex-start'
-                }}
-                dropDownStyle={{backgroundColor: '#fafafa'}}
-                onChangeItem={item => setCategory(item.value)}
-              />
+              {/*<View>*/}
+                <DropDownPicker
+                  open={open}
+                  value={value}
+                  items={items}
+                  setOpen={setOpen}
+                  setValue={setValue}
+                  setItems={setItems}/>
+              {/*</View>*/}
+              {/*<DropDownPicker*/}
+              {/*  items={[*/}
+              {/*    {label: '농산물', value: '001', icon: () => {}},*/}
+              {/*    {label: '해산물', value: '002', icon: () => {}},*/}
+              {/*    {label: '육류', value: '003', icon: () => {}},*/}
+              {/*    {label: '유제품', value: '004', icon: () => {}},*/}
+              {/*    {label: '음료', value: '005', icon: () => {}},*/}
+              {/*    {label: '기타', value: '006', icon: () => {}},*/}
+              {/*  ]}*/}
+              {/*  defaultValue={null}*/}
+              {/*  placeholder='범주'*/}
+              {/*  containerStyle={{height: 40, width: 300, marginTop: 10}}*/}
+              {/*  style={[{backgroundColor: '#fff', borderColor: "#DCDBE6", height: 40, borderRadius: 7}]}*/}
+              {/*  itemStyle={{*/}
+              {/*    justifyContent: 'flex-start'*/}
+              {/*  }}*/}
+              {/*  dropDownStyle={{backgroundColor: '#fafafa'}}*/}
+              {/*  onChangeItem={item => setCategory(item.value)}*/}
+              {/*/>*/}
             </View>
             <View style={styles.InputView}>
               <Text style={styles.title}>단가</Text>
