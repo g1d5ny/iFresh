@@ -1,6 +1,5 @@
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
-import {UnWrittenCommentData} from "../../../screen/supplier/review/UnWrittenCommentData";
 import { View, Image } from "react-native";
 import Back from "../../../assets/icon_back.svg";
 import { ProductList } from "../../../screen/food/ProductList";
@@ -18,12 +17,11 @@ const FoodStackNavigation = () => {
         headerStyle: {
           elevation: 0,
         },
-        headerTitle: 'i-Fresh',
         headerBackTitleVisible: false,
         headerTitleAlign: 'medium',
         headerBackImage: () => (
           <View style={{marginLeft: 15}}>
-            {/*<Back/>*/}
+            <Back/>
           </View>
         ),
       }}
@@ -33,7 +31,7 @@ const FoodStackNavigation = () => {
         name="ProductList"
         component={ProductList}
         options={{
-          // headerTitle: "나의 냉장고",
+          headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
             fontWeight: 'bold',
@@ -58,14 +56,15 @@ const FoodStackNavigation = () => {
       <Stack.Screen
         name="ProductDetail"
         component={ProductDetail}
-        options={{
-          headerTitle: "찌개두부",
-          headerTitleStyle: {
-            fontSize: 16,
-            fontWeight: 'bold',
-            fontFamily: 'tway_air'
-          }
-        }}
+        options={({ route }) => ({ title: route.params.name, headerBackTitleVisible: false})}
+        // options={{
+        //   headerTitle: "찌개두부",
+        //   headerTitleStyle: {
+        //     fontSize: 16,
+        //     fontWeight: 'bold',
+        //     fontFamily: 'tway_air'
+        //   }
+        // }}
       />
 
       <Stack.Screen

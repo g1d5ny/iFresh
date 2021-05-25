@@ -5,7 +5,7 @@ const LoadingPage = ({ navigation }) => {
 
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate("OnBoardingPage1");
+            navigation.navigate("OnBoardingPage");
         }, 3000);
     });
 
