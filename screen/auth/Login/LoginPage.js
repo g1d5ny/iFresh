@@ -84,12 +84,13 @@ const LoginPage = ({ navigation, route }) => {
                 marginTop: 10,
                 alignItems: "center",
                 justifyContent: "center",
-              }}  onPress={() => navigation.navigate('Login')}>
+              }}  onPress={() => navigation.navigate('TabNavigation')}>
                 <Text style={{ fontSize: 14, fontWeight: "bold", fontFamily: "tway_air", color: "#fff" }}>로그인</Text>
               </TouchableOpacity>
               <View style={{ alignSelf: "flex-end", flexDirection: "row", marginTop: 20 }}>
-                <Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>아이디 찾기 | </Text>
-                <Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>비밀번호 찾기</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('SearchID1')}><Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>아이디 찾기</Text></TouchableOpacity>
+                <Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}> | </Text>
+                <TouchableOpacity onPress={() => navigation.navigate('SearchPW')}><Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>비밀번호 찾기</Text></TouchableOpacity>
               </View>
             </View>
             <View style={{
@@ -100,7 +101,7 @@ const LoginPage = ({ navigation, route }) => {
               // backgroundColor: "pink",
             }}>
               <Text style={{ fontFamily: "tway_air", fontWeight: "bold", fontSize: 15 }}>SNS LOGIN</Text>
-              <View style={{
+              <TouchableOpacity style={{
                 width: 300,
                 height: 40,
                 borderRadius: 7,
@@ -109,10 +110,10 @@ const LoginPage = ({ navigation, route }) => {
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "row",
-              }}>
+              }} onPress={() => signInWithKakao()}>
                 <Image source={require("../../../assets/icon_kakao.png")} style={{ width: 40, height: 40 }} />
                 <Text style={{ color: "#3C1E1C", fontFamily: "tway_air", fontSize: 14 }}>카카오톡으로 로그인</Text>
-              </View>
+              </TouchableOpacity>
               <View style={{
                 width: 300,
                 height: 40,

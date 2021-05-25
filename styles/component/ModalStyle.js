@@ -19,7 +19,8 @@ export const ModalStyle = StyleSheet.create({
   modalText:{
     fontSize: 18,
     fontWeight: 'bold',
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: 'tway_air'
   },
   modalTouchView: {
     alignItems: 'flex-end',
@@ -37,5 +38,6 @@ export const ModalStyle = StyleSheet.create({
     color: '#fff',
     fontSize: 12,
     fontWeight: 'bold',
+    fontFamily: 'tway_air'
   }
 });
