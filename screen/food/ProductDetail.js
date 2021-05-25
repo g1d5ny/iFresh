@@ -12,7 +12,6 @@ import {
   Alert,
   ImageBackground,
 } from "react-native";
-import styled from "styled-components";
 import DatePicker from "react-native-date-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 import { Style } from "../../styles/user/Style";
@@ -47,12 +46,12 @@ const ProductDetail = ({ navigation, route }) => {
             borderRadius: 10,
             alignItems: 'center'
           }}>
-            <Image source={require('../../assets/img_food.png')} style={{width: 300, height: 200, marginTop: 30, marginBottom: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#F4F5F8', borderRadius: 10}}/>
+            <Image source={route.params.data.image} style={{width: 300, height: 200, marginTop: 30, marginBottom: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#F4F5F8', borderRadius: 10}}/>
             <View style={Style.InputView}>
               <Text style={Style.title}>상품명</Text>
               <View style={Style.textInputGray}>
-                <Text style={Style.content}>찌개두부</Text>
-                {/*<Text style={styles.title}>{route.params.name}</Text>*/}
+                <Text style={Style.content}>{route.params.data.name}</Text>
+                {/*<Text style={styles.title}>{route.params.data.name}</Text>*/}
               </View>
             </View>
             <View style={Style.InputView}>

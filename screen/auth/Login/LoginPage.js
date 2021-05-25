@@ -76,7 +76,7 @@ const LoginPage = ({ navigation, route }) => {
               <Text style={{ fontFamily: "tway_air", fontWeight: "bold", fontSize: 15 }}>LOGIN</Text>
               <TextInput style={AuthStyle.input} placeholder={"E-mail"} />
               <TextInput style={AuthStyle.input} placeholder={"PASSWORD"} />
-              <View style={{
+              <TouchableOpacity style={{
                 width: 300,
                 height: 40,
                 borderRadius: 7,
@@ -84,9 +84,9 @@ const LoginPage = ({ navigation, route }) => {
                 marginTop: 10,
                 alignItems: "center",
                 justifyContent: "center",
-              }}>
+              }}  onPress={() => navigation.navigate('Login')}>
                 <Text style={{ fontSize: 14, fontWeight: "bold", fontFamily: "tway_air", color: "#fff" }}>로그인</Text>
-              </View>
+              </TouchableOpacity>
               <View style={{ alignSelf: "flex-end", flexDirection: "row", marginTop: 20 }}>
                 <Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>아이디 찾기 | </Text>
                 <Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>비밀번호 찾기</Text>

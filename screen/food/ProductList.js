@@ -81,41 +81,64 @@ const ProductList = ({ navigation, route }) => {
     <SafeAreaView style={FoodStyle.background}>
       <ScrollView>
         <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop: 30 }}>
-          <Text style={{ color: "#24C58B", fontSize: 25, fontWeight: "bold", fontFamily: "tway_air", alignItmes: 'center' }}>나의 냉장고</Text>
+          <Text style={{
+            color: "#24C58B",
+            fontSize: 25,
+            fontWeight: "bold",
+            fontFamily: "tway_air",
+            alignItmes: "center",
+          }}>나의 냉장고</Text>
           {/*<Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 님의</Text>*/}
           {/*<Text style={{ fontSize: 25, color: "#24C58B", fontWeight: "bold", fontFamily: "tway_air" }}> 식재료</Text>*/}
           {/*<Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 입니다.</Text>*/}
         </View>
-        <View style={{ marginTop: 30, alignItems: "center", justifyContent: "center" }}>
-          <View style={{
-            backgroundColor: "#fff",
-            width: "90%",
-            height: 230,
-            borderRadius: 10,
-          }}>
-            <View style={styles.danger}>
-              <Text style={styles.dangerText}>위험</Text>
-            </View>
-            <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <FlatList
-                data={DATA}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) => {
-                  if (item.fresh === "위험") {
-                    return (
-                      <ProductListForm item={item} navigation={navigation} />
-                    );
-                  }
-                }}
-                contentContainerStyle={{ flexDirection: "row", justifyContent: "space-between" }}
-              />
-            </View>
-            <TouchableOpacity style={styles.more}>
-              <Text style={styles.moreText}>더보기</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <ScrollView>
+          <View style={{ marginTop: 30, alignItems: "center", justifyContent: "center" }}>
+            <View style={{
+              backgroundColor: "#fff",
+              width: "90%",
+              height: 230,
+              borderRadius: 10,
+            }}>
+              <View style={styles.danger}>
+                <Text style={styles.dangerText}>위험</Text>
+              </View>
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                {/*<FlatList*/}
+                {/*  data={DATA}*/}
+                {/*  keyExtractor={item => item.id}*/}
+                {/*  renderItem={({ item }) => {*/}
+                {/*    if (item.fresh === "위험") {*/}
+                {/*      return (*/}
+                {/*        <ProductListForm item={item} navigation={navigation} />*/}
+                {/*      );*/}
+                {/*    }*/}
+                {/*  }}*/}
+                {/*  contentContainerStyle={{ flexDirection: "row", justifyContent: "space-between" }}*/}
+                {/*/>*/}
+                {
+                  /*DATA.map((item, index) => (
+                    index % 3 === 0 &&
+                      <View style={{ width: "33%", alignItems: 'flex-start' }}>
+                        <ProductListForm item={item} navigation={navigation} />
+                      </View>
 
+                  ))*/
+                  DATA.map((item, index) => (
+                    index % 3 === 0 ?
+                    <View style={{backgroundColor: '#ffa', flexDirection: 'row'}}>
+                      <Text>{index}</Text>
+                    </View> :
+                      <Text>{index}</Text>
+                  ))
+                }
+              </View>
+              <TouchableOpacity style={styles.more}>
+                <Text style={styles.moreText}>더보기</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
         <View style={{ marginTop: 30, alignItems: "center", justifyContent: "center" }}>
           <View style={{
             backgroundColor: "#fff",

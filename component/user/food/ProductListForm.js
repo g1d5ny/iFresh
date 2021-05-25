@@ -4,7 +4,9 @@ import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "r
 const ProductListForm = ({ navigation, item, route }) => {
   return (
     <View style={{ margin: 5 }}>
-      <TouchableOpacity onPress={() => navigation.navigate('ProductDetail')}>
+      <TouchableOpacity onPress={() => navigation.navigate('ProductDetail', {data: {
+        image: item.photo, name: item.name
+        }, name: item.name})}>
         <Image source={item.photo} style={styles.foodStyle} />
       </TouchableOpacity>
       <Text style={styles.foodNameStyle}>{item.name}</Text>

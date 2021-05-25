@@ -1,7 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { View, Image } from "react-native";
+import { View, Image, Text, Button, TouchableOpacity } from "react-native";
 import Back from "../../assets/icon_back.svg";
+
 import { LoadingPage } from "../../screen/auth/Loading/LoadingPage";
 import { LoginPage } from "../../screen/auth/Login/LoginPage";
 import { OnBoardingPage1 } from "../../screen/auth/Loading/OnBoardingPage1";
@@ -22,19 +23,19 @@ const AuthNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{
+        headerBackTitleVisible: false,
+        headerShown: false,
         headerStyle: {
           elevation: 0,
         },
-        headerBackTitleVisible: false,
         headerTitleAlign: 'medium',
-        headerShown: false,
         headerBackImage: () => (
-          <View style={{marginLeft: 15}}>
-            {/*<Back/>*/}
+          <View style={{width: 20, height: 20, marginLeft: 15}}>
+            <Back />
           </View>
-        ),
-      }}>
-
+        )
+      }}
+    >
       <Stack.Screen
         name="LoadingPage"
         component={LoadingPage}
@@ -45,10 +46,10 @@ const AuthNavigation = () => {
         component={LoginPage}
       />
 
-      {/*<Stack.Screen*/}
-      {/*  name="OnBoardingPage"*/}
-      {/*  component={OnBoardingPage}*/}
-      {/*/>*/}
+      <Stack.Screen
+        name="OnBoardingPage"
+        component={OnBoardingPage}
+      />
 
       <Stack.Screen
         name="OnBoardingPage1"
@@ -75,7 +76,7 @@ const AuthNavigation = () => {
             fontSize: 16,
             fontWeight: 'bold',
             fontFamily: 'tway_air'
-          }
+          },
         }}
       />
 

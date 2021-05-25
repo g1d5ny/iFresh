@@ -24,8 +24,24 @@ const ProductAdd = ({ navigation }) => {
   const [store, setStore] = useState('');
   const [category, setCategory] = useState('');
 
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    {label: 'Apple', value: 'apple'},
+    {label: 'Banana', value: 'ba'}
+  ])
+
   return (
     <SafeAreaView style={FoodStyle.background}>
+      {/*<View style={{flex:1}}>
+        <DropDownPicker
+          open={open}
+          value={value}
+          items={items}
+          setOpen={setOpen}
+          setValue={setValue}
+          setItems={setItems}/>
+      </View>*/}
       <ScrollView>
         <View style={{ marginTop: 30, marginBottom: 30, alignItems: "center", justifyContent: "center" }}>
           <View style={{
