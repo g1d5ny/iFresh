@@ -77,6 +77,8 @@ const DATA = [
 
 const ProductList = ({ navigation, route }) => {
 
+  const [more, setMore] = useState();
+
   return (
     <SafeAreaView style={FoodStyle.background}>
       <ScrollView>
@@ -104,34 +106,40 @@ const ProductList = ({ navigation, route }) => {
                 <Text style={styles.dangerText}>위험</Text>
               </View>
               <View style={{ alignItems: "center", justifyContent: "center" }}>
-                {/*<FlatList*/}
-                {/*  data={DATA}*/}
-                {/*  keyExtractor={item => item.id}*/}
-                {/*  renderItem={({ item }) => {*/}
-                {/*    if (item.fresh === "위험") {*/}
-                {/*      return (*/}
-                {/*        <ProductListForm item={item} navigation={navigation} />*/}
-                {/*      );*/}
-                {/*    }*/}
-                {/*  }}*/}
-                {/*  contentContainerStyle={{ flexDirection: "row", justifyContent: "space-between" }}*/}
-                {/*/>*/}
-                {
-                  /*DATA.map((item, index) => (
-                    index % 3 === 0 &&
-                      <View style={{ width: "33%", alignItems: 'flex-start' }}>
+                <FlatList
+                  data={DATA}
+                  keyExtractor={item => item.id}
+                  renderItem={({ item }) => {
+                    if (item.fresh === "위험") {
+                      return (
                         <ProductListForm item={item} navigation={navigation} />
-                      </View>
+                      );
+                    }
+                  }}
+                  contentContainerStyle={{ flexDirection: "row", justifyContent: "space-between" }}
+                />
+                {/*  /*DATA.map((item, index) => (*/}
+                {/*    index % 3 === 0 &&*/}
+                {/*      <View style={{ width: "33%", alignItems: 'flex-start' }}>*/}
+                {/*        <ProductListForm item={item} navigation={navigation} />*/}
+                {/*      </View>*/}
 
-                  ))*/
-                  DATA.map((item, index) => (
-                    index % 3 === 0 ?
-                    <View style={{backgroundColor: '#ffa', flexDirection: 'row'}}>
-                      <Text>{index}</Text>
-                    </View> :
-                      <Text>{index}</Text>
-                  ))
-                }
+                  {/*))*/}
+                {/*  DATA.map((item, index) => (*/}
+                {/*    index % 3 === 0 ?*/}
+                {/*    <View style={{backgroundColor: '#ffa', flexDirection: 'row'}}>*/}
+                {/*      <Text>{index}</Text>*/}
+                {/*    </View> :*/}
+                {/*      <Text>{index}</Text>*/}
+                {/*  ))*/}
+                {/*}*/}
+                {/*  <View style={{width: '100%', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', }}>*/}
+                {/*{*/}
+                {/*  DATA.map((item, index) => (*/}
+                {/*  <Image style={{width: '33%', height: 100}} source={item.photo} resizeMode={'contain'} key={index.toString()}/>*/}
+                {/*  ))*/}
+                {/*}*/}
+                {/*  </View>*/}
               </View>
               <TouchableOpacity style={styles.more}>
                 <Text style={styles.moreText}>더보기</Text>

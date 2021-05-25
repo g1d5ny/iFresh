@@ -10,6 +10,7 @@ import OnIconStatistics from "../../assets/icon_statistics_checked.svg";
 import RecipeStackNavigation from "./stackNavigation/RecipeStackNavigation";
 import MyStackNavigation from "./stackNavigation/MyStackNavigation";
 import {View, Image, Text} from "react-native";
+import Back from "../../assets/icon_back.svg";
 
 const Tab = createBottomTabNavigator();
 
@@ -36,16 +37,16 @@ const TabNavigation = () => {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ focused }) => (
-            <View style={{marginTop: 30}}>
-              <Image source={require('../../assets/icon_food.png')}
-                     resizeMode="contain"
-                     style={{
-                       width: 30,
-                       height: 30,
-                       tintColor: focused ? '#24C58B' : '#DCDBE6'
-                     }}
-              />
-            </View>
+              <View style={{marginTop: 30}}>
+                <Image source={require('../../assets/icon_food.png')}
+                       resizeMode="contain"
+                       style={{
+                         width: 30,
+                         height: 30,
+                         tintColor: focused ? '#24C58B' : '#DCDBE6'
+                       }}
+                />
+              </View>
           )
         }}
       />
