@@ -1,5 +1,5 @@
 import React from "react";
-import {createStackNavigator} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import { View, Image } from "react-native";
 import Back from "../../../assets/icon_back.svg";
 import { ProductList } from "../../../screen/food/ProductList";
@@ -19,10 +19,10 @@ const FoodStackNavigation = () => {
         },
         // headerTitle: "i-Fresh",
         headerBackTitleVisible: false,
-        headerTitleAlign: 'medium',
+        headerTitleAlign: "medium",
         headerBackImage: () => (
-          <View style={{marginLeft: 15}}>
-            <Back/>
+          <View style={{ marginLeft: 15 }}>
+            <Back />
           </View>
         ),
       }}
@@ -35,8 +35,8 @@ const FoodStackNavigation = () => {
           headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold',
-            fontFamily: 'tway_air',
+            // fontWeight: "bold",
+            fontFamily: "tway_air",
           },
         }}
       />
@@ -48,9 +48,9 @@ const FoodStackNavigation = () => {
           // headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold',
-            fontFamily: 'tway_air'
-          }
+            // fontWeight: "bold",
+            fontFamily: "tway_air",
+          },
         }}
       />
 
@@ -60,9 +60,11 @@ const FoodStackNavigation = () => {
         options={({ route }) => ({
           title: route.params.name,
           headerBackTitleVisible: false,
-          fontSize: 16,
-          fontWeight: 'bold',
-          fontFamily: 'tway_air'})}
+          headerTitleStyle: {
+            fontSize: 16,
+            fontFamily: "tway_air",
+          },
+        })}
         // options={{
         //   headerTitle: "찌개두부",
         //   headerTitleStyle: {
@@ -80,9 +82,9 @@ const FoodStackNavigation = () => {
           headerTitle: "식품 추가",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold',
-            fontFamily: 'tway_air'
-          }
+            // fontWeight: "bold",
+            fontFamily: "tway_air",
+          },
         }}
       />
 
@@ -94,13 +96,13 @@ const FoodStackNavigation = () => {
           // headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold'
-          }
+            // fontWeight: "bold",
+          },
         }}
       />
 
     </Stack.Navigator>
-  )
+  );
 };
 
 export default FoodStackNavigation;

@@ -54,12 +54,14 @@ const LoginPage = ({ navigation, route }) => {
     return new Promise((resolve, reject) => {
       NaverLogin.login(props, (err, token) => {
         console.log(`\n\n  Token is fetched  :: ${token} \n\n`);
+        //console.log(token);
         setNaverToken(token);
         if (err) {
           reject(err);
           return;
         }
         resolve(token);
+        navigation.navigate("TabNavigation");
       });
     });
   };

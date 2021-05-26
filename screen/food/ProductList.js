@@ -16,6 +16,7 @@ import {
 import styled from "styled-components";
 import { ProductListForm } from "../../component/user/food/ProductListForm";
 import { FoodStyle } from "../../styles/user/food/FoodStyle";
+import Milk from "../../assets/img_milk.svg";
 
 const DATA = [
   {
@@ -38,36 +39,90 @@ const DATA = [
   },
   {
     id: 4,
-    photo: require("../../assets/img_milk.jpeg"),
-    name: "우유",
-    fresh: "적정",
+    photo: require("../../assets/img_food.png"),
+    name: "찌개두부",
+    fresh: "위험",
   },
   {
     id: 5,
-    photo: require("../../assets/img_milk.jpeg"),
-    name: "우유",
-    fresh: "적정",
+    photo: require("../../assets/img_food.png"),
+    name: "찌개두부",
+    fresh: "위험",
   },
   {
     id: 6,
-    photo: require("../../assets/img_milk.jpeg"),
+    photo: require("../../assets/img_food.png"),
+    name: "찌개두부",
+    fresh: "위험",
+  },
+  {
+    id: 7,
+    photo: require("../../assets/img_milk.svg"),
     name: "우유",
     fresh: "적정",
   },
   {
-    id: 7,
-    photo: require("../../assets/img_jkm.jpeg"),
-    name: "쭈꾸미",
-    fresh: "신선",
-  },
-  {
     id: 8,
-    photo: require("../../assets/img_jkm.jpeg"),
-    name: "쭈꾸미",
-    fresh: "신선",
+    photo: require("../../assets/img_milk.svg"),
+    name: "우유",
+    fresh: "적정",
   },
   {
     id: 9,
+    photo: require("../../assets/img_milk.svg"),
+    name: "우유",
+    fresh: "적정",
+  },
+  {
+    id: 10,
+    photo: require("../../assets/img_milk.svg"),
+    name: "우유",
+    fresh: "적정",
+  },
+  {
+    id: 11,
+    photo: require("../../assets/img_milk.svg"),
+    name: "우유",
+    fresh: "적정",
+  },
+  {
+    id: 12,
+    photo: require("../../assets/img_milk.svg"),
+    name: "우유",
+    fresh: "적정",
+  },
+  {
+    id: 13,
+    photo: require("../../assets/img_jkm.jpeg"),
+    name: "쭈꾸미",
+    fresh: "신선",
+  },
+  {
+    id: 14,
+    photo: require("../../assets/img_jkm.jpeg"),
+    name: "쭈꾸미",
+    fresh: "신선",
+  },
+  {
+    id: 15,
+    photo: require("../../assets/img_jkm.jpeg"),
+    name: "쭈꾸미",
+    fresh: "신선",
+  },
+  {
+    id: 16,
+    photo: require("../../assets/img_jkm.jpeg"),
+    name: "쭈꾸미",
+    fresh: "신선",
+  },
+  {
+    id: 17,
+    photo: require("../../assets/img_jkm.jpeg"),
+    name: "쭈꾸미",
+    fresh: "신선",
+  },
+  {
+    id: 18,
     photo: require("../../assets/img_jkm.jpeg"),
     name: "쭈꾸미",
     fresh: "신선",
@@ -77,7 +132,7 @@ const DATA = [
 
 const ProductList = ({ navigation, route }) => {
 
-  const [more, setMore] = useState();
+  const [viewOn, setViewOn] = useState(false);
 
   return (
     <SafeAreaView style={FoodStyle.background}>
@@ -86,7 +141,6 @@ const ProductList = ({ navigation, route }) => {
           <Text style={{
             color: "#24C58B",
             fontSize: 25,
-            fontWeight: "bold",
             fontFamily: "tway_air",
             alignItmes: "center",
           }}>나의 냉장고</Text>
@@ -106,6 +160,27 @@ const ProductList = ({ navigation, route }) => {
                 <Text style={styles.dangerText}>위험</Text>
               </View>
               <View style={{ alignItems: "center", justifyContent: "center" }}>
+                {viewOn === true ? (
+                  <View style={{ width: "100%", flexDirection: "row", flexWrap: "wrap", alignItems: "flex-start" }}>
+                    {
+                      DATA.map((item, index) => (
+                        item.fresh === "위험" &&
+                        <Image style={{ width: "33%", height: 100 }} source={item.photo} resizeMode={"contain"}
+                               key={index.toString()} />
+                      ))
+                    }
+                  </View>
+                ) : (
+                  <View style={{ width: "100%", flexDirection: "row", alignItems: "flex-start" }}>
+                    {
+                      DATA.map((item, index) => (
+                        item.fresh === "위험" &&
+                        <Image style={{ width: "33%", height: 100 }} source={item.photo} resizeMode={"contain"}
+                               key={index.toString()} />
+                      ))
+                    }
+                  </View>
+                )}
                 <FlatList
                   data={DATA}
                   keyExtractor={item => item.id}
@@ -118,21 +193,6 @@ const ProductList = ({ navigation, route }) => {
                   }}
                   contentContainerStyle={{ flexDirection: "row", justifyContent: "space-between" }}
                 />
-                {/*  /*DATA.map((item, index) => (*/}
-                {/*    index % 3 === 0 &&*/}
-                {/*      <View style={{ width: "33%", alignItems: 'flex-start' }}>*/}
-                {/*        <ProductListForm item={item} navigation={navigation} />*/}
-                {/*      </View>*/}
-
-                  {/*))*/}
-                {/*  DATA.map((item, index) => (*/}
-                {/*    index % 3 === 0 ?*/}
-                {/*    <View style={{backgroundColor: '#ffa', flexDirection: 'row'}}>*/}
-                {/*      <Text>{index}</Text>*/}
-                {/*    </View> :*/}
-                {/*      <Text>{index}</Text>*/}
-                {/*  ))*/}
-                {/*}*/}
                 {/*  <View style={{width: '100%', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', }}>*/}
                 {/*{*/}
                 {/*  DATA.map((item, index) => (*/}
@@ -141,7 +201,7 @@ const ProductList = ({ navigation, route }) => {
                 {/*}*/}
                 {/*  </View>*/}
               </View>
-              <TouchableOpacity style={styles.more}>
+              <TouchableOpacity style={styles.more} onPress={() => setViewOn(prevState => !prevState)}>
                 <Text style={styles.moreText}>더보기</Text>
               </TouchableOpacity>
             </View>
