@@ -57,37 +57,37 @@ const DATA = [
   },
   {
     id: 7,
-    photo: require("../../assets/img_milk.svg"),
+    photo: require("../../assets/img_milk.jpeg"),
     name: "우유",
     fresh: "적정",
   },
   {
     id: 8,
-    photo: require("../../assets/img_milk.svg"),
+    photo: require("../../assets/img_milk.jpeg"),
     name: "우유",
     fresh: "적정",
   },
   {
     id: 9,
-    photo: require("../../assets/img_milk.svg"),
+    photo: require("../../assets/img_milk.jpeg"),
     name: "우유",
     fresh: "적정",
   },
   {
     id: 10,
-    photo: require("../../assets/img_milk.svg"),
+    photo: require("../../assets/img_milk.jpeg"),
     name: "우유",
     fresh: "적정",
   },
   {
     id: 11,
-    photo: require("../../assets/img_milk.svg"),
+    photo: require("../../assets/img_milk.jpeg"),
     name: "우유",
     fresh: "적정",
   },
   {
     id: 12,
-    photo: require("../../assets/img_milk.svg"),
+    photo: require("../../assets/img_milk.jpeg"),
     name: "우유",
     fresh: "적정",
   },
@@ -132,7 +132,9 @@ const DATA = [
 
 const ProductList = ({ navigation, route }) => {
 
-  const [viewOn, setViewOn] = useState(false);
+  const [viewOn1, setViewOn1] = useState(true);
+  const [viewOn2, setViewOn2] = useState(true);
+  const [viewOn3, setViewOn3] = useState(true);
 
   return (
     <SafeAreaView style={FoodStyle.background}>
@@ -142,15 +144,12 @@ const ProductList = ({ navigation, route }) => {
             color: "#24C58B",
             fontSize: 25,
             fontFamily: "tway_air",
-            alignItmes: "center",
+            alignItems: "center",
           }}>나의 냉장고</Text>
-          {/*<Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 님의</Text>*/}
-          {/*<Text style={{ fontSize: 25, color: "#24C58B", fontWeight: "bold", fontFamily: "tway_air" }}> 식재료</Text>*/}
-          {/*<Text style={{ fontWeight: "700", fontSize: 20, fontFamily: "tway_air" }}> 입니다.</Text>*/}
         </View>
         <ScrollView>
           <View style={{ marginTop: 30, alignItems: "center", justifyContent: "center" }}>
-            <View style={{
+            <ScrollView style={{
               backgroundColor: "#fff",
               width: "90%",
               height: 230,
@@ -160,55 +159,39 @@ const ProductList = ({ navigation, route }) => {
                 <Text style={styles.dangerText}>위험</Text>
               </View>
               <View style={{ alignItems: "center", justifyContent: "center" }}>
-                {viewOn === true ? (
-                  <View style={{ width: "100%", flexDirection: "row", flexWrap: "wrap", alignItems: "flex-start" }}>
+                {viewOn1 === true ? (
+                  <View style={{
+                    width: "100%",
+                    flexDirection: "row",
+                    flexWrap: "wrap",
+                    alignItems: "flex-start",
+                    justifyContent: "space-around",
+                  }}>
                     {
                       DATA.map((item, index) => (
                         item.fresh === "위험" &&
-                        <Image style={{ width: "33%", height: 100 }} source={item.photo} resizeMode={"contain"}
-                               key={index.toString()} />
+                        <ProductListForm item={item} navigation={navigation} />
                       ))
                     }
                   </View>
                 ) : (
-                  <View style={{ width: "100%", flexDirection: "row", alignItems: "flex-start" }}>
+                  <View style={{ width: "100%", alignItems: "flex-start" }}>
                     {
-                      DATA.map((item, index) => (
-                        item.fresh === "위험" &&
-                        <Image style={{ width: "33%", height: 100 }} source={item.photo} resizeMode={"contain"}
-                               key={index.toString()} />
-                      ))
+                      DATA.filter(index => index < 3).map(item => <ProductListForm item={item} navigation={navigation} />)
                     }
                   </View>
                 )}
-                <FlatList
-                  data={DATA}
-                  keyExtractor={item => item.id}
-                  renderItem={({ item }) => {
-                    if (item.fresh === "위험") {
-                      return (
-                        <ProductListForm item={item} navigation={navigation} />
-                      );
-                    }
-                  }}
-                  contentContainerStyle={{ flexDirection: "row", justifyContent: "space-between" }}
-                />
-                {/*  <View style={{width: '100%', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', }}>*/}
-                {/*{*/}
-                {/*  DATA.map((item, index) => (*/}
-                {/*  <Image style={{width: '33%', height: 100}} source={item.photo} resizeMode={'contain'} key={index.toString()}/>*/}
-                {/*  ))*/}
-                {/*}*/}
-                {/*  </View>*/}
               </View>
-              <TouchableOpacity style={styles.more} onPress={() => setViewOn(prevState => !prevState)}>
-                <Text style={styles.moreText}>더보기</Text>
+              <TouchableOpacity style={styles.more} onPress={() => setViewOn1(prevState => !prevState)}>
+                <Text style={styles.moreText}>{
+                  viewOn1 === false ? '더보기' : '접기'
+                }</Text>
               </TouchableOpacity>
-            </View>
+            </ScrollView>
           </View>
         </ScrollView>
         <View style={{ marginTop: 30, alignItems: "center", justifyContent: "center" }}>
-          <View style={{
+          <ScrollView style={{
             backgroundColor: "#fff",
             width: "90%",
             height: 230,
@@ -218,27 +201,39 @@ const ProductList = ({ navigation, route }) => {
               <Text style={styles.warnText}>적정</Text>
             </View>
             <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <FlatList
-                data={DATA}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) => {
-                  if (item.fresh === "적정") {
-                    return (
+              {viewOn2 === true ? (
+                <View style={{
+                  width: "100%",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  alignItems: "flex-start",
+                  justifyContent: "space-around",
+                }}>
+                  {
+                    DATA.map((item, index) => (
+                      item.fresh === "적정" &&
                       <ProductListForm item={item} navigation={navigation} />
-                    );
+                    ))
                   }
-                }}
-                contentContainerStyle={{ flexDirection: "row", justifyContent: "space-between" }}
-              />
+                </View>
+              ) : (
+                <View style={{ width: "100%", alignItems: "flex-start" }}>
+                  {
+                    DATA.filter(index => index > 5 && index < 9).map(item => <ProductListForm item={item} navigation={navigation} />)
+                  }
+                </View>
+              )}
             </View>
-            <TouchableOpacity style={styles.more}>
-              <Text style={styles.moreText}>더보기</Text>
+            <TouchableOpacity style={styles.more} onPress={() => setViewOn2(prevState => !prevState)}>
+              <Text style={styles.moreText}>{
+                viewOn2 === false ? '더보기' : '접기'
+              }</Text>
             </TouchableOpacity>
-          </View>
+          </ScrollView>
         </View>
 
         <View style={{ marginTop: 30, marginBottom: 30, alignItems: "center", justifyContent: "center" }}>
-          <View style={{
+          <ScrollView style={{
             backgroundColor: "#fff",
             width: "90%",
             height: 230,
@@ -248,23 +243,35 @@ const ProductList = ({ navigation, route }) => {
               <Text style={styles.freshText}>신선</Text>
             </View>
             <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <FlatList
-                data={DATA}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) => {
-                  if (item.fresh === "신선") {
-                    return (
+              {viewOn3 === true ? (
+                <View style={{
+                  width: "100%",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  alignItems: "flex-start",
+                  justifyContent: "space-around",
+                }}>
+                  {
+                    DATA.map((item, index) => (
+                      item.fresh === "신선" &&
                       <ProductListForm item={item} navigation={navigation} />
-                    );
+                    ))
                   }
-                }}
-                contentContainerStyle={{ flexDirection: "row", justifyContent: "space-between" }}
-              />
+                </View>
+              ) : (
+                <View style={{ width: "100%", alignItems: "flex-start" }}>
+                  {
+                    DATA.filter(index => index > 14).map(item => <ProductListForm item={item} navigation={navigation} />)
+                  }
+                </View>
+              )}
             </View>
-            <TouchableOpacity style={styles.more}>
-              <Text style={styles.moreText}>더보기</Text>
+            <TouchableOpacity style={styles.more} onPress={() => setViewOn3(prevState => !prevState)}>
+              <Text style={styles.moreText}>{
+                viewOn3 === false ? '더보기' : '접기'
+              }</Text>
             </TouchableOpacity>
-          </View>
+          </ScrollView>
         </View>
         <TouchableOpacity
           style={{
@@ -293,6 +300,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 10,
+    marginBottom : 20
   },
 
   freshText: {

@@ -69,6 +69,7 @@ const Register = ({ navigation }) => {
           <TextInput
             placeholder={"비밀번호"}
             style={AuthStyle.input}
+            secureTextEntry={true}
           />
         </View>
         <View style={{ marginTop: 20, alignSelf: "center" }}>
@@ -76,10 +77,11 @@ const Register = ({ navigation }) => {
           <TextInput
             placeholder={"비밀번호 확인"}
             style={AuthStyle.input}
+            secureTextEntry={true}
           />
         </View>
         <TouchableOpacity style={AuthStyle.nextButton}
-                          onPress={() => navigation.navigate('Login')}>
+                          onPress={() => navigation.navigate('LoginPage')}>
           <Text style={AuthStyle.buttonText}>다음</Text>
         </TouchableOpacity>
 

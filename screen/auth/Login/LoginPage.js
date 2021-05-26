@@ -1,6 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet, View, Text, Image, TextInput, TouchableOpacity, ScrollView, Platform, Alert, ImageBackground } from "react-native";
-import { KakaoOAuthToken, KakaoProfile, getProfile as getKakaoProfile, login, logout, unlink } from "@react-native-seoul/kakao-login";
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+  Platform,
+  Alert,
+  ImageBackground,
+} from "react-native";
+import {
+  KakaoOAuthToken,
+  KakaoProfile,
+  getProfile as getKakaoProfile,
+  login,
+  logout,
+  unlink,
+} from "@react-native-seoul/kakao-login";
 import { Style } from "../../../styles/user/Style";
 import { AuthStyle } from "../../../styles/auth/AuthStyle";
 import { NaverLogin, getProfile } from "@react-native-seoul/naver-login";
@@ -9,18 +28,22 @@ const iosKeys = {
   kConsumerKey: "BxH4kkEoXxN2DbBBAR6X",
   kConsumerSecret: "83HMmGj5Nu",
   kServiceAppName: "테스트앱(iOS)",
-  kServiceAppUrlScheme: "freshLogin" // only for iOS
+  kServiceAppUrlScheme: "freshLogin", // only for iOS
 };
 
 const androidKeys = {
   kConsumerKey: "BxH4kkEoXxN2DbBBAR6X",
   kConsumerSecret: "83HMmGj5Nu",
-  kServiceAppName: "테스트앱(안드로이드)"
+  kServiceAppName: "테스트앱(안드로이드)",
 };
 
 const initials = Platform.OS === "ios" ? iosKeys : androidKeys;
 
 const LoginPage = ({ navigation, route }) => {
+
+  useEffect(() => {
+    naverLogout();
+  })
 
   const [result, setResult] = useState("");
 
@@ -53,8 +76,8 @@ const LoginPage = ({ navigation, route }) => {
   const naverLogin = props => {
     return new Promise((resolve, reject) => {
       NaverLogin.login(props, (err, token) => {
-        console.log(`\n\n  Token is fetched  :: ${token} \n\n`);
-        //console.log(token);
+        // console.log(`\n\n  Token is fetched  :: ${token} \n\n`);
+        console.log(token);
         setNaverToken(token);
         if (err) {
           reject(err);
@@ -87,15 +110,15 @@ const LoginPage = ({ navigation, route }) => {
                          style={{ width: "100%", height: "100%" }} resizeMode="stretch">
           <View style={{ height: "100%" }}>
             <View style={{ marginTop: 20, marginLeft: 20 }}>
-              <Text style={{ color: "#fff", fontSize: 28, fontWeight: "bold", marginTop: 10, fontFamily: "tway_air" }}>Welcome
+              <Text style={{ color: "#fff", fontSize: 28, marginTop: 10, fontFamily: "tway_air" }}>Welcome
                 To i-Fresh!</Text>
-              <Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold", marginTop: 10, fontFamily: "tway_air" }}>식재료의
+              <Text style={{ color: "#fff", fontSize: 15, marginTop: 10, fontFamily: "tway_air" }}>식재료의
                 신선도와 레시피 확인을
                 한번에!</Text>
             </View>
             <View style={{ alignItems: "center", justifyContent: "center", marginTop: 100 }}>
               <Text
-                style={{ color: "#24C58B", fontSize: 22, fontWeight: "bold", fontFamily: "tway_air" }}>i-Fresh</Text>
+                style={{ color: "#24C58B", fontSize: 22, fontFamily: "tway_air" }}>i-Fresh</Text>
             </View>
             <View style={{
               width: 300,
@@ -105,7 +128,7 @@ const LoginPage = ({ navigation, route }) => {
             }}>
               <Text style={{ fontFamily: "tway_air", fontWeight: "bold", fontSize: 15 }}>LOGIN</Text>
               <TextInput style={AuthStyle.input} placeholder={"E-mail"} />
-              <TextInput style={AuthStyle.input} placeholder={"PASSWORD"} />
+              <TextInput style={AuthStyle.input} placeholder={"PASSWORD"} secureTextEntry={true}/>
               <TouchableOpacity style={{
                 width: 300,
                 height: 40,
@@ -114,13 +137,15 @@ const LoginPage = ({ navigation, route }) => {
                 marginTop: 10,
                 alignItems: "center",
                 justifyContent: "center",
-              }}  onPress={() => navigation.navigate('TabNavigation')}>
+              }} onPress={() => navigation.navigate("TabNavigation")}>
                 <Text style={{ fontSize: 14, fontWeight: "bold", fontFamily: "tway_air", color: "#fff" }}>로그인</Text>
               </TouchableOpacity>
               <View style={{ alignSelf: "flex-end", flexDirection: "row", marginTop: 20 }}>
-                <TouchableOpacity onPress={() => navigation.navigate('SearchID1')}><Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>아이디 찾기</Text></TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("SearchID1")}><Text
+                  style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>아이디 찾기</Text></TouchableOpacity>
                 <Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}> | </Text>
-                <TouchableOpacity onPress={() => navigation.navigate('SearchPW')}><Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>비밀번호 찾기</Text></TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("SearchPW")}><Text
+                  style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>비밀번호 찾기</Text></TouchableOpacity>
               </View>
             </View>
             <View style={{
@@ -159,7 +184,9 @@ const LoginPage = ({ navigation, route }) => {
               </TouchableOpacity>
               <View style={{ marginTop: 40, alignSelf: "center", flexDirection: "row" }}>
                 <Text style={{ color: "#2d2d2d", fontFamily: "tway_air", fontSize: 14 }}>i-Fresh의 회원이 아니신가요?</Text>
-                <Text style={{ color: "#2097F6", fontFamily: "tway_air", fontSize: 14, marginLeft: 10 }}>회원가입</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+                  <Text style={{ color: "#2097F6", fontFamily: "tway_air", fontSize: 14, marginLeft: 10 }}>회원가입</Text>
+                </TouchableOpacity>
               </View>
             </View>
             <View style={{ marginTop: 50 }}>
