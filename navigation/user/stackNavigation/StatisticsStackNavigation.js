@@ -30,7 +30,7 @@ const StatisticsStackNavigation = () => {
           // headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
-            fontWeight: 'bold',
+            // fontWeight: 'bold',
             fontFamily: 'tway_air'
           }
         }}
