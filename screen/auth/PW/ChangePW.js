@@ -12,6 +12,7 @@ const ChangePW = ({ navigation }) => {
                         <TextInput
                             placeholder={"비밀번호"}
                             style={AuthStyle.input}
+                            secureTextEntry={true}
                         />
                     </View>
                     <View style={{marginTop: 20}}>
@@ -20,6 +21,7 @@ const ChangePW = ({ navigation }) => {
                             <TextInput
                                 placeholder={"비밀번호 확인"}
                                 style={AuthStyle.input}
+                                secureTextEntry={true}
                             />
                         </View>
                     </View>
