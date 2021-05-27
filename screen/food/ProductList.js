@@ -136,6 +136,11 @@ const ProductList = ({ navigation, route }) => {
   const [viewOn2, setViewOn2] = useState(true);
   const [viewOn3, setViewOn3] = useState(true);
 
+  const f =() => {
+    const result = DATA.filter((item, index) => index > 3);
+
+  }
+
   return (
     <SafeAreaView style={FoodStyle.background}>
       <ScrollView>
@@ -177,7 +182,20 @@ const ProductList = ({ navigation, route }) => {
                 ) : (
                   <View style={{ width: "100%", alignItems: "flex-start" }}>
                     {
-                      DATA.filter(index => index < 3).map(item => <ProductListForm item={item} navigation={navigation} />)
+                      /*DATA.filter(index => {
+                        if(index < 3) {
+                          return (
+                          <ProductListForm item={item} navigation={navigation} />
+                          )
+                        }
+                      })*/
+                      DATA.map((item,index) => {
+                        if(index < 3) {
+                          return (
+                          <ProductListForm item={item} navigation={navigation} />
+                          )
+                        }
+                      })
                     }
                   </View>
                 )}
