@@ -2,7 +2,8 @@ import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
 import { View } from "react-native";
 import Back from "../../../assets/icon_back.svg";
-import { RecipeList } from "../../../screen/recipe/RecipeList";
+import RecipeList from "../../../screen/recipe/RecipeList";
+import RecipeListForm from "../../../component/user/recipe/RecipeListForm";
 
 const Stack = createStackNavigator();
 
@@ -13,6 +14,7 @@ const RecipeStackNavigation = () => {
         headerStyle: {
           elevation: 0,
         },
+        headerTitle: '레시피',
         headerBackTitleVisible: false,
         headerTitleAlign: 'medium',
         headerBackImage: () => (
@@ -27,7 +29,20 @@ const RecipeStackNavigation = () => {
         name="RecipeList"
         component={RecipeList}
         options={{
-          headerTitle: "i-Fresh",
+          // headerTitle: "i-Fresh",
+          headerTitleStyle: {
+            fontSize: 16,
+            // fontWeight: 'bold',
+            fontFamily: 'tway_air'
+          }
+        }}
+      />
+
+      <Stack.Screen
+        name="RecipeListForm"
+        component={RecipeListForm}
+        options={{
+          // headerTitle: "i-Fresh",
           headerTitleStyle: {
             fontSize: 16,
             // fontWeight: 'bold',
