@@ -5,7 +5,7 @@ import * as ImagePicker from "react-native-image-picker/src";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 
 
-const RecipeUpload = () => {
+const RecipeUpload = ({ navigation }) => {
 
   const [test, setTest] = useState(3);
   const [img, setImg] = useState(3);
@@ -459,7 +459,7 @@ const RecipeUpload = () => {
           </View>
         </View>
         <View style={{alignItems: 'center', justifyContent: 'center', margin: 40}}>
-          <TouchableOpacity style={Style.button}>
+          <TouchableOpacity style={Style.button} onPress={() => navigation.navigate('RecipeList')}>
             <Text style={Style.buttonText}>레시피 업로드</Text>
           </TouchableOpacity>
         </View>

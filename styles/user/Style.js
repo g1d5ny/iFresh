@@ -70,7 +70,7 @@ export const Style = StyleSheet.create({
     fontSize: 15,
   },
   background: {
-    backgroundColor: "rgba(36,197,135,0.07)",
+    backgroundColor: "rgba(36,197,139,0.07)",
     flex: 1
   }
 })
