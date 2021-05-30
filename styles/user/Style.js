@@ -69,4 +69,8 @@ export const Style = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 15,
   },
+  background: {
+    backgroundColor: "rgba(36,197,135,0.07)",
+    flex: 1
+  }
 })

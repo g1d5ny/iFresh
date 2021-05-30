@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, Image, Text, TouchableOpacity } from "react-native";
 
-const RecipeListForm = ({ navigation, route, item }) => {
+const RecipeListForm = ({ navigation, item }) => {
   return (
     <View style={{ alignItems: "center", justifyContent: "center" }}>
       <TouchableOpacity style={{
@@ -12,7 +12,11 @@ const RecipeListForm = ({ navigation, route, item }) => {
         borderColor: "#DCDBE6",
         borderRadius: 7,
         flexDirection: "row",
-      }}>
+      }} onPress={() => navigation.navigate('RecipeDetail', {data: {
+          photo: item.photo, author: item.author, name: item.name,
+          time: item.time, like: item.like, ingredient: item.ingredient,
+          recipePhoto: item.recipePhoto
+        }, name: item.name})}>
         <Image source={item.photo}
                style={{ flex: 3, width: 120, height: "100%", borderTopLeftRadius: 7, borderBottomLeftRadius: 7 }} />
         <View style={{ flex: 6, width: "100%", margin: 15, justifyContent: 'space-between'}}>
