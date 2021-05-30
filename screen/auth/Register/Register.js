@@ -14,6 +14,45 @@ import {
 import { AuthStyle } from "../../../styles/auth/AuthStyle";
 import Modal from "react-native-modal";
 import { ModalStyle } from "../../../styles/component/ModalStyle";
+import useInput from "../../../hooks/useInput";
+
+const XMLRequestFunction = async (body, url, setData, setLoading) => {
+  setLoading(true);
+  try {
+    return new Promise(function(resolve, reject) {
+      const xobj = new XMLHttpRequest();
+      xobj.open('POST', url , true);
+      xobj.setRequestHeader('Content-type', 'application/x-www-form-urlencoded;charset=utf-8');
+      xobj.onreadystatechange = function () {
+        if (xobj.readyState !== 4) {
+          return;
+        }
+        if (xobj.status === 200) {
+          console.log('success', xobj.response);
+          const jsonResponse = JSON.parse(xobj.response);
+          if(jsonResponse.state === 'true') {
+            setData(jsonResponse.providerInfo);
+          } else if(jsonResponse.state === 'false') {
+            Alert.alert(jsonResponse.data);
+          } else {
+            // error
+            Alert.alert(jsonResponse.data);
+          }
+          setLoading(false);
+          resolve(jsonResponse.state)
+        } else {
+          Alert.alert('server error' + xobj.status);
+          console.warn('server error');
+          setLoading(false);
+        }
+      };
+      xobj.send(body);
+    })
+  } catch (e) {
+    Alert.alert(e.message);
+    setLoading(false);
+  }
+};
 
 const Register = ({ navigation }) => {
 
@@ -22,6 +61,23 @@ const Register = ({ navigation }) => {
   const toggleModal = () => {
       setModalVisible(!modalVisible);
   };
+  const [apple, setApple] = useState();
+  const [loading, setLoading] = useState(false);
+  const emailInput = useInput("");
+  const pwdInput = useInput("");
+  const phoneNumInput = useInput("");
+  const nameInput = useInput("");
+
+
+  const XML = async () => {
+    XMLRequestFunction('Email='+emailInput.value+"&Pwd="+pwdInput.value, "http://797c916bef4d.ngrok.io/Register.php", setApple, setLoading)
+      .then(state => {
+        if(state === 'true') {
+          console.log("state",state);
+          navigation.navigate("LoginPage");
+        }
+      })
+  }
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -33,6 +89,9 @@ const Register = ({ navigation }) => {
         <View style={{ marginTop: 50, alignSelf: "center" }}>
           <Text style={AuthStyle.list}>이름</Text>
           <TextInput
+            onChangeText={nameInput.onChange}
+            value={nameInput.value}
+            {...nameInput}
             placeholder={"이름"}
             style={AuthStyle.input}
           />
@@ -40,6 +99,9 @@ const Register = ({ navigation }) => {
         <View style={{ marginTop: 20, alignSelf: "center" }}>
           <Text style={AuthStyle.list}>연락처</Text>
           <TextInput
+            onChangeText={phoneNumInput.onChange}
+            value={phoneNumInput.value}
+            {...phoneNumInput}
             placeholder={"연락처"}
             style={AuthStyle.input}
           />
@@ -48,6 +110,9 @@ const Register = ({ navigation }) => {
           <Text style={AuthStyle.list}>ID(E-mail)</Text>
           <View style={{ flexDirection: "row" }}>
             <TextInput
+              onChangeText={emailInput.onChange}
+              value={emailInput.value}
+              {...emailInput}
               placeholder={"ID(E-mail)"}
               style={AuthStyle.shortInput}
             />
@@ -67,6 +132,9 @@ const Register = ({ navigation }) => {
         <View style={{ marginTop: 20, alignSelf: "center" }}>
           <Text style={AuthStyle.list}>비밀번호</Text>
           <TextInput
+            onChangeText={pwdInput.onChange}
+            value={pwdInput.value}
+            {...pwdInput}
             placeholder={"비밀번호"}
             style={AuthStyle.input}
             secureTextEntry={true}
@@ -81,7 +149,7 @@ const Register = ({ navigation }) => {
           />
         </View>
         <TouchableOpacity style={AuthStyle.nextButton}
-                          onPress={() => navigation.navigate('LoginPage')}>
+                          onPress={() => XML()}>
           <Text style={AuthStyle.buttonText}>다음</Text>
         </TouchableOpacity>
 

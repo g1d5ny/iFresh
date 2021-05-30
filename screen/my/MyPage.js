@@ -7,7 +7,7 @@ const MyPage = ({ navigation }) => {
   return (
         <SafeAreaView style={Style.background}>
           <ScrollView>
-            <View>
+            <View style={{flex: 1, justifyContent: 'space-between'}}>
               <View style={MyStyle.box}>
                 <TouchableOpacity style={styles.listView}
                                   onPress={() => navigation.navigate('MyEdit')}>
@@ -34,6 +34,12 @@ const MyPage = ({ navigation }) => {
                   <Text style={styles.list}>회원 탈퇴</Text>
                   <Image source={require('../../assets/icon_bracket.png')} />
                 </TouchableOpacity>
+              </View>
+              <View style={MyStyle.logoutView}>
+                <Text style={MyStyle.logoutText}>로그아웃</Text>
+              </View>
+              <View style={MyStyle.advertise}>
+                <Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>
               </View>
             </View>
           </ScrollView>

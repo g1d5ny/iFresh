@@ -18,7 +18,7 @@ const RecipeDetail = ({ route, navigation }) => {
     setModalVisible2(!modalVisible2);
   };
 
-
+  console.log(route.params.data.ingredient);
   // {
   //   ingredient.map((index, item) => (
   //       console.log(ingredient[index].amount)

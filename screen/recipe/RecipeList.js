@@ -105,9 +105,10 @@ const RecipeList = ({ navigation }) => {
             <TextInput style={{
               width: 260,
               height: 40,
-              borderWidth: 1,
+              // borderWidth: 1,
               borderColor: "#DCDBE6",
-              borderRadius: 7,
+              // borderRadius: 7,
+              borderBottomWidth: 1,
               marginRight: 10,
             }} placeholder={"메뉴를 입력해주세요"} paddingLeft={10} />
             <TouchableOpacity style={{

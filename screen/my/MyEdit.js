@@ -3,7 +3,7 @@ import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableO
 import { MyStyle } from "../../styles/user/my/MyStyle";
 import { Style } from "../../styles/user/Style";
 
-const MyEdit = () => {
+const MyEdit = ({ navigation }) => {
 
   const [phone, setPhone] = useState(false);
   const [pw, setPw] = useState(false);
@@ -145,14 +145,17 @@ const MyEdit = () => {
                         </View>
                       </View>
                     )
-
                   }
-
                 </View>
               </View>
             </View>
-
           </View>
+        </View>
+        <TouchableOpacity style={MyStyle.logoutView} onPress={() => navigation.navigate('LoginPage')}>
+          <Text style={MyStyle.logoutText}>로그아웃</Text>
+        </TouchableOpacity>
+        <View style={MyStyle.advertise}>
+          <Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>
         </View>
       </ScrollView>
     </SafeAreaView>

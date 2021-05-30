@@ -47,10 +47,17 @@ const LoginPage = ({ navigation, route }) => {
 
   const [result, setResult] = useState("");
 
+  const getKProfile = async () => {
+    const profile = await getKakaoProfile();
+    setResult(JSON.stringify(profile));
+    console.log(result);
+  };
+
   const signInWithKakao = async () => {
     const token = await login();
     setResult(JSON.stringify(token));
     navigation.navigate("TabNavigation");
+    getKProfile();
   };
 
   const signOutWithKakao = async () => {
@@ -59,11 +66,7 @@ const LoginPage = ({ navigation, route }) => {
     setResult(message);
   };
 
-  const getKProfile = async () => {
-    const profile = await getKakaoProfile();
 
-    setResult(JSON.stringify(profile));
-  };
 
   const unlinkKakao = async (): Promise<void> => {
     const message = await unlink();
