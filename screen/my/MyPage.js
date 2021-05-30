@@ -1,0 +1,60 @@
+import React, {useState, useEffect} from "react";
+import {SafeAreaView, StyleSheet, ScrollView, View, TouchableOpacity, Text, TextInput, Image} from "react-native";
+import { Style } from "../../styles/user/Style";
+import { MyStyle } from "../../styles/user/my/MyStyle";
+
+const MyPage = ({ navigation }) => {
+  return (
+        <SafeAreaView style={Style.background}>
+          <ScrollView>
+            <View>
+              <View style={MyStyle.box}>
+                <TouchableOpacity style={styles.listView}
+                                  onPress={() => navigation.navigate('MyEdit')}>
+                  <Text style={styles.list}>사용자 정보</Text>
+                  <Image source={require('../../assets/icon_bracket.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.listView}
+                                  onPress={() => navigation.navigate('MyRecipe')}>
+                  <Text style={styles.list}>마이 레시피</Text>
+                  <Image source={require('../../assets/icon_bracket.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.listView}
+                                  onPress={() => navigation.navigate('WishRecipe')}>
+                  <Text style={styles.list}>위시 레시피</Text>
+                  <Image source={require('../../assets/icon_bracket.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.listView}
+                                  onPress={() => navigation.navigate('Information')}>
+                  <Text style={styles.list}>이용 안내</Text>
+                  <Image source={require('../../assets/icon_bracket.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.listView}
+                                  onPress={() => navigation.navigate('Withdrawal')}>
+                  <Text style={styles.list}>회원 탈퇴</Text>
+                  <Image source={require('../../assets/icon_bracket.png')} />
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+    )
+}
+
+const styles = StyleSheet.create({
+  listView: {
+    width: '87%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+    // paddingTop: 12,
+    height: 50,
+  },
+  list: {
+    fontFamily: 'tway_air',
+    fontSize: 14
+  }
+})
+
+export default MyPage;
