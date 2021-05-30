@@ -97,6 +97,7 @@ const RecipeList = ({ navigation }) => {
               }}
               style={[{ backgroundColor: "#fff", borderWidth: 1, borderColor: "#dcdbe6" }]}
             />
+
             <TouchableOpacity onPress={() => navigation.navigate('RecipeUpload')}>
               <Image source={require("../../assets/icon_plus.png")} style={{ width: 40, height: 40 }} />
             </TouchableOpacity>
