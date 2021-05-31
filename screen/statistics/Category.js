@@ -31,18 +31,18 @@ const Category = ({ navigation }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    {label: '1월'},
-    {label: '2월'},
-    {label: '3월'},
-    {label: '4월'},
-    {label: '5월'},
-    {label: '6월'},
-    {label: '7월'},
-    {label: '8월'},
-    {label: '9월'},
-    {label: '10월'},
-    {label: '11월'},
-    {label: '12월'},
+    { label: "1월" },
+    { label: "2월" },
+    { label: "3월" },
+    { label: "4월" },
+    { label: "5월" },
+    { label: "6월" },
+    { label: "7월" },
+    { label: "8월" },
+    { label: "9월" },
+    { label: "10월" },
+    { label: "11월" },
+    { label: "12월" },
   ]);
 
 
@@ -174,7 +174,7 @@ const Category = ({ navigation }) => {
               },
               {
                 percentage: 11,
-                color: "#929393",
+                color: "#9b5ebc",
               },
               {
                 percentage: 7,
@@ -192,32 +192,56 @@ const Category = ({ navigation }) => {
             strokeCap={"butt"}
             accessor="percentage"
           />
-          <View style={{flexDirection: 'row', marginTop: 40, marginBottom : 20}}>
-            <View style={{ marginRight: 10, flexDirection: "row" }}>
-              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#479FF8", marginRight: 10 }} />
-              <Text style={styles.font}>농산물</Text>
-            </View>
+          <View style={{ flexDirection: "row", marginTop: 40, marginBottom: 20 }}>
             <View style={{ marginRight: 10, flexDirection: "row" }}>
               <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#80D654", marginRight: 10 }} />
-              <Text style={styles.font}>해산물</Text>
-            </View>
-            <View style={{ marginRight: 10, flexDirection: "row" }}>
-              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#929393", marginRight: 10 }} />
-              <Text style={styles.font}>육류</Text>
-            </View>
-          </View>
-          <View style={{flexDirection: 'row', marginBottom : 40}}>
-            <View style={{ marginRight: 10, flexDirection: "row" }}>
-              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#EFBD40", marginRight: 10 }} />
-              <Text style={styles.font}>유제품</Text>
+              <Text style={styles.font}>채소</Text>
             </View>
             <View style={{ marginRight: 10, flexDirection: "row" }}>
               <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#EA4125", marginRight: 10 }} />
-              <Text style={styles.font}>음료</Text>
+              <Text style={styles.font}>과일·견과·쌀</Text>
             </View>
             <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#479FF8", marginRight: 10 }} />
+              <Text style={styles.font}>수산·해산·건어물</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#EFBD40", marginRight: 10 }} />
+              <Text style={styles.font}>정육·계란</Text>
+            </View>
+          </View>
+          <View style={{ flexDirection: "row", marginBottom: 20 }}>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#929393", marginRight: 10 }} />
+              <Text style={styles.font}>국·반찬·메인요리</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#428621", marginRight: 10 }} />
+              <Text style={styles.font}>샐러드·간편식</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#370b6b", marginRight: 10 }} />
+              <Text style={styles.font}>면·양념·오일</Text>
+            </View>
+          </View>
+          <View style={{ flexDirection: "row", marginBottom: 20 }}>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#d48858", marginRight: 10 }} />
+              <Text style={styles.font}>생수·음료·우유·커피</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#d414f8", marginRight: 10 }} />
+              <Text style={styles.font}>간식·과자·떡·커피</Text>
+            </View>
+          </View>
+          <View style={{ flexDirection: "row", marginBottom: 40 }}>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
               <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#C13175", marginRight: 10 }} />
-              <Text style={styles.font}>기타</Text>
+              <Text style={styles.font}>베이커리·치즈·델리</Text>
+            </View>
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#9b5ebc", marginRight: 10 }} />
+              <Text style={styles.font}>건강식품</Text>
             </View>
           </View>
           {/*<PieChart*/}
@@ -292,32 +316,32 @@ const Category = ({ navigation }) => {
             </DataTable.Header>
 
             <DataTable.Row style={{ borderWidth: 1, borderColor: "#2d2d2d" }}>
-              <DataTable.Cell><Text style={StatisticsStyle.font}>농산물</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>수산·해산·건어물</Text></DataTable.Cell>
               <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 55,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell><Text style={StatisticsStyle.font}>해산물</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>채소</Text></DataTable.Cell>
               <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 18,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell><Text style={StatisticsStyle.font}>육류</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>건강식품</Text></DataTable.Cell>
               <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 11,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell><Text style={StatisticsStyle.font}>유제품</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>정육·계란</Text></DataTable.Cell>
               <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 7,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell><Text style={StatisticsStyle.font}>음료</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>과일·견과·쌀</Text></DataTable.Cell>
               <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 5,000</Text></DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell><Text style={StatisticsStyle.font}>기타</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>베이커리·치즈·델리</Text></DataTable.Cell>
               <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 4,000</Text></DataTable.Cell>
             </DataTable.Row>
 
