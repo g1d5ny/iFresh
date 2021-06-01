@@ -38,6 +38,11 @@ const FoodStackNavigation = () => {
             // fontWeight: "bold",
             fontFamily: "tway_air",
           },
+          headerBackImage: () => (
+            <View style={{ marginLeft: 15 }}>
+              {/*<Back />*/}
+            </View>
+          ),
         }}
       />
 

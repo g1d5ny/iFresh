@@ -31,7 +31,7 @@ const XMLRequestFunction = async (body, url, setData, setLoading) => {
           console.log("success", xobj.response);
           const jsonResponse = JSON.parse(xobj.response);
           if (jsonResponse.state === "true") {
-            setData(jsonResponse.providerInfo);
+            setData(jsonResponse.data);
           } else if (jsonResponse.state === "false") {
             Alert.alert(jsonResponse.data);
           } else {
