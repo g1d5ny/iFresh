@@ -7,7 +7,7 @@ import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 
 const RecipeUpload = ({ navigation }) => {
 
-  const [test, setTest] = useState(3);
+  const [test, setTest] = useState(0);
   const [img, setImg] = useState(3);
   const [imgFile, setImgFile] = useState([]);
   const [imgLoading, setImgLoading] = useState(false);
@@ -110,7 +110,7 @@ const RecipeUpload = ({ navigation }) => {
               }} placeholder={"양"} />
             </View>
           </View>
-          <View style={{ marginTop: 20, backgroundColor: "#fff", alignItems: "center", height: 830 }}>
+          <View style={{ marginTop: 20, backgroundColor: "#fff", alignItems: "center" }}>
             <View style={{
               width: "90%",
               marginTop: 20,
@@ -201,7 +201,7 @@ const RecipeUpload = ({ navigation }) => {
               }} placeholder={"재료양"} />
             </View>
             {
-              test > 3 && (
+              test > 0 && (
                 <View style={{
                   width: "90%",
                   alignItems: "center",
@@ -387,7 +387,7 @@ const RecipeUpload = ({ navigation }) => {
               </View>
             </View>
             {
-              img > 3 && (
+              img > 0 && (
                 <View style={{
                   width: "100%",
                   alignItems: "center",

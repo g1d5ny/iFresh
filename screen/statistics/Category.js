@@ -174,7 +174,7 @@ const Category = ({ navigation }) => {
               },
               {
                 percentage: 11,
-                color: "#9b5ebc",
+                color: "#929393",
               },
               {
                 percentage: 7,
@@ -213,35 +213,25 @@ const Category = ({ navigation }) => {
           <View style={{ flexDirection: "row", marginBottom: 20 }}>
             <View style={{ marginRight: 10, flexDirection: "row" }}>
               <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#929393", marginRight: 10 }} />
-              <Text style={styles.font}>국·반찬·메인요리</Text>
-            </View>
-            <View style={{ marginRight: 10, flexDirection: "row" }}>
-              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#428621", marginRight: 10 }} />
-              <Text style={styles.font}>샐러드·간편식</Text>
+              <Text style={styles.font}>간편식</Text>
             </View>
             <View style={{ marginRight: 10, flexDirection: "row" }}>
               <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#370b6b", marginRight: 10 }} />
               <Text style={styles.font}>면·양념·오일</Text>
             </View>
-          </View>
-          <View style={{ flexDirection: "row", marginBottom: 20 }}>
             <View style={{ marginRight: 10, flexDirection: "row" }}>
               <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#d48858", marginRight: 10 }} />
               <Text style={styles.font}>생수·음료·우유·커피</Text>
             </View>
+          </View>
+          <View style={{ flexDirection: "row", marginBottom: 20 }}>
             <View style={{ marginRight: 10, flexDirection: "row" }}>
               <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#d414f8", marginRight: 10 }} />
-              <Text style={styles.font}>간식·과자·떡·커피</Text>
+              <Text style={styles.font}>간식</Text>
             </View>
-          </View>
-          <View style={{ flexDirection: "row", marginBottom: 40 }}>
             <View style={{ marginRight: 10, flexDirection: "row" }}>
               <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#C13175", marginRight: 10 }} />
               <Text style={styles.font}>베이커리·치즈·델리</Text>
-            </View>
-            <View style={{ marginRight: 10, flexDirection: "row" }}>
-              <View style={{ width: 13, height: 13, borderRadius: 50, backgroundColor: "#9b5ebc", marginRight: 10 }} />
-              <Text style={styles.font}>건강식품</Text>
             </View>
           </View>
           {/*<PieChart*/}
@@ -326,7 +316,7 @@ const Category = ({ navigation }) => {
             </DataTable.Row>
 
             <DataTable.Row>
-              <DataTable.Cell><Text style={StatisticsStyle.font}>건강식품</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={StatisticsStyle.font}>간편식</Text></DataTable.Cell>
               <DataTable.Cell><Text style={StatisticsStyle.font}>₩ 11,000</Text></DataTable.Cell>
             </DataTable.Row>
 

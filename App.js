@@ -6,8 +6,8 @@ import AuthNavigation from "./navigation/auth/AuthNavigation";
 const App: () => Node = () => {
     return (
         <NavigationContainer>
-            {/*<NavController />*/}
-            <AuthNavigation/>
+            <NavController />
+            {/*<AuthNavigation/>*/}
         </NavigationContainer>
     );
 };
