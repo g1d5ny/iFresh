@@ -35,6 +35,11 @@ const MyStackNavigation = () => {
         name="My"
         component={MyPage}
         options={{
+          headerBackImage: () => (
+            <View style={{ marginLeft: 15 }}>
+              {/*<Back />*/}
+            </View>
+          ),
           headerTitleStyle: {
             fontSize: 16,
             // fontWeight: 'bold',

@@ -15,7 +15,7 @@ const RecipeListForm = ({ navigation, item }) => {
       }} onPress={() => navigation.navigate('RecipeDetail', {data: {
           photo: item.photo, author: item.author, name: item.name,
           time: item.time, like: item.like, ingredient: item.ingredient,
-          recipePhoto: item.recipePhoto
+          recipePhoto: item.recipePhoto, amount: item.amount
         }, name: item.name})}>
         <Image source={item.photo}
                style={{ flex: 3, width: 120, height: "100%", borderTopLeftRadius: 7, borderBottomLeftRadius: 7 }} />

@@ -18,7 +18,7 @@ const StatisticsTabNavigation = () => {
           //alignSelf: 'center',
         },
         labelStyle: {
-          fontWeight: 'bold',
+          // fontWeight: 'bold',
           fontFamily: 'tway_air',
           fontSize: 12,
         },

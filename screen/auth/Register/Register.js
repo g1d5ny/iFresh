@@ -73,7 +73,7 @@ const Register = ({ navigation }) => {
 
 
   const XML = async () => {
-    XMLRequestFunction("Email=" + emailInput.value + "&Pwd=" + pwdInput.value, "http://797c916bef4d.ngrok.io/Register.php", setApple, setLoading)
+    XMLRequestFunction("Email=" + emailInput.value + "&Pwd=" + pwdInput.value, "http://cb9e16045454.ngrok.io/Register.php", setApple, setLoading)
       .then(state => {
         if (state === "true") {
           console.log("state", state);
@@ -87,7 +87,7 @@ const Register = ({ navigation }) => {
       <ScrollView>
         <View>
           <View style={{ marginTop: 70, alignItems: "center" }}>
-            <Text style={{ fontSize: 20, fontWeight: "bold", fontFamily: "tway_air" }}>회원가입</Text>
+            <Text style={{ fontSize: 20, fontFamily: "tway_air" }}>회원가입</Text>
             <Text style={{ marginTop: 15, fontSize: 14, color: "#CCCED6", fontFamily: "tway_air" }}>i-Fresh의 회원 가입 정보를
               입력해 주세요.</Text>
           </View>
@@ -478,11 +478,11 @@ const Register = ({ navigation }) => {
           </View>
           {
             check === true && check2 === true ? (
-              <TouchableOpacity style={AuthStyle.nextButton} onPress={() => navigation.navigate('TabNavigation')}>
+              <TouchableOpacity style={AuthStyle.nextButton} onPress={() => navigation.navigate('LoginPage')}>
                 <Text style={AuthStyle.buttonText}>다음</Text>
               </TouchableOpacity>
             ) : (
-              <TouchableOpacity style={AuthStyle.nextButton}>
+              <TouchableOpacity style={AuthStyle.nextButton} onPress={() => Alert.alert("개인 정보 처리 방침과 서비스 이용 약관에 모두 동의해주세요.")}>
                 <Text style={AuthStyle.buttonText}>다음</Text>
               </TouchableOpacity>
             )

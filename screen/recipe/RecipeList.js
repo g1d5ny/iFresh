@@ -16,7 +16,6 @@ const RecipeList = ({ navigation }) => {
       time: "15",
       like: "13",
       amount: 4,
-
       // ingredientName: ["김치", "돼지고기", "양파", "밥", "설탕", "간장", "참기름", "식용유", "쪽파", "계란후라이"],
       // ingredientAmount: ["450g", "200g", "1/2개", "4그릇", "1/2 큰 술", "1 작은 술", "1 큰 술", "2 큰 술", "3개", "4개"]
     },
@@ -27,12 +26,14 @@ const RecipeList = ({ navigation }) => {
       author: "sung_ge",
       time: "20",
       like: "10",
+      amount: 2,
     },
     {
       id: 3,
       photo: require("../../assets/img_kimchi.png"),
       name: "김치 볶음밥",
       author: "daff",
+      amount: 4,
       time: "10",
       like: "5",
       ingredient: [{ id: 0, name: "김치", amount: "450g" },
@@ -120,7 +121,7 @@ const RecipeList = ({ navigation }) => {
               alignItems: "center",
               justifyContent: "center",
             }}>
-              <Text style={{ color: "#fff", fontFaily: "tway_air", fontWeight: "bold" }}>검색</Text>
+              <Text style={{ color: "#fff", fontFaily: "tway_air", }}>검색</Text>
             </TouchableOpacity>
           </View>
           <View style={{ marginTop: 30 }}>

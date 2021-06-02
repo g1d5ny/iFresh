@@ -6,7 +6,7 @@ import { MyStyle } from "../../styles/user/my/MyStyle";
 const MyPage = ({ navigation }) => {
   return (
         <SafeAreaView style={Style.background}>
-          <ScrollView>
+          {/*<ScrollView>*/}
             <View style={{flex: 1, justifyContent: 'space-between'}}>
               <View style={MyStyle.box}>
                 <TouchableOpacity style={styles.listView}
@@ -42,7 +42,7 @@ const MyPage = ({ navigation }) => {
                 <Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>
               </View>
             </View>
-          </ScrollView>
+          {/*</ScrollView>*/}
         </SafeAreaView>
     )
 }

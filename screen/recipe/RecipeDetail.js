@@ -10,6 +10,7 @@ const RecipeDetail = ({ route, navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
 
+  const [like, setLike] = useState(route.params.data.like);
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
@@ -17,7 +18,7 @@ const RecipeDetail = ({ route, navigation }) => {
   const toggleModal2 = () => {
     setModalVisible2(!modalVisible2);
   };
-
+console.log(route.params.data);
   console.log(route.params.data.ingredient);
   // {
   //   ingredient.map((index, item) => (
@@ -81,7 +82,7 @@ const RecipeDetail = ({ route, navigation }) => {
                 <Text style={{ fontFamily: "tway_air", fontSize: 14 }}>조리 시간</Text>
               </View>
               <View style={{ width: "50%" }}>
-                <Text style={{ fontFamily: "tway_air", fontSize: 14 }}>글쓴이</Text>
+                <Text style={{ fontFamily: "tway_air", fontSize: 14 }}>양</Text>
               </View>
             </View>
             <View style={{
@@ -111,7 +112,7 @@ const RecipeDetail = ({ route, navigation }) => {
                 justifyContent: "center",
                 padding: 10,
               }}>
-                <Text style={{ fontSize: 13, fontFamily: "tway_air" }}>{route.params.data.author}</Text>
+                <Text style={{ fontSize: 13, fontFamily: "tway_air" }}>4인분</Text>
               </View>
             </View>
           </View>
@@ -549,10 +550,18 @@ const RecipeDetail = ({ route, navigation }) => {
             marginBottom: 20,
           }}>
             <Text style={{ color: "#BEC0CB", fontSize: 12 }}>해당 레시피가 도움이 되었다면 좋아요를 눌러주세요.</Text>
-            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-              <Image source={require("../../assets/icon_heart_red.png")}
-                     style={{ width: 25, height: 25, marginTop: 20 }} />
-              <Text style={{marginLeft: 10, marginTop: 15, fontSize: 20, color:"#FF2E2E", fontFamily:'tway_air'}}>{route.params.data.like}</Text>
+            <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+                <Image source={require("../../assets/icon_heart_red.png")}
+                       style={{ width: 25, height: 25, marginTop: 20 }} />
+              </TouchableOpacity>
+              <Text style={{
+                marginLeft: 10,
+                marginTop: 20,
+                fontSize: 20,
+                color: "#FF2E2E",
+                fontFamily: "tway_air",
+              }}>{like}</Text>
             </View>
           </View>
         </View>

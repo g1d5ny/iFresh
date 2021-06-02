@@ -28,7 +28,6 @@ const Camera = ({ navigation }) => {
         {/*  laserColor='red' // (default red) optional, color of laser in scanner frame*/}
         {/*  frameColor='white' // (default white) optional, color of border of scanner frame*/}
         {/*/>*/}
-
       </View>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "space-between" }}>
         <View style={{

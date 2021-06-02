@@ -7,7 +7,7 @@ export const MyStyle = StyleSheet.create({
     marginTop: 20,
     padding: 5,
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
     // paddingBottom: 20,
     // padding: 20
     // alignItems: 'center',
@@ -16,13 +16,14 @@ export const MyStyle = StyleSheet.create({
   advertise: {
     width: '100%',
     height: 100,
+    // marginBottom: 20,
     alignItems: 'center',
     justifyContent: 'flex-end'
   },
   logoutView: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 240,
+    // marginTop: 200,
     marginBottom: 30
   },
   logoutText: {

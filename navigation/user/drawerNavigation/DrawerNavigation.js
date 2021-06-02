@@ -14,7 +14,7 @@ const DrawerNavigation = () => {
                        title: route.params.name,
                        // headerBackTitleVisible: false,
                        fontSize: 16,
-                       fontWeight: "bold",
+                       // fontWeight: "bold",
                        fontFamily: "tway_air",
                      })} />
     </Drawer.Navigator>
