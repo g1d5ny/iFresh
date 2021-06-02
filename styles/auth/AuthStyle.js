@@ -62,13 +62,14 @@ export const AuthStyle = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',
-        marginTop: 30,
+        marginTop: 50,
         borderRadius: 5,
+        marginBottom: 50,
         backgroundColor: "#24C58B"
     },
     buttonText: {
         color: "#fff",
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         fontSize: 12,
         fontFamily: 'tway_air'
     },
@@ -89,7 +90,7 @@ export const AuthStyle = StyleSheet.create({
         width: '80%',
         borderColor: 'rgba(90, 216, 125, 0.2)',
         backgroundColor: 'rgba(90, 216, 125, 0.2)',
-        marginTop: 160
+        marginTop: 130,
     },
     skipView: {
         width: 65,

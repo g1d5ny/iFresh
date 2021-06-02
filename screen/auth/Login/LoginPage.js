@@ -56,6 +56,7 @@ const LoginPage = ({ navigation, route }) => {
   const signInWithKakao = async () => {
     const token = await login();
     setResult(JSON.stringify(token));
+    console.log(result);
     navigation.navigate("TabNavigation");
     getKProfile();
   };
@@ -92,11 +93,6 @@ const LoginPage = ({ navigation, route }) => {
     });
   };
 
-  const naverLogout = () => {
-    NaverLogin.logout();
-    setNaverToken("");
-  };
-
   const getUserProfile = async () => {
     const profileResult = await getProfile(naverToken.accessToken);
     if (profileResult.resultcode === "024") {
@@ -104,6 +100,11 @@ const LoginPage = ({ navigation, route }) => {
       return;
     }
     console.log("profileResult", profileResult);
+  };
+
+  const naverLogout = () => {
+    NaverLogin.logout();
+    setNaverToken("");
   };
 
   return (
@@ -129,7 +130,7 @@ const LoginPage = ({ navigation, route }) => {
               alignItems: "flex-start",
               marginTop: 50,
             }}>
-              <Text style={{ fontFamily: "tway_air", fontWeight: "bold", fontSize: 15 }}>LOGIN</Text>
+              <Text style={{ fontFamily: "tway_air", fontSize: 15 }}>LOGIN</Text>
               <TextInput style={AuthStyle.input} placeholder={"E-mail"} />
               <TextInput style={AuthStyle.input} placeholder={"PASSWORD"} secureTextEntry={true}/>
               <TouchableOpacity style={{
@@ -141,7 +142,7 @@ const LoginPage = ({ navigation, route }) => {
                 alignItems: "center",
                 justifyContent: "center",
               }} onPress={() => navigation.navigate("TabNavigation")}>
-                <Text style={{ fontSize: 14, fontWeight: "bold", fontFamily: "tway_air", color: "#fff" }}>로그인</Text>
+                <Text style={{ fontSize: 14, fontFamily: "tway_air", color: "#fff" }}>로그인</Text>
               </TouchableOpacity>
               <View style={{ alignSelf: "flex-end", flexDirection: "row", marginTop: 20 }}>
                 <TouchableOpacity onPress={() => navigation.navigate("SearchID1")}><Text
@@ -158,7 +159,7 @@ const LoginPage = ({ navigation, route }) => {
               marginTop: 50,
               // backgroundColor: "pink",
             }}>
-              <Text style={{ fontFamily: "tway_air", fontWeight: "bold", fontSize: 15 }}>SNS LOGIN</Text>
+              <Text style={{ fontFamily: "tway_air", fontSize: 15 }}>SNS LOGIN</Text>
               <TouchableOpacity style={{
                 width: 300,
                 height: 40,

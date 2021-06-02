@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { Image, SafeAreaView, ScrollView, View } from "react-native";
 import RecipeListForm from "../../component/user/recipe/RecipeListForm";
+import { MyStyle } from "../../styles/user/my/MyStyle";
 
 const MyRecipe = ({ navigation }) => {
   const DATA = [
@@ -28,6 +29,7 @@ const MyRecipe = ({ navigation }) => {
       photo: require("../../assets/img_kimchi.png"),
       name: "김치 볶음밥",
       author: "daff",
+      amount: 4,
       time: "10",
       like: "5",
       ingredient: [{ id: 0, name: "김치", amount: "450g" },
@@ -50,7 +52,7 @@ const MyRecipe = ({ navigation }) => {
 
     return (
         <SafeAreaView style={{flex:1, backgroundColor: '#fff'}}>
-          <ScrollView>
+          <View style={{flex:1, justifyContent: 'space-between'}}>
             <View style={{ width: "90%", alignSelf: "center", marginTop: 15 }}>
               {
                 DATA.map((item, index) => (
@@ -58,7 +60,10 @@ const MyRecipe = ({ navigation }) => {
                 ))
               }
             </View>
-          </ScrollView>
+            <View style={MyStyle.advertise}>
+              <Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>
+            </View>
+          </View>
         </SafeAreaView>
     )
 }

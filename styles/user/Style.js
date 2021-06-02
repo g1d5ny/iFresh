@@ -12,7 +12,7 @@ export const Style = StyleSheet.create({
   buttonText: {
     fontSize: 14,
     color: "#fff",
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     fontFamily: 'tway_air',
   },
   InputView: {
@@ -66,7 +66,7 @@ export const Style = StyleSheet.create({
   },
   font: {
     fontFamily: "tway_air",
-    fontWeight: "bold",
+    // fontWeight: "bold",
     fontSize: 15,
   },
   background: {

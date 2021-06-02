@@ -11,8 +11,8 @@ const MyEdit = ({ navigation }) => {
   console.log("phone: " + phone);
   return (
     <SafeAreaView style={Style.background}>
-      <ScrollView>
-        <View>
+      {/*<ScrollView>*/}
+        <View style={{flex:1}}>
           <View style={MyStyle.box}>
             <View style={{ margin: 10 }}>
               <Text style={{ fontSize: 20, fontFamily: "tway_air" }}>사용자 정보</Text>
@@ -157,7 +157,7 @@ const MyEdit = ({ navigation }) => {
         <View style={MyStyle.advertise}>
           <Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>
         </View>
-      </ScrollView>
+      {/*</ScrollView>*/}
     </SafeAreaView>
   );
 };

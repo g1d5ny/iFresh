@@ -6,7 +6,7 @@ import { screenHeight, screenWidth } from "../../../styles/DimenStyle";
 const height = screenHeight;
 const width = screenWidth;
 
-const OnBoardingPage = ({navigation}) => {
+const OnBoardingPage = ({ navigation }) => {
   const [active, setActive] = useState(0);
 
   const change = ({ nativeEvent }) => {
@@ -19,11 +19,11 @@ const OnBoardingPage = ({navigation}) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View
-        style={{alignItems: 'center', paddingTop: 48, width, height, backgroundColor: '#fff'}}>
+        style={{ alignItems: "center", paddingTop: 48, width, height, backgroundColor: "#fff", flex: 1 }}>
         <ScrollView pagingEnabled={true} horizontal={true} onScroll={change} scrollEventThrottle={1}
-                    showsHorizontalScrollIndicator={false} ref={ref=>(this.scrollView = ref)}
-                    style={{width, height}}>
-          <View style={{ alignItems: "center",flex:1, width: width }}>
+                    showsHorizontalScrollIndicator={false} ref={ref => (this.scrollView = ref)}
+                    style={{ width, height }}>
+          <View style={{ alignItems: "center", flex: 1, width: width }}>
             <Image source={require("../../../assets/img_OnBoarding1.png")} style={AuthStyle.onBoardingImage} />
             <View style={{ alignItems: "center", marginTop: 80 }}>
               <Text style={AuthStyle.step}>ONE Step</Text>
@@ -37,16 +37,16 @@ const OnBoardingPage = ({navigation}) => {
               }} />
             </View>
             <View style={{ width: "80%", marginTop: 15, flexDirection: "row", justifyContent: "space-between" }}>
-              <TouchableOpacity style={AuthStyle.skipView} onPress={() => navigation.navigate('LoginPage')}>
+              <TouchableOpacity style={AuthStyle.skipView} onPress={() => navigation.navigate("LoginPage")}>
                 <Text style={AuthStyle.skipText}>Skip</Text>
               </TouchableOpacity>
               <TouchableOpacity style={AuthStyle.nextView}
-                                onPress={() => this.scrollView.scrollTo({ x: screenWidth, })}>
+                                onPress={() => this.scrollView.scrollTo({ x: screenWidth * 2 })}>
                 <Text style={AuthStyle.nextText}>Next</Text>
               </TouchableOpacity>
             </View>
           </View>
-          <View style={{ alignItems: "center", flex:1, width: width }}>
+          <View style={{ alignItems: "center", flex: 1, width: width }}>
             <Image source={require("../../../assets/img_OnBoarding2.png")} style={AuthStyle.onBoardingImage} />
             <View style={{ alignItems: "center", marginTop: 80 }}>
               <Text style={AuthStyle.step}>TWO Step</Text>
@@ -60,16 +60,16 @@ const OnBoardingPage = ({navigation}) => {
               }} />
             </View>
             <View style={{ width: "80%", marginTop: 15, flexDirection: "row", justifyContent: "space-between" }}>
-              <TouchableOpacity style={AuthStyle.skipView} onPress={() => navigation.navigate('LoginPage')}>
+              <TouchableOpacity style={AuthStyle.skipView} onPress={() => navigation.navigate("LoginPage")}>
                 <Text style={AuthStyle.skipText}>Skip</Text>
               </TouchableOpacity>
               <TouchableOpacity style={AuthStyle.nextView}
-                                onPress={() => this.scrollView.scrollTo({ x: screenWidth * 2, })}>
+                                onPress={() => this.scrollView.scrollTo({ x: screenWidth * 2 })}>
                 <Text style={AuthStyle.nextText}>Next</Text>
               </TouchableOpacity>
             </View>
           </View>
-          <View style={{ alignItems: "center", flex:1, width: width }}>
+          <View style={{ alignItems: "center", flex: 1, width: width }}>
             <Image source={require("../../../assets/img_OnBoarding3.png")} style={AuthStyle.onBoardingImage} />
             <View style={{ alignItems: "center", marginTop: 69 }}>
               <Text style={AuthStyle.step}>THREE Step</Text>
@@ -84,7 +84,7 @@ const OnBoardingPage = ({navigation}) => {
             </View>
             <View style={{ width: "80%", marginTop: 15, flexDirection: "row", justifyContent: "space-between" }}>
               <TouchableOpacity style={AuthStyle.skipView} />
-              <TouchableOpacity style={AuthStyle.nextView} onPress={() => navigation.navigate('LoginPage')}>
+              <TouchableOpacity style={AuthStyle.nextView} onPress={() => navigation.navigate("LoginPage")}>
                 <Text style={AuthStyle.nextText}>Start</Text>
               </TouchableOpacity>
             </View>

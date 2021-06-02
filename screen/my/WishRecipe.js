@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from "react";
-import {SafeAreaView, ScrollView, View} from "react-native";
+import React, { useState, useEffect } from "react";
+import { Image, SafeAreaView, ScrollView, View } from "react-native";
 import RecipeListForm from "../../component/user/recipe/RecipeListForm";
+import { MyStyle } from "../../styles/user/my/MyStyle";
 
 const WishRecipe = ({ navigation }) => {
   const DATA = [
@@ -49,17 +50,24 @@ const WishRecipe = ({ navigation }) => {
   ];
 
   return (
-    <SafeAreaView style={{flex:1, backgroundColor: '#fff'}}>
-      <ScrollView>
-        <View style={{ width: "90%", alignSelf: "center", marginTop: 15 }}>
-          {
-            DATA.map((item, index) => (
-              <RecipeListForm item={item} navigation={navigation} />
-            ))
-          }
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+      <View style={{ flex: 1, justifyContent: "space-between" }}>
+        <View>
+          <ScrollView>
+            <View style={{ width: "90%", alignSelf: "center", marginTop: 15 }}>
+              {
+                DATA.map((item, index) => (
+                  <RecipeListForm item={item} navigation={navigation} />
+                ))
+              }
+            </View>
+          </ScrollView>
         </View>
-      </ScrollView>
+        <View style={MyStyle.advertise}>
+          <Image source={require("../../assets/img_advertise.png")} style={{ width: "100%", height: 100 }} />
+        </View>
+      </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 export default WishRecipe;

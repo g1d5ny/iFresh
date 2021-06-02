@@ -51,7 +51,8 @@ const ProductAdd = ({ navigation }) => {
           <View style={{
             backgroundColor: "#fff",
             width: "90%",
-            height: 1380,
+            // height: 1380,
+            paddingBottom: 30,
             borderRadius: 10,
             alignItems: "center",
           }}>
@@ -77,7 +78,13 @@ const ProductAdd = ({ navigation }) => {
             </View>
             <View style={styles.InputView}>
               <Text style={styles.title}>구매 일자</Text>
-              <View style={styles.textInputGray} />
+              <View style={{ flexDirection: "row" }}>
+                <DatePicker
+                  date={date}
+                  onDateChange={setDate}
+                  mode="date"
+                />
+              </View>
             </View>
             <View style={styles.InputView}>
               <Text style={styles.title}>유통기한</Text>
@@ -194,12 +201,12 @@ const ProductAdd = ({ navigation }) => {
               <Text style={styles.title}>비고</Text>
               <TextInput style={styles.textInput} />
             </View>
-            <View style={{ marginTop: 50 }}>
-              <TouchableOpacity style={Style.button}
-                                onPress={() => navigation.navigate("ProductList")}>
-                <Text style={Style.buttonText}>식품 업로드</Text>
-              </TouchableOpacity>
-            </View>
+          </View>
+          <View style={{ marginTop: 30 }}>
+            <TouchableOpacity style={Style.button}
+                              onPress={() => navigation.navigate("ProductList")}>
+              <Text style={Style.buttonText}>식품 업로드</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -232,7 +239,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontFamily: "tway_air",
-    fontWeight: "bold",
+    // fontWeight: "bold",
   },
 });
 

@@ -381,7 +381,7 @@ const Category = ({ navigation }) => {
 const styles = StyleSheet.create({
   font: {
     fontFamily: "tway_air",
-    fontWeight: "bold",
+    // fontWeight: "bold",
     fontSize: 13,
   },
 });

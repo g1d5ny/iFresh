@@ -56,7 +56,10 @@ const Withdrawal = ({ navigation }) => {
           </View>
           <View style={{ padding: 10, alignItems: "center", justifyContent: "center" }}>
             <TouchableOpacity style={Style.button}
-                              onPress={() => toggleModal()}>
+                              onPress={() => {
+                                check === true ?
+                                toggleModal() : Alert.alert('회원 탈퇴 약관에 동의해주세요.')
+                              }}>
               <Text style={Style.buttonText}>탈퇴하기</Text>
             </TouchableOpacity>
           </View>

@@ -33,6 +33,11 @@ const RecipeStackNavigation = () => {
         component={RecipeList}
         options={{
           // headerTitle: "i-Fresh",
+          headerBackImage: () => (
+            <View style={{ marginLeft: 15 }}>
+              {/*<Back />*/}
+            </View>
+          ),
           headerTitleStyle: {
             fontSize: 16,
             // fontWeight: 'bold',
