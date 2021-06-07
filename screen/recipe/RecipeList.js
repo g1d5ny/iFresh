@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, ScrollView, View, Text, Image, TextInput } from "react-native";
+import { SafeAreaView, ScrollView, View, Text, Image, TextInput, Platform } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import RecipeListForm from "../../component/user/recipe/RecipeListForm";
@@ -35,7 +35,7 @@ const RecipeList = ({ navigation }) => {
       author: "daff",
       amount: 4,
       time: "10",
-      like: "5",
+      like: 5,
       ingredient: [{ id: 0, name: "김치", amount: "450g" },
         { id: 1, name: "돼지고기", amount: "200g" },
         { id: 2, name: "양파", amount: "1/2개" },
@@ -67,7 +67,7 @@ const RecipeList = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView>
         <View style={{ width: "90%", alignSelf: "center" }}>
-          <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 10 }}>
+          <View style={[{ flexDirection: "row", justifyContent: "space-between", marginTop: 10 },Platform.OS === 'ios' && {zIndex:10}]}>
             <DropDownPicker
               open={open}
               value={value}
@@ -76,14 +76,14 @@ const RecipeList = ({ navigation }) => {
               setValue={setValue}
               onChangeItem={items => setItems(items.value)}
               setItems={setItems}
-              style={{
-                width: 100,
-                height: 40,
-                borderRadius: 7,
-                borderWidth: 1,
-                borderColor: "#DCDBE6",
-                marginTop: 10,
-              }}
+              // style={{
+              //   width: 100,
+              //   height: 40,
+              //   borderRadius: 7,
+              //   borderWidth: 1,
+              //   borderColor: "#DCDBE6",
+              //   marginTop: 10,
+              // }}
               defaultValue={null}
               placeholder="정렬"
               itemStyle={{
@@ -91,7 +91,8 @@ const RecipeList = ({ navigation }) => {
               }}
               dropDownStyle={{ backgroundColor: "#DCDBE6" }}
               containerStyle={{
-                height: 40, width: 100,
+                height: 40,
+                width: 100,
                 borderColor: "#DCDBE6",
                 borderWidth: 1,
                 borderRadius: 7,

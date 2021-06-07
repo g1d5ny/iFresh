@@ -10,7 +10,7 @@ const RecipeDetail = ({ route, navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
 
-  const [like, setLike] = useState(route.params.data.like);
+  const [like, setLike] = useState(parseInt(route.params.data.like));
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
@@ -112,7 +112,7 @@ console.log(route.params.data);
                 justifyContent: "center",
                 padding: 10,
               }}>
-                <Text style={{ fontSize: 13, fontFamily: "tway_air" }}>4인분</Text>
+                <Text style={{ fontSize: 13, fontFamily: "tway_air" }}>{route.params.data.amount}인분</Text>
               </View>
             </View>
           </View>
@@ -551,7 +551,8 @@ console.log(route.params.data);
           }}>
             <Text style={{ color: "#BEC0CB", fontSize: 12 }}>해당 레시피가 도움이 되었다면 좋아요를 눌러주세요.</Text>
             <View style={{flexDirection: 'row'}}>
-              <TouchableOpacity style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+              <TouchableOpacity style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}
+                                onPress={() => setLike(like+1)}>
                 <Image source={require("../../assets/icon_heart_red.png")}
                        style={{ width: 25, height: 25, marginTop: 20 }} />
               </TouchableOpacity>

@@ -8,12 +8,21 @@ const SearchID2 = ({ navigation }) => {
             <ScrollView>
                 <View style={{alignItems: 'center', justifyContent: 'center'}}>
                     <View style={{marginTop: 100}}>
-                        <Text style={{fontSize: 20, fontWeight: 'bold'}}>아이디 조회 결과</Text>
+                        <Text style={{fontSize: 20, fontFamily: 'tway_air'}}>아이디 조회 결과</Text>
                     </View>
                     <View style={{marginTop: 150, marginBottom: 200}}>
-                        <Text style={{fontSize: 20, fontWeight: 'bold', color: "#24C58B"}}>jiwon9366**@gmail.com</Text>
+                        <Text style={{fontSize: 20, fontFamily: 'tway_air', color: "#24C58B"}}>jiwon9366**@gmail.com</Text>
                     </View>
-                    <TouchableOpacity style={AuthStyle.nextButton}
+                    <TouchableOpacity style={{
+                        width: 300,
+                        height: 35,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        alignSelf: 'center',
+                        marginTop: 50,
+                        borderRadius: 5,
+                        marginBottom: 20,
+                        backgroundColor: "#24C58B"}}
                                       onPress={() => navigation.navigate('Login')}>
                         <Text style={AuthStyle.buttonText}>로그인 하러 가기</Text>
                     </TouchableOpacity>
@@ -24,7 +33,6 @@ const SearchID2 = ({ navigation }) => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         alignSelf: 'center',
-                        marginTop: 10,
                         borderRadius: 5,
                         backgroundColor: "#F4F5F8"
                     }}
@@ -32,7 +40,8 @@ const SearchID2 = ({ navigation }) => {
                     >
                         <Text style={{
                             color: "#2d2d2d",
-                            fontWeight: 'bold',
+                            // fontWeight: 'bold',
+                            fontFamily: 'tway_air',
                             fontSize: 12
                         }}>비밀번호 찾기</Text>
                     </TouchableOpacity>
