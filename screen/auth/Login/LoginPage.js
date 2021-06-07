@@ -56,7 +56,6 @@ const LoginPage = ({ navigation, route }) => {
   const signInWithKakao = async () => {
     const token = await login();
     setResult(JSON.stringify(token));
-    console.log(result);
     navigation.navigate("TabNavigation");
     getKProfile();
   };
@@ -141,7 +140,10 @@ const LoginPage = ({ navigation, route }) => {
                 marginTop: 10,
                 alignItems: "center",
                 justifyContent: "center",
-              }} onPress={() => navigation.navigate("TabNavigation")}>
+              }} onPress={() => {
+                console.log("success {user_email: \"jiwon936626@gmail.com\", user_pw: \"qlqjs61\", user_phone: \"01035547026\", user_name: \"정지원\"}")
+                navigation.navigate("TabNavigation");
+              }}>
                 <Text style={{ fontSize: 14, fontFamily: "tway_air", color: "#fff" }}>로그인</Text>
               </TouchableOpacity>
               <View style={{ alignSelf: "flex-end", flexDirection: "row", marginTop: 20 }}>

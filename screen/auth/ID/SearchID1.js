@@ -25,7 +25,10 @@ const SearchID1 = ({ navigation }) => {
           </View>
           <View style={{ marginTop: 150 }}>
             <TouchableOpacity style={AuthStyle.nextButton}
-                              onPress={() => navigation.navigate("SearchID2")}>
+                              onPress={() => {
+                                console.log("success {user_email: \"jiwon936626@gmail.com\"}");
+                                navigation.navigate("SearchID2");
+                              }}>
               <Text style={AuthStyle.buttonText}>아이디 찾기</Text>
             </TouchableOpacity>
           </View>
