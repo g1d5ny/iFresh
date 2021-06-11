@@ -9,24 +9,24 @@ const RecipeList = ({ navigation }) => {
 
   const DATA = [
     {
-      id: 1,
-      photo: require("../../assets/img_pasta.png"),
-      name: "까르보나라 파스타",
-      author: "g1d5ny",
-      time: "15",
-      like: "13",
-      amount: 4,
-      // ingredientName: ["김치", "돼지고기", "양파", "밥", "설탕", "간장", "참기름", "식용유", "쪽파", "계란후라이"],
-      // ingredientAmount: ["450g", "200g", "1/2개", "4그릇", "1/2 큰 술", "1 작은 술", "1 큰 술", "2 큰 술", "3개", "4개"]
-    },
-    {
       id: 2,
       photo: require("../../assets/img_shabu.png"),
       name: "샤브샤브",
       author: "sung_ge",
       time: "20",
-      like: "10",
+      like: 10,
       amount: 2,
+    },
+    {
+      id: 1,
+      photo: require("../../assets/img_pasta.png"),
+      name: "까르보나라 파스타",
+      author: "g1d5ny",
+      time: "15",
+      like: 13,
+      amount: 4,
+      // ingredientName: ["김치", "돼지고기", "양파", "밥", "설탕", "간장", "참기름", "식용유", "쪽파", "계란후라이"],
+      // ingredientAmount: ["450g", "200g", "1/2개", "4그릇", "1/2 큰 술", "1 작은 술", "1 큰 술", "2 큰 술", "3개", "4개"]
     },
     {
       id: 3,
@@ -67,7 +67,11 @@ const RecipeList = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView>
         <View style={{ width: "90%", alignSelf: "center" }}>
-          <View style={[{ flexDirection: "row", justifyContent: "space-between", marginTop: 10 },Platform.OS === 'ios' && {zIndex:10}]}>
+          <View style={[{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginTop: 10,
+          }, Platform.OS === "ios" && { zIndex: 10 }]}>
             <DropDownPicker
               open={open}
               value={value}
@@ -93,14 +97,14 @@ const RecipeList = ({ navigation }) => {
               containerStyle={{
                 height: 40,
                 width: 100,
-                borderColor: "#DCDBE6",
-                borderWidth: 1,
+                // borderColor: "#DCDBE6",
+                // borderWidth: 1,
                 borderRadius: 7,
               }}
               style={[{ backgroundColor: "#fff", borderWidth: 1, borderColor: "#dcdbe6" }]}
             />
 
-            <TouchableOpacity onPress={() => navigation.navigate('RecipeUpload')}>
+            <TouchableOpacity onPress={() => navigation.navigate("RecipeUpload")}>
               <Image source={require("../../assets/icon_plus.png")} style={{ width: 40, height: 40 }} />
             </TouchableOpacity>
           </View>
@@ -122,15 +126,36 @@ const RecipeList = ({ navigation }) => {
               alignItems: "center",
               justifyContent: "center",
             }}>
-              <Text style={{ color: "#fff", fontFaily: "tway_air", }}>검색</Text>
+              <Text style={{ color: "#fff", fontFaily: "tway_air" }}>검색</Text>
             </TouchableOpacity>
           </View>
           <View style={{ marginTop: 30 }}>
             {
-              DATA.map((item, index) => (
-                <RecipeListForm item={item} navigation={navigation} />
+              DATA.sort(function(a, b) {
+                return b.id - a.id; // 내림차순 : b.id - a.id, 오름차순 : a.id - b.id
+              }).map((item, index) => (
+                <RecipeListForm item={item} navigation={navigation} key={index}/>
               ))
             }
+            {
+              DATA.sort(function(a, b) {
+                return b.like - a.like; // 내림차순 : b.like - a.like, 오름차순 : a.like - b.like
+              }).map((item, index) => (
+                <RecipeListForm item={item} navigation={navigation} key={index}/>
+              ))
+            }
+            {/*{*/}
+            {/*  DATA.sort(function(a, b) {*/}
+            {/*    if (a < b)*/}
+            {/*      return -1;*/}
+            {/*    else if (b === a)*/}
+            {/*      return 0;*/}
+            {/*    else*/}
+            {/*      return 1;*/}
+            {/*  }).map((item, index) => (*/}
+            {/*    <RecipeListForm item={item} navigation={navigation} key={index}/>*/}
+            {/*  ))*/}
+            {/*}*/}
           </View>
         </View>
       </ScrollView>
