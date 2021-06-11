@@ -176,7 +176,7 @@ const ProductList = ({ navigation, route }) => {
                     {
                       DATA.map((item, index) => (
                         item.fresh === "위험" &&
-                        <ProductListForm item={item} navigation={navigation} />
+                        <ProductListForm item={item} navigation={navigation} key={index}/>
                       ))
                     }
                   </View>
@@ -208,7 +208,7 @@ const ProductList = ({ navigation, route }) => {
                   {
                     DATA.map((item, index) => (
                       item.fresh === "적정" &&
-                      <ProductListForm item={item} navigation={navigation} />
+                      <ProductListForm item={item} navigation={navigation} key={index}/>
                     ))
                   }
                 </View>
@@ -240,7 +240,7 @@ const ProductList = ({ navigation, route }) => {
                   {
                     DATA.map((item, index) => (
                       item.fresh === "신선" &&
-                      <ProductListForm item={item} navigation={navigation} />
+                      <ProductListForm item={item} navigation={navigation} key={index}/>
                     ))
                   }
                 </View>
