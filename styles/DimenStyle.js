@@ -5,6 +5,7 @@ const { width, height } = Dimensions.get('window');
 export const screenWidth = width;
 export const screenHeight = height;
 
+
 export const widthPercentageToDP = widthPercent => {
   const screenWidth = Dimensions.get('window').width;
   // Convert string input to decimal number

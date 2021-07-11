@@ -2,7 +2,9 @@ import {StyleSheet} from "react-native"
 
 export const ModalStyle = StyleSheet.create({
   modalView: {
-    flex:1, alignItems: 'center', justifyContent: 'center'
+    flex:1,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   modalInView: {
     width: 300,
