@@ -2,8 +2,15 @@ import React, {useState, useEffect} from "react";
 import {SafeAreaView, StyleSheet, ScrollView, View, TouchableOpacity, Text, TextInput, Image} from "react-native";
 import { Style } from "../../styles/user/Style";
 import { MyStyle } from "../../styles/user/my/MyStyle";
+import {screenWidth} from "../../styles/DimenStyle";
+import { ImageSlider } from "../../component/ItemComponent";
 
 const MyPage = ({ navigation }) => {
+  const [advertise, setAdvertise] = useState([
+    require('../../assets/img_advertise.png'),
+    require('../../assets/img_advertise2.jpeg'),
+    require('../../assets/img_advertise3.jpeg'),
+  ]);
   return (
         <SafeAreaView style={Style.background}>
           {/*<ScrollView>*/}
@@ -39,7 +46,12 @@ const MyPage = ({ navigation }) => {
                 <Text style={MyStyle.logoutText}>로그아웃</Text>
               </View>
               <View style={MyStyle.advertise}>
-                <Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>
+                <ImageSlider data={[
+                  {id: 0, image: require('../../assets/img_advertise.png')},
+                  {id: 1, image: require('../../assets/img_advertise2.jpeg')},
+                  {id: 2, image: require('../../assets/img_advertise3.jpeg')},
+                ]} width={screenWidth} height={220}/>
+                {/*<Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>*/}
               </View>
             </View>
           {/*</ScrollView>*/}
