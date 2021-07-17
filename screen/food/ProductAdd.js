@@ -1,49 +1,44 @@
 import React, { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  Alert,
-  ImageBackground,
-} from "react-native";
+import { SafeAreaView, StyleSheet, View, Text, TextInput, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Alert, ImageBackground, } from "react-native";
 import styled from "styled-components";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import DatePicker from "react-native-date-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 import { Style } from "../../styles/user/Style";
 import { FoodStyle } from "../../styles/user/food/FoodStyle";
+import Arrow from "../../assets/icon_black_down_arrow.svg";
+import { CategoryBottomModal, StorageBottomModal } from "../../component/user/Modal";
 
 const ProductAdd = ({ navigation }) => {
 
   const [date, setDate] = useState(new Date());
-  const [store, setStore] = useState("");
-  const [category, setCategory] = useState("");
+  const [value, setValue] = useState('채소');
+  const [storageValue, setStorageValue] = useState('냉장');
+  const [categoryVisible, setCategoryVisible] = useState(false);
+  const [storageVisible, setStorageVisible] = useState(false);
 
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
-  const [items, setItems] = useState([
-    { label: "농산물" },
-    { label: "해산물" },
-    { label: "육류" },
-    { label: "유제품" },
-    { label: "음료" },
-    { label: "기타" },
-  ]);
-
-  const [open2, setOpen2] = useState(false);
-  const [value2, setValue2] = useState(null);
-  const [items2, setItems2] = useState([
-    { label: "냉장" },
-    { label: "냉동" },
-    { label: "실온" },
-  ]);
+  const CategoryFunction = (value) => {
+    switch (value) {
+      case '과일·견과·쌀':
+        return '과일·견과·쌀';
+      case '수산·해산·건어물' :
+        return '수산·해산·건어물';
+      case '정육·계란' :
+        return '정육·계란';
+      case '간편식' :
+        return '간편식';
+      case '면·양념·오일' :
+        return '면·양념·오일';
+      case '생수·음료·우유·커피' :
+        return '생수·음료·우유·커피';
+      case '간식' :
+        return '간식';
+      case '베이커리·치즈·델리' :
+        return '베이커리·치즈·델리';
+      default:
+        return '채소';
+    }
+  }
 
 
   return (
@@ -54,7 +49,6 @@ const ProductAdd = ({ navigation }) => {
             <View style={{
               backgroundColor: "#fff",
               width: "90%",
-              // height: 1380,
               paddingBottom: 30,
               borderRadius: 10,
               alignItems: "center",
@@ -101,108 +95,45 @@ const ProductAdd = ({ navigation }) => {
               </View>
               <View style={styles.InputView}>
                 <Text style={styles.title}>범주</Text>
-                <View style={{
-                  width: 300,
-                  height: 40,
-                  marginBottom: 20,
-                }}>
-                  <DropDownPicker
-                    open={open}
-                    value={value}
-                    items={items}
-                    setOpen={setOpen}
-                    setValue={setValue}
-                    onChangeItem={items => setItems(items.value)}
-                    setItems={setItems}
-                    style={{
-                      width: 300,
-                      height: 40,
-                      borderRadius: 7,
-                      borderWidth: 1,
-                      borderColor: "#DCDBE6",
-                      marginTop: 10,
-                    }}
-                    defaultValue={null}
-                    placeholder="범주"
-                    itemStyle={{
-                      justifyContent: "flex-start",
-                    }}
-                    dropDownStyle={{ backgroundColor: "#DCDBE6" }}
-                    // containerStyle={{height: 40, width: 300,
-                    //   marginTop: 10,}}
-                    // style={[{backgroundColor: '#fff'}]}
-                  />
-                </View>
-                {/*<DropDownPicker*/}
-                {/*  items={[*/}
-                {/*    {label: '농산물', value: '001', icon: () => {}},*/}
-                {/*    {label: '해산물', value: '002', icon: () => {}},*/}
-                {/*    {label: '육류', value: '003', icon: () => {}},*/}
-                {/*    {label: '유제품', value: '004', icon: () => {}},*/}
-                {/*    {label: '음료', value: '005', icon: () => {}},*/}
-                {/*    {label: '기타', value: '006', icon: () => {}},*/}
-                {/*  ]}*/}
-                {/*  defaultValue={null}*/}
-                {/*  placeholder='범주'*/}
-                {/*  containerStyle={{height: 40, width: 300, marginTop: 10}}*/}
-                {/*  style={[{backgroundColor: '#fff', borderColor: "#DCDBE6", height: 40, borderRadius: 7}]}*/}
-                {/*  itemStyle={{*/}
-                {/*    justifyContent: 'flex-start'*/}
-                {/*  }}*/}
-                {/*  dropDownStyle={{backgroundColor: '#fafafa'}}*/}
-                {/*  onChangeItem={item => setCategory(item.value)}*/}
-                {/*/>*/}
+                <TouchableOpacity style={styles.TextInputView} onPress={() => setCategoryVisible(true)}>
+                  <View style={{flex: 1, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
+                    <Text style={{fontSize: 12, fontFamily: "tway_air",}}>{value}</Text>
+                    <Arrow />
+                  </View>
+                </TouchableOpacity>
               </View>
               <View style={styles.InputView}>
                 <Text style={styles.title}>단가</Text>
-                <TextInput style={styles.textInput} />
-              </View>
-              <View style={styles.InputView}>
-                <Text style={styles.title}>수량</Text>
-                <TextInput style={styles.textInput} />
-              </View>
-              <View style={styles.InputView}>
-                <Text style={styles.title}>합계</Text>
-                <TextInput style={styles.textInput} />
-              </View>
-              <View style={styles.InputView}>
-                <Text style={styles.title}>보관방법</Text>
-                <View style={{
-                  width: 300,
-                  height: 40,
-                  marginBottom: 20,
-                }}>
-                  <DropDownPicker
-                    open={open2}
-                    value={value2}
-                    items={items2}
-                    setOpen={setOpen2}
-                    setValue={setValue2}
-                    onChangeItem={items2 => setItems2(item.value)}
-                    setItems2={setItems2}
-                    style={{
-                      width: 300,
-                      height: 40,
-                      borderRadius: 7,
-                      borderWidth: 1,
-                      borderColor: "#DCDBE6",
-                      marginTop: 10,
-                    }}
-                    defaultValue={null}
-                    placeholder="범주"
-                    itemStyle={{
-                      justifyContent: "flex-start",
-                    }}
-                    dropDownStyle={{ backgroundColor: "#DCDBE6" }}
-                    // containerStyle={{height: 40, width: 300,
-                    //   marginTop: 10,}}
-                    // style={[{backgroundColor: '#fff'}]}
-                  />
+                <View style={styles.TextInputView}>
+                  <TextInput />
                 </View>
               </View>
               <View style={styles.InputView}>
+                <Text style={styles.title}>수량</Text>
+                <View style={styles.TextInputView}>
+                  <TextInput />
+                </View>
+              </View>
+              <View style={styles.InputView}>
+                <Text style={styles.title}>합계</Text>
+                <View style={styles.TextInputView}>
+                  <TextInput />
+                </View>
+              </View>
+              <View style={styles.InputView}>
+                <Text style={styles.title}>보관방법</Text>
+                <TouchableOpacity style={styles.TextInputView} onPress={() => setStorageVisible(true)}>
+                  <View style={{flex: 1, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
+                    <Text style={{fontSize: 12, fontFamily: "tway_air",}}>{storageValue}</Text>
+                    <Arrow />
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.InputView}>
                 <Text style={styles.title}>비고</Text>
-                <TextInput style={styles.textInput} />
+                <View style={styles.TextInputView}>
+                  <TextInput />
+                </View>
               </View>
             </View>
             <View style={{ marginTop: 30 }}>
@@ -214,6 +145,8 @@ const ProductAdd = ({ navigation }) => {
           </View>
         </KeyboardAwareScrollView>
       </ScrollView>
+      <CategoryBottomModal isVisible={categoryVisible} setIsVisible={setCategoryVisible} value={value} setValue={setValue}/>
+      <StorageBottomModal isVisible={storageVisible} setIsVisible={setStorageVisible} value={storageValue} setValue={setStorageValue}/>
     </SafeAreaView>
   );
 
@@ -225,13 +158,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: "center",
   },
-  textInput: {
+  TextInputView: {
     width: 300,
     height: 40,
     borderRadius: 7,
     borderWidth: 1,
     borderColor: "#DCDBE6",
     marginTop: 10,
+    padding: 10,
   },
   textInputGray: {
     width: 300,

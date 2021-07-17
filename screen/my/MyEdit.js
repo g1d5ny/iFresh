@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput, TouchableOpacity, Image } from "react-native";
 import { MyStyle } from "../../styles/user/my/MyStyle";
 import { Style } from "../../styles/user/Style";
+import { ImageSlider } from "../../component/ItemComponent";
+import { screenWidth } from "../../styles/DimenStyle";
 
 const MyEdit = ({ navigation }) => {
 
@@ -138,7 +140,7 @@ const MyEdit = ({ navigation }) => {
                             borderRadius: 7,
                             alignItems: "center",
                             justifyContent: "center",
-                            marginLeft: 10
+                            marginLeft: 5
                           }} onPress={() => setPw(prev => !prev)}>
                             <Text style={{ fontFamily: "tway_air", fontSize: 14, color: "#2097F6" }}>취소</Text>
                           </TouchableOpacity>
@@ -155,7 +157,12 @@ const MyEdit = ({ navigation }) => {
           <Text style={MyStyle.logoutText}>로그아웃</Text>
         </TouchableOpacity>
         <View style={MyStyle.advertise}>
-          <Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>
+          <ImageSlider data={[
+            {id: 0, image: require('../../assets/img_advertise.png')},
+            {id: 1, image: require('../../assets/img_advertise2.jpeg')},
+            {id: 2, image: require('../../assets/img_advertise3.jpeg')},
+          ]} width={screenWidth} height={220}/>
+          {/*<Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>*/}
         </View>
       {/*</ScrollView>*/}
     </SafeAreaView>

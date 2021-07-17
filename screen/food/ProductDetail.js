@@ -1,29 +1,21 @@
 import React, { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  Platform,
-  Alert,
-  ImageBackground,
-} from "react-native";
+import { SafeAreaView, StyleSheet, View, Text, TextInput, Image, TouchableOpacity, ScrollView, Platform, Alert, ImageBackground, } from "react-native";
 import DatePicker from "react-native-date-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 import { Style } from "../../styles/user/Style";
 import Modal from 'react-native-modal';
 import { ModalStyle } from "../../styles/component/ModalStyle";
 import { FoodStyle } from "../../styles/user/food/FoodStyle";
+import { CategoryBottomModal, StorageBottomModal } from "../../component/user/Modal";
+import Arrow from "../../assets/icon_black_down_arrow.svg";
 
 const ProductDetail = ({ navigation, route }) => {
 
   const [date, setDate] = useState(new Date());
-  const [store, setStore] = useState('');
-  const [category, setCategory] = useState('');
+  const [value, setValue] = useState('채소');
+  const [storageValue, setStorageValue] = useState('냉장');
+  const [categoryVisible, setCategoryVisible] = useState(false);
+  const [storageVisible, setStorageVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
 
@@ -78,25 +70,18 @@ const ProductDetail = ({ navigation, route }) => {
             </View>
             <View style={Style.InputView}>
               <Text style={Style.title}>범주</Text>
-              <DropDownPicker
-                items={[
-                  {label: '농산물', value: '001', icon: () => {}},
-                  {label: '해산물', value: '002', icon: () => {}},
-                  {label: '육류', value: '003', icon: () => {}},
-                  {label: '유제품', value: '004', icon: () => {}},
-                  {label: '음료', value: '005', icon: () => {}},
-                  {label: '기타', value: '006', icon: () => {}},
-                ]}
-                defaultValue={null}
-                placeholder='범주'
-                containerStyle={{height: 40, width: 300, marginTop: 10}}
-                style={[{backgroundColor: '#fff', borderColor: "#DCDBE6", height: 40, borderRadius: 7}]}
-                itemStyle={{
-                  justifyContent: 'flex-start'
-                }}
-                dropDownStyle={{backgroundColor: '#fafafa'}}
-                onChangeItem={item => setCategory(item.value)}
-              />
+              <TouchableOpacity style={{width: 300,
+                height: 40,
+                borderRadius: 7,
+                borderWidth: 1,
+                borderColor: "#DCDBE6",
+                marginTop: 10,
+                padding: 10,}} onPress={() => setCategoryVisible(true)}>
+                <View style={{flex: 1, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
+                  <Text style={{fontSize: 12, fontFamily: "tway_air",}}>{value}</Text>
+                  <Arrow />
+                </View>
+              </TouchableOpacity>
             </View>
             <View style={Style.InputView}>
               <Text style={Style.title}>단가</Text>
@@ -118,23 +103,20 @@ const ProductDetail = ({ navigation, route }) => {
             </View>
             <View style={Style.InputView}>
               <Text style={Style.title}>보관방법</Text>
-              <DropDownPicker
-                items={[
-                  {label: '냉장', value: '001', icon: () => {}},
-                  {label: '냉동', value: '002', icon: () => {}},
-                  {label: '실온', value: '003', icon: () => {}},
-                ]}
-                defaultValue={null}
-                placeholder='보관방법'
-                containerStyle={{height: 40, width: 300,
-                  marginTop: 10}}
-                style={[{backgroundColor: '#fff', borderColor: "#DCDBE6", height: 40, borderRadius: 7}]}
-                itemStyle={{
-                  justifyContent: 'flex-start'
-                }}
-                dropDownStyle={{backgroundColor: '#fafafa'}}
-                onChangeItem={item => setStore(item.value)}
-              />
+              <TouchableOpacity style={{
+                width: 300,
+                height: 40,
+                borderRadius: 7,
+                borderWidth: 1,
+                borderColor: "#DCDBE6",
+                marginTop: 10,
+                padding: 10,
+              }} onPress={() => setStorageVisible(true)}>
+                <View style={{flex: 1, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
+                  <Text style={{fontSize: 12, fontFamily: "tway_air",}}>{storageValue}</Text>
+                  <Arrow />
+                </View>
+              </TouchableOpacity>
             </View>
             <View style={Style.InputView}>
               <Text style={Style.title}>비고</Text>
@@ -152,57 +134,11 @@ const ProductDetail = ({ navigation, route }) => {
             </View>
           </View>
         </View>
-
-        <Modal isVisible={modalVisible}
-               useNativeDriver={true}
-               hideModalContentWhileAnimating={true}
-               onBackdropPress={() => modalVisible(false)}>
-          <View style={ModalStyle.modalView}>
-            <View style={ModalStyle.modalInView}>
-              <View style={ModalStyle.modalInTextView}>
-                <Text style={ModalStyle.modalText}>수정되었습니다.</Text>
-              </View>
-              <View style={ModalStyle.modalTouchView}>
-                <TouchableOpacity
-                  style={ModalStyle.modalTouch}
-                  onPress={() => {
-                    setModalVisible(!modalVisible);
-                  }}
-                >
-                  <Text style={ModalStyle.modalTouchText}>확인</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        </Modal>
-
-        <Modal isVisible={modalVisible2}
-               useNativeDriver={true}
-               hideModalContentWhileAnimating={true}
-               onBackdropPress={() => modalVisible2(false)}>
-          <View style={ModalStyle.modalView}>
-            <View style={ModalStyle.modalInView}>
-              <View style={ModalStyle.modalInTextView}>
-                <Text style={ModalStyle.modalText}>삭제되었습니다.</Text>
-              </View>
-              <View style={ModalStyle.modalTouchView}>
-                <TouchableOpacity
-                  style={ModalStyle.modalTouch}
-                  onPress={() => {
-                    setModalVisible2(!modalVisible2);
-                  }}
-                >
-                  <Text style={ModalStyle.modalTouchText}>확인</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        </Modal>
+        <CategoryBottomModal isVisible={categoryVisible} setIsVisible={setCategoryVisible} value={value} setValue={setValue}/>
+        <StorageBottomModal isVisible={storageVisible} setIsVisible={setStorageVisible} value={storageValue} setValue={setStorageValue}/>
       </ScrollView>
     </SafeAreaView>
-  );
-
-
+  )
 };
 
 const styles = StyleSheet.create({});

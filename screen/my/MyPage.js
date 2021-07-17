@@ -44,9 +44,9 @@ const MyPage = ({ navigation }) => {
                   <Image source={require('../../assets/icon_bracket.png')} />
                 </TouchableOpacity>
               </View>
-              <View style={MyStyle.logoutView}>
+              <TouchableOpacity style={MyStyle.logoutView}>
                 <Text style={MyStyle.logoutText}>로그아웃</Text>
-              </View>
+              </TouchableOpacity>
               <View style={MyStyle.advertise}>
                 <ImageSlider data={[
                   {id: 0, image: require('../../assets/img_advertise.png')},
