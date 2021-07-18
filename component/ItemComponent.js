@@ -19,7 +19,7 @@ export const ImageSlider = ({data, width, height}) => {
    */
   useInterval(() => {
     setActive(prev => ((prev >= (data.length - 1)) ? 0 : (prev + 1)));
-  }, 10000);
+  }, 5000);
 
   const setSelectedIndex = event => {
     const viewSize = event.nativeEvent.layoutMeasurement.width;

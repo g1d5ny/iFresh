@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Image, SafeAreaView, ScrollView, View } from "react-native";
 import RecipeListForm from "../../component/user/recipe/RecipeListForm";
 import { MyStyle } from "../../styles/user/my/MyStyle";
+import { ImageSlider } from "../../component/ItemComponent";
+import { screenWidth } from "../../styles/DimenStyle";
 
 const WishRecipe = ({ navigation }) => {
   const DATA = [
@@ -64,7 +66,12 @@ const WishRecipe = ({ navigation }) => {
           </ScrollView>
         </View>
         <View style={MyStyle.advertise}>
-          <Image source={require("../../assets/img_advertise.png")} style={{ width: "100%", height: 100 }} />
+          <ImageSlider data={[
+            {id: 0, image: require('../../assets/img_advertise.png')},
+            {id: 1, image: require('../../assets/img_advertise2.jpeg')},
+            {id: 2, image: require('../../assets/img_advertise3.jpeg')},
+          ]} width={screenWidth} height={220}/>
+          {/*<Image source={require('../../assets/img_advertise.png')} style={{width: '100%', height: 100}}/>*/}
         </View>
       </View>
     </SafeAreaView>

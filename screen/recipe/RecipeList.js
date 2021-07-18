@@ -4,6 +4,8 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import RecipeListForm from "../../component/user/recipe/RecipeListForm";
 import { ProductListForm } from "../../component/user/food/ProductListForm";
+import Arrow from "../../assets/icon_black_down_arrow.svg";
+import { SortSearchBottomSelector } from "../../component/user/Modal";
 
 const RecipeList = ({ navigation }) => {
 
@@ -53,57 +55,33 @@ const RecipeList = ({ navigation }) => {
       ],
     },
   ];
-  console.log(DATA[2].ingredient[0]);
-
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
-  const [items, setItems] = useState([
-    { label: "인기순" },
-    { label: "최신순" },
-    { label: "가나다순" },
-  ]);
+  const [value, setValue] = useState('최신순');
+  const [sortVisible, setSortVisible] = useState(false);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView>
         <View style={{ width: "90%", alignSelf: "center" }}>
-          <View style={[{
+          <View style={{
             flexDirection: "row",
+            alignItems: 'center',
             justifyContent: "space-between",
             marginTop: 10,
-          }, Platform.OS === "ios" && { zIndex: 10 }]}>
-            <DropDownPicker
-              open={open}
-              value={value}
-              items={items}
-              setOpen={setOpen}
-              setValue={setValue}
-              onChangeItem={items => setItems(items.value)}
-              setItems={setItems}
-              // style={{
-              //   width: 100,
-              //   height: 40,
-              //   borderRadius: 7,
-              //   borderWidth: 1,
-              //   borderColor: "#DCDBE6",
-              //   marginTop: 10,
-              // }}
-              defaultValue={null}
-              placeholder="정렬"
-              itemStyle={{
-                justifyContent: "flex-start",
-              }}
-              dropDownStyle={{ backgroundColor: "#DCDBE6" }}
-              containerStyle={{
-                height: 40,
-                width: 100,
-                // borderColor: "#DCDBE6",
-                // borderWidth: 1,
-                borderRadius: 7,
-              }}
-              style={[{ backgroundColor: "#fff", borderWidth: 1, borderColor: "#dcdbe6" }]}
-            />
-
+          }}>
+            <TouchableOpacity style={{
+              width: 170,
+              height: 40,
+              borderRadius: 7,
+              borderWidth: 1,
+              borderColor: "#DCDBE6",
+              marginTop: 10,
+              padding: 10,
+            }} onPress={() => setSortVisible(true)}>
+              <View style={{ flex: 1, justifyContent: "space-between", flexDirection: "row", alignItems: "center" }}>
+                <Text style={{ fontSize: 12, fontFamily: "tway_air" }}>{value}</Text>
+                <Arrow />
+              </View>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("RecipeUpload")}>
               <Image source={require("../../assets/icon_plus.png")} style={{ width: 40, height: 40 }} />
             </TouchableOpacity>
@@ -134,14 +112,14 @@ const RecipeList = ({ navigation }) => {
               DATA.sort(function(a, b) {
                 return b.id - a.id; // 내림차순 : b.id - a.id, 오름차순 : a.id - b.id
               }).map((item, index) => (
-                <RecipeListForm item={item} navigation={navigation} key={index}/>
+                <RecipeListForm item={item} navigation={navigation} key={index} />
               ))
             }
             {
               DATA.sort(function(a, b) {
                 return b.like - a.like; // 내림차순 : b.like - a.like, 오름차순 : a.like - b.like
               }).map((item, index) => (
-                <RecipeListForm item={item} navigation={navigation} key={index}/>
+                <RecipeListForm item={item} navigation={navigation} key={index} />
               ))
             }
             {/*{*/}
@@ -158,6 +136,7 @@ const RecipeList = ({ navigation }) => {
             {/*}*/}
           </View>
         </View>
+        <SortSearchBottomSelector isVisible={sortVisible} setIsVisible={setSortVisible} value={value} setValue={setValue}/>
       </ScrollView>
     </SafeAreaView>
   );

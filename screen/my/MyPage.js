@@ -4,8 +4,10 @@ import { Style } from "../../styles/user/Style";
 import { MyStyle } from "../../styles/user/my/MyStyle";
 import {screenWidth} from "../../styles/DimenStyle";
 import { ImageSlider } from "../../component/ItemComponent";
+import Modal from "react-native-modal";
 
 const MyPage = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   const [advertise, setAdvertise] = useState([
     require('../../assets/img_advertise.png'),
     require('../../assets/img_advertise2.jpeg'),
@@ -42,9 +44,9 @@ const MyPage = ({ navigation }) => {
                   <Image source={require('../../assets/icon_bracket.png')} />
                 </TouchableOpacity>
               </View>
-              <View style={MyStyle.logoutView}>
+              <TouchableOpacity style={MyStyle.logoutView}>
                 <Text style={MyStyle.logoutText}>로그아웃</Text>
-              </View>
+              </TouchableOpacity>
               <View style={MyStyle.advertise}>
                 <ImageSlider data={[
                   {id: 0, image: require('../../assets/img_advertise.png')},
@@ -55,6 +57,18 @@ const MyPage = ({ navigation }) => {
               </View>
             </View>
           {/*</ScrollView>*/}
+          <Modal isVisible={modalVisible}
+                 useNativeDriver={true}
+                 hideModalContentWhileAnimating={true}
+                 onBackdropPress={() => modalVisible(false)}>
+            <View style={{flex:1}}>
+              <View style={{width: 100, height: 100}}>
+
+              </View>
+            </View>
+          </Modal>
+
+
         </SafeAreaView>
     )
 }
