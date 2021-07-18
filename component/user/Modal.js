@@ -34,7 +34,7 @@ export const CategoryBottomModal = ({ isVisible, setIsVisible, value, setValue }
               <Text style={{
                 fontFamily: "tway_air",
                 fontSize: 14,
-                color: "#24C58B",
+                color: "#2d2d2d",
                 marginLeft: 4,
               }}>
                 {text}
@@ -110,7 +110,7 @@ export const StorageBottomModal = ({ isVisible, setIsVisible, value, setValue })
               <Text style={{
                 fontFamily: "tway_air",
                 fontSize: 14,
-                color: "#24C58B",
+                color: "#2d2d2d",
                 marginLeft: 4,
               }}>
                 {text}
@@ -179,7 +179,7 @@ export const MonthBottomModal = ({ isVisible, setIsVisible, value, setValue }) =
               <Text style={{
                 fontFamily: "tway_air",
                 fontSize: 14,
-                color: "#24C58B",
+                color: "#2d2d2d",
                 marginLeft: 4,
               }}>
                 {text}
@@ -281,7 +281,7 @@ export const SortSearchBottomSelector = ({isVisible, setIsVisible, value, setVal
         </View>
         <View style={{width: '100%', justifyContent: 'space-around', height: 98}}>
           <Category text={'최신순'} unique={'최신순'}/>
-          <Category text={'팬콕순'} unique={'팬콕순'}/>
+          <Category text={'인기순'} unique={'인기순'}/>
           <Category text={'가나다순'} unique={'가나다순'}/>
         </View>
       </View>

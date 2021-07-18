@@ -60,7 +60,8 @@ const SearchPW = ({ navigation }) => {
         <Modal isVisible={modalVisible}
                useNativeDriver={true}
                hideModalContentWhileAnimating={true}
-               onBackdropPress={() => modalVisible(false)}>
+               onBackButtonPress={() => setModalVisible(false)}
+               onBackdropPress={() => setModalVisible(false)}>
             <View style={ModalStyle.modalView}>
                 <View style={ModalStyle.modalInView}>
                     <View style={ModalStyle.modalInTextView}>
